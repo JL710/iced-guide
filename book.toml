@@ -1,0 +1,10 @@
+[book]
+authors = ["JL710"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Unofficial Iced Guide"
+
+[output.html]
+git-repository-url = "https://github.com/JL710/iced-guide"
+edit-url-template = "https://github.com/JL710/iced-guide/blob/main/{path}"
