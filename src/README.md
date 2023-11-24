@@ -10,4 +10,4 @@ If you search for the [official documentation](https://docs.rs/iced/latest/iced/
 ## Contribution
 If you want to contribute to this guide, you can open an issue on GitHub and make a pull request. 
 For large changes, it is preferred that you open an issue first to discuss the changes.
-For any small changes and spelling, grammar and formatting fixes directly opening a pull request should not be a problem.
+For any small changes, spelling, grammar and formatting fixes directly opening a pull request should not be a problem.
