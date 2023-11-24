@@ -23,6 +23,7 @@ You can put any [`Element`](https://docs.rs/iced_core/0.10.0/iced_core/struct.El
 Of course, we can change the horizontal alignment for columns and the vertical alignment for rows.
 
 ![Column and Row Example](./column_row.drawio.svg)
+
 This is how they would align in the center.
 
 In code, if you want to set the [`Alignment`](https://docs.rs/iced/latest/iced/enum.Alignment.html) you can call the [`align_items`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.align_items) method on your column/row. It will return itself with the new alignment.
