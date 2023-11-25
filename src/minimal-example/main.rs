@@ -42,6 +42,7 @@ impl Sandbox for Counter {
 
     // ANCHOR: view
     fn view(&self) -> iced::Element<'_, Self::Message> {
+        // ANCHOR: column
         widget::column![
             // ANCHOR: view_text
             widget::text(self.number),
@@ -51,6 +52,7 @@ impl Sandbox for Counter {
             widget::button("Decrease").on_press(Message::DecreaseCounter)
             // ANCHOR_END: view_buttons
         ]
+        // ANCHOR_END: column
         .into()
     }
     // ANCHOR_END: view
