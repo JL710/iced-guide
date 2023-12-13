@@ -2,16 +2,38 @@
 
 Our goal is to create a simple counter where we have a number displayed that we can increase or decrease with two buttons.
 
-## Creating a Project 
-We create an empty directory and initialize our rust project with `cargo init`. Then we need to add iced `cargo add iced`. All code for this counter will be located within the `src/main.rs`.
+<div align="center">
+    <img src="counter-app-ss.png">
+</div>
 
-## Defining the State
+## Creating a new Project 
+First of all, make sure *Rust* is installed in your system. If not head over to [Rust Installation Page](https://www.rust-lang.org/tools/install).
+
+After installing rust, create a new binary crate by executing,
+```console
+$ cargo new counter-app-iced
+$ cd counter-app-iced
+```
+
+Add Iced crate by executing,
+```console
+$ cargo add iced
+```
+
+Now, build the app using
+```console
+$ cargo run
+```
+
+On successful build, you can see the text `Hello World` is printed on console. Now we are ready to create our beautiful GUIs using Iced.
+
+## 1. Defining the State
 For the state, we define a struct. For the counter, we need to store the current value of the counter.
 ```rust,ignore
 {{#rustdoc_include main.rs:counter_struct}}
 ```
 
-## Defining the Message
+## 2. Defining the Message
 For our counter, we have two major events that matter to us. Increasing and decreasing the counter.
 
 The message is represented as an enum with two variants, `IncreaseCounter` and `DecreaseCounter`.
@@ -21,10 +43,29 @@ The message is represented as an enum with two variants, `IncreaseCounter` and `
 ```
 
 ## Implementing the Sandbox for Counter
-To make a GUI application out of our counter, we need to implement the [Sandbox](https://docs.rs/iced/latest/iced/trait.Sandbox.html) trait.
+To create a window, we implement the [`Sandbox`](https://docs.rs/iced/latest/iced/trait.Sandbox.html) trait for our `Counter`. There are two different windowing implementations. One is `Sandbox` and the other is [`Application`](https://docs.rs/iced/latest/iced/application/trait.Application.html). The difference between both is that `Sandbox` trait provides a much simpler interface to work with if you are just getting started.
+
+It's not harder to switch your app from `Sandbox` to `Application`. We will use the `Sandbox` trait throughout this section.
+
+The `Sandbox` trait implments the following,
 
 ```rust,ignore
-{{#rustdoc_include main.rs:sandbox_for_counter}}
+pub trait Sandbox {
+    type Message: Debug + Send;
+
+    // Required methods
+    fn new() -> Self;
+    fn title(&self) -> String;
+    fn update(&mut self, message: Self::Message);
+    fn view(&self) -> Element<'_, Self::Message>;
+
+    // Provided methods
+    fn theme(&self) -> Theme { ... }
+    fn style(&self) -> Application { ... }
+    fn scale_factor(&self) -> f64 { ... }
+    fn run(settings: Settings<()>) -> Result<(), Error>
+       where Self: 'static + Sized { ... }
+}
 ```
 
 ### Message
