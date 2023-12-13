@@ -1,9 +1,9 @@
 # Summary
 
-# Introduction
-- [Welcome](./README.md)
+# Getting Started
+- [Introduction](./README.md)
 - [Architecture](./architecture/README.md)
-- [Minimal Application](./minimal-example/README.md)
+- [A Simple Counter App](./minimal-example/README.md)
 
 # Layout
 - [Length](./layout/length/README.md)

@@ -1,19 +1,23 @@
 // ANCHOR: all
 use iced::{widget, Sandbox};
 
+// ANCHOR: counter_struct
+struct Counter {
+    // This will be our state of the counter app
+    // a.k.a the current count value
+    count: i32,
+}
+// ANCHOR_END: counter_struct
+
 // ANCHOR: message_enum
 #[derive(Debug, Clone, Copy)]
 enum Message {
-    IncreaseCounter,
-    DecreaseCounter,
+    // Emitted when the increment ("+") button is pressed
+    IncrementCount,
+    // Emitted when decrement ("-") button is pressed
+    DecrementCount,
 }
 // ANCHOR_END: message_enum
-
-// ANCHOR: counter_struct
-struct Counter {
-    number: i32,
-}
-// ANCHOR_END: counter_struct
 
 // ANCHOR: sandbox_for_counter
 impl Sandbox for Counter {
