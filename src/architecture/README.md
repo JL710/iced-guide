@@ -10,7 +10,7 @@ This architecture splits your code into 4 main parts:
 &nbsp;
 
 <div align="center">
-    <img src="elm-schematic.png">
+    <img src="elm-schematic.svg">
 </div>
 
 ## State
@@ -51,10 +51,10 @@ The view logic generates the view, elements/widgets, and layout based on the cur
 
 ```rust,ignore
 fn view() {
-    let ui = widget::column![
-        widget::button("+").on_press(Message::IncrementCount),
-        widget::text(count),
-        widget::button("-").on_press(Message::DecrementCount)
+    let ui = column![
+        button("+").on_press(Message::IncrementCount),
+        text(count),
+        button("-").on_press(Message::DecrementCount)
     ]
 }
 ```
