@@ -10,9 +10,9 @@ By default, they align the items in the top left corner of their space.
 
 A convenient way to create columns and rows is with the [`column!`](https://docs.rs/iced/latest/iced/widget/macro.column.html) and [`row!`](https://docs.rs/iced/latest/iced/widget/macro.row.html) macros.
 
-We saw one of them in the [Minimal Application - Counter](../../minimal-example/index.md).
+We saw one of them in the [Minimal Application - Counter](../quickstart/3_a_simple_counter_app.md).
 ```rust,ignore
-{{#rustdoc_include ../../minimal-example/main.rs:column}}
+{{#rustdoc_include ../quickstart/snippets/main.rs:row}}
 ```
 There, we created a [`Column`](https://docs.rs/iced/latest/iced/widget/struct.Column.html) with three children inside. One text and two buttons. The syntax for rows is the same.
 
