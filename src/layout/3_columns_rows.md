@@ -4,7 +4,7 @@ The two most important structs for laying out widgets are [`Column`](https://doc
 
 Both lay out their children in one direction. The column organizes the widgets vertically and the row horizontally.
 
-![Column and Row Example](./column_row.drawio.svg)
+![Column and Row Example](assets/column_row.drawio.svg)
 
 By default, they align the items in the top left corner of their space.
 
@@ -22,7 +22,7 @@ You can put any [`Element`](https://docs.rs/iced_core/0.10.0/iced_core/struct.El
 ## Alignment
 Of course, we can change the horizontal alignment for columns and the vertical alignment for rows.
 
-![Column and Row Example](./column_row.drawio.svg)
+![Column and Row Example](assets/column_row.drawio.svg)
 
 This is how they would align in the center.
 
@@ -48,4 +48,4 @@ let some_column = iced::widget::column![
 ].spacing(20)
 ```
 
-![Spacing Image](./column_spacing.drawio.svg)
+![Spacing Image](assets/column_spacing.drawio.svg)

@@ -10,7 +10,7 @@ This architecture splits your code into 4 main parts:
 &nbsp;
 
 <div align="center">
-    <img src="elm-schematic.svg">
+    <img src="assets/elm-schematic.svg">
 </div>
 
 ## State
