@@ -22,7 +22,7 @@ You can put any [`Element`](https://docs.rs/iced_core/0.10.0/iced_core/struct.El
 ## Alignment
 Of course, we can change the horizontal alignment for columns and the vertical alignment for rows.
 
-![Column and Row Example](assets/column_row.drawio.svg)
+![Column and Row Example](assets/column_row_center.drawio.svg)
 
 This is how they would align in the center.
 
