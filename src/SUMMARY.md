@@ -9,3 +9,5 @@
     - [Length](./layout/2_length.md)
     - [Columns and Rows](./layout/3_columns_rows.md)
     - [Container](./layout/4_container.md)
+
+- [Custom Component](./custom_component/custom_component.md)
