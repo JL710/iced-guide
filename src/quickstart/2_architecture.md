@@ -3,7 +3,7 @@ The architecture of iced is inspired by the [elm architecture](https://guide.elm
 This architecture splits your code into 4 main parts:
 
 - Messages
-- Sate
+- State
 - Update Logic
 - View Logic
 
