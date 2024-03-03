@@ -94,7 +94,7 @@ Now we have to handle the **messages** that are emitted by the View Logic. The `
 > **Tip:** Use `count.saturating_add(1)` or `count.saturating_sub(1)` for more error proof and optimized code.
 
 ### View logic
-The only thing left is to define our View (a.k.a UI). Define your View Logic in the `view()` function. In iced, all UI components are called [**widgets**](https://docs.rs/iced/latest/iced/widget/index.html). For a counter, we need two `button` widgets (one for incrementing and another for decrementing) and a `text` widget. They are need to be alinged one after another in a **horizontal** manner. So, we use `row` widget macro to align our widgets in a horizontal manner.
+The only thing left is to define our View (a.k.a UI). Define your View Logic in the `view()` function. In iced, all UI components are called [**widgets**](https://docs.rs/iced/latest/iced/widget/index.html). For a counter, we need two `button` widgets (one for incrementing and another for decrementing) and a `text` widget. They need to be aligned one after another in a **horizontal** manner. So, we use `row` widget macro to align our widgets in a horizontal manner.
 ```rust,ignore
 {{#rustdoc_include snippets/main.rs:view}}
 ```
