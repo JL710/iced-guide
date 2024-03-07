@@ -5,6 +5,8 @@ This might be a web request or listening to external events.
 
 Iced has two solutions to this issue. The `Command` and `Subscription`.
 
+A command will run until it is finished, while a subscription runs as long as the application says so.
+
 These can only be used in an `Application` and not in a `Sandbox`.
 
 In this chapter, we will look into both of them and how we can use them.
