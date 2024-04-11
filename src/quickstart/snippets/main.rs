@@ -66,13 +66,13 @@ impl Sandbox for Counter {
             // ANCHOR_END: view_text
             widget::button("+").on_press(Message::IncrementCount)
             // ANCHOR_END: view_buttons
-        ]
+        ];
         // ANCHOR_END: row
         widget::container(rw)
             .center_x()
             .center_y()
             .width(iced::Length::Fill)
-            .Height(iced::Length::Fill)
+            .height(iced::Length::Fill)
             .into()
     }
     // ANCHOR_END: view
