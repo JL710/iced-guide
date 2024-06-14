@@ -16,3 +16,5 @@
   - [Commands](./runtime/commands.md)
     - [Custom Command Example](./runtime/custom_command/custom_command.md)
   - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
+
+- [Wasm](./wasm.md)
