@@ -3,7 +3,9 @@
 Sometimes you want to create your own reusable custom components that you can reuse through your applications.
 That is where the [`Component`](https://docs.rs/iced/latest/iced/widget/trait.Component.html) trait comes in place. You can turn anything that implements this trait easily into an Element with the [`component`](https://docs.rs/iced/latest/iced/widget/fn.component.html) function.
 
-> **Note**: This is only available on crate feature `lazy`.
+Components should only be used as reusable widgets and not for organizing code or splitting your applications into different parts!
+
+> **Note**: Component is only available on crate feature `lazy`.
 
 ## The 3 parts of a Component
 Each component is build out of three parts: the component itself, the state of the component and the internal message of the component.
