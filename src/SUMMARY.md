@@ -13,7 +13,7 @@
 - [Custom Component](./custom_component/custom_component.md)
 
 - [Runtime](./runtime/commands_subscriptions.md)
-  - [Commands](./runtime/commands.md)
+  - [Commands/Tasks](./runtime/commands.md)
     - [Custom Command Example](./runtime/custom_command/custom_command.md)
   - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)

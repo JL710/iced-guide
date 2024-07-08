@@ -1,4 +1,6 @@
-# Commands
+# Commands / Tasks
+
+> **Note:** In the past releases of Iced there were Commands. In the current master branch and probably the next release, they are renamed to Task. Since this change this Guide uses sometimes Command and sometimes Task but meant the same thing.
 
 A command is "A set of asynchronous actions to be performed by some runtime".
 
