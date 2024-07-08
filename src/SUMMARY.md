@@ -16,5 +16,6 @@
   - [Commands](./runtime/commands.md)
     - [Custom Command Example](./runtime/custom_command/custom_command.md)
   - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
+  - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
 - [Wasm](./wasm.md)

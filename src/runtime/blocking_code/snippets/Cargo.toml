@@ -1,0 +1,5 @@
+[dependencies]
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "978327f9e7f68d3e5bc280faa0617487d8eabc57", features = [
+    "tokio",
+] }
+tokio = { version = "1.38.0", features = ["rt"] }
