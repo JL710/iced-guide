@@ -18,4 +18,7 @@
   - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
-- [Wasm](./wasm.md)
+- [Structuring Apps](./app_structure/app_structure.md)
+
+- [Wasm](./wasm/wasm.md)
+  - [Debugging](./wasm/debugging.md)
