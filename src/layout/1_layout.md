@@ -9,3 +9,8 @@ In web development, you can use the inspection tool of your browser to show the 
 
 In iced, we don't have an inspection tool. But we have the [`Element.explain`](https://docs.rs/iced/latest/iced/type.Element.html#method.explain) function that we can apply to any [`Element`](https://docs.rs/iced/latest/iced/type.Element.html).
 This function will draw a line around the element and all of its children. With that, you can debug how spacing and sizing are applied by the renderer.
+
+Here is a short snipped that uses `.explain`:
+```rust,ignore
+iced::Element::new(your_widget).explain(iced::Color::BLACK)
+```
