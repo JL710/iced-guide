@@ -10,9 +10,9 @@
     - [Columns and Rows](./layout/3_columns_rows.md)
     - [Container](./layout/4_container.md)
 
-- [Runtime](./runtime/commands_subscriptions.md)
-  - [Commands/Tasks](./runtime/commands.md)
-    - [Custom Command Example](./runtime/custom_command/custom_command.md)
+- [Runtime](./runtime/tasks_subscriptions.md)
+  - [Tasks](./runtime/tasks.md)
+    - [Custom Task](task/custom_task.md)
   - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
