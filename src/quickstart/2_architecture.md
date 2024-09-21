@@ -38,11 +38,12 @@ enum Message {
 The update logic is called every time a message is emitted and can operate based on this message. This logic is the only one that can change the state of your application. A rough example of update logic with respect to the previous counter example is below,
 
 ```rust,ignore
-fn update(message: Message) {
+fn update(&mut self, message: Message) -> iced::Task<Message> {
     match message {
-        Message::IncrementCount => count += 1,
-        Message::DecrementCount => count -= 1
+        Message::IncrementCount => self.count += 1,
+        Message::DecrementCount => self.count -= 1
     }
+    iced::Task::none()
 }
 ```
 
@@ -50,10 +51,10 @@ fn update(message: Message) {
 The view logic generates the view, elements/widgets, and layout based on the current state. The view logic is called every time after the update logic is called. So for a simple counter app, all we need is a `text` view and two `button`s. We can declare our UI as follows,
 
 ```rust,ignore
-fn view() {
+fn view(&self) {
     let ui = column![
         button("+").on_press(Message::IncrementCount),
-        text(count),
+        text(self.count),
         button("-").on_press(Message::DecrementCount)
     ]
 }

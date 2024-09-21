@@ -1,5 +1,5 @@
-# Custom Command using perform
-In this example, we will create an app that fetches your current IP address by making an API call with our own custom command..
+# Custom Task using perform
+In this example, we will create an app that fetches your current IP address by making an API call with our own custom task.
 
 ## Dependencies
 As you see, we have two dependencies in our project. 
@@ -13,12 +13,12 @@ This lets iced use tokio as part of the runtime as needed for reqwest.
 
 ```toml
 [dependencies]
-iced = {version="0.12.1", features = ["tokio"]}
+iced = {version="0.13.1", features = ["tokio"]}
 reqwest = "0.11.24"
 ```
 
 ## Making the api request
-At first, we define what our command will do.
+At first, we define what our task will do.
 
 For that, we are creating an async function that makes an async get request to an API that provides the public IP.
 ```rust,ignore
@@ -26,21 +26,21 @@ For that, we are creating an async function that makes an async get request to a
 ```
 
 > **Tip:** If you have something that is not async but synchronous and will block your application like a heavy computation,
-> you can use [`tokio::spawn_blocking`](https://dtantsur.github.io/rust-openstack/tokio/task/fn.spawn_blocking.html) in a command or subscription to run a closure on a thread where blocking is acceptable.
+> you can use [`tokio::spawn_blocking`](https://dtantsur.github.io/rust-openstack/tokio/task/fn.spawn_blocking.html) in a task or subscription to run a closure on a thread where blocking is acceptable.
 
-## Starting/Creating the command
-In the update function we return `Command::none()` or our custom command depending on the message.
+## Starting/Creating the task
+In the update function we return `Task::none()` or our custom task depending on the message.
 
-If the Message is `Message::CurrentIp` we change our state, if it is `Message::Refetch` we return our command.
+If the Message is `Message::CurrentIp` we change our state, if it is `Message::Refetch` we return our task.
 ```rust,ignore
 {{#rustdoc_include snippets/main.rs:update_function}}
 ```
 
-To create our custom command, we use the [`Command::perform`](https://docs.rs/iced/latest/iced/command/struct.Command.html#method.perform) function.
+To create our custom task, we use the [`Task::perform`](https://docs.rs/iced/latest/iced/task/struct.Task.html#method.perform) function.
 It takes a future, in this case our `fetch_ip` function, and a closure that converts the returned value of the future into a massage.
 
 ```rust,ignore
-{{#rustdoc_include snippets/main.rs:return_custom_command}}
+{{#rustdoc_include snippets/main.rs:return_custom_task}}
 ```
 
 > **Note:** `fetch_ip()` produces the future
