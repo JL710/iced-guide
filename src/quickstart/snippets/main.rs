@@ -1,5 +1,5 @@
 // ANCHOR: all
-use iced::{widget, Sandbox};
+use iced::widget;
 
 // ANCHOR: counter_struct
 struct Counter {
@@ -19,16 +19,9 @@ enum Message {
 }
 // ANCHOR_END: message_enum
 
-// ANCHOR: sandbox_for_counter
-// Implement Sandbox for our Counter
-impl Sandbox for Counter {
-
-    // ANCHOR: counter_message_type
-    // alias our Message enum with the
-    // Sandbox's Message type
-    type Message = Message;
-    // ANCHOR_END: counter_message_type
-
+// ANCHOR: implement_counter
+// Implement our Counter
+impl Counter {
     // ANCHOR: new
     fn new() -> Self {
         // initialize the counter struct
@@ -37,28 +30,22 @@ impl Sandbox for Counter {
     }
     // ANCHOR_END: new
 
-    // ANCHOR: title
-    fn title(&self) -> String {
-        //define the title for our app
-        String::from("Counter App")
-    }
-    // ANCHOR_END: title
-
     // ANCHOR: update
-    fn update(&mut self, message: Self::Message) {
+    fn update(&mut self, message: Message) -> iced::Task<Message> {
         // handle emitted messages
         match message {
             Message::IncreaseCounter => self.count += 1,
             Message::DecreaseCounter => self.count -= 1,
         }
+        iced::Task::none()
     }
     // ANCHOR_END: update
 
     // ANCHOR: view
-    fn view(&self) -> iced::Element<'_, Self::Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         // create the View Logic (UI)
         // ANCHOR: row
-        let rw = widget::row![
+        let row = widget::row![
             // ANCHOR: view_buttons
             widget::button("-").on_press(Message::DecrementCount),
             // ANCHOR: view_text
@@ -68,7 +55,7 @@ impl Sandbox for Counter {
             // ANCHOR_END: view_buttons
         ];
         // ANCHOR_END: row
-        widget::container(rw)
+        widget::container(row)
             .center_x()
             .center_y()
             .width(iced::Length::Fill)
@@ -77,12 +64,12 @@ impl Sandbox for Counter {
     }
     // ANCHOR_END: view
 }
-// ANCHOR_END: sandbox_for_counter
+// ANCHOR_END: implement_counter
 
 // ANCHOR: main
 fn main() -> Result<(), iced::Error> {
     // run the app from main function
-    Counter::run(iced::Settings::default())
+    iced::application("Counter Example", Counter::update, Counter::view).run_with(|| (Counter::new(), iced::Task::none()))
 }
 // ANCHOR_END: main
 // ANCHOR_END: all
