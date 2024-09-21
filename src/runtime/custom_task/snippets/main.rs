@@ -1,5 +1,5 @@
 // ANCHOR: all
-use iced::{Application, Command};
+use iced::Task;
 
 #[derive(Debug, Clone)]
 enum Message {
@@ -11,40 +11,31 @@ struct App {
     ip: String,
 }
 
-impl Application for App {
-    type Message = Message;
-    type Theme = iced::Theme;
-    type Flags = ();
-    type Executor = iced::executor::Default;
-
-    fn new(flags: Self::Flags) -> (Self, iced::Command<Self::Message>) {
-        (App { ip: String::new() }, Command::none())
+impl App {
+    fn new() -> (Self, iced::Task<Message>) {
+        (App { ip: String::new() }, Task::none())
     }
 
-    fn title(&self) -> String {
-        String::new()
-    }
-
-    fn view(&self) -> iced::Element<'_, Self::Message, Self::Theme, iced::Renderer> {
+    fn view(&self) -> iced::Element<Message> {
         iced::widget::column![
             iced::widget::text(&self.ip),
-            iced::widget::button("Start Command").on_press(Message::Refetch)
+            iced::widget::button("Start task").on_press(Message::Refetch)
         ]
         .into()
     }
 
     // ANCHOR: update_function
-    fn update(&mut self, message: Self::Message) -> iced::Command<Self::Message> {
+    fn update(&mut self, message: Message) -> iced::Task<Message> {
         println!("update");
         match message {
-            // ANCHOR: return_custom_command
-            Message::Refetch => return Command::perform(fetch_ip(), Message::CurrentIp),
-            // ANCHOR_END: return_custom_command
+            // ANCHOR: return_custom_task
+            Message::Refetch => return Task::perform(fetch_ip(), Message::CurrentIp),
+            // ANCHOR_END: return_custom_task
             Message::CurrentIp(text) => {
                 self.ip = text;
             }
         }
-        Command::none()
+        Task::none()
     }
     // ANCHOR_END: update_function
 }
@@ -62,6 +53,6 @@ async fn fetch_ip() -> String {
 // ANCHOR_END: fetch_ip
 
 fn main() {
-    App::run(iced::Settings::default()).expect("Application raised an error");
+    iced::run("Custom Task Example", App::update, App::view).unwrap();
 }
 // ANCHOR_END: all

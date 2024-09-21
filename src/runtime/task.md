@@ -1,5 +1,5 @@
 # Tasks
-> *Note:* in previous releases `Task`s where named `Command`s
+> *Note:* in the past `Task`s where named `Command`s
 
 A task is "A set of asynchronous actions to be performed by some runtime".
 

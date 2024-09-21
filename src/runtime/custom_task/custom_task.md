@@ -13,7 +13,7 @@ This lets iced use tokio as part of the runtime as needed for reqwest.
 
 ```toml
 [dependencies]
-iced = {version="0.12.1", features = ["tokio"]}
+iced = {version="0.13.1", features = ["tokio"]}
 reqwest = "0.11.24"
 ```
 
@@ -40,7 +40,7 @@ To create our custom task, we use the [`Task::perform`](https://docs.rs/iced/lat
 It takes a future, in this case our `fetch_ip` function, and a closure that converts the returned value of the future into a massage.
 
 ```rust,ignore
-{{#rustdoc_include snippets/main.rs:return_custom_command}}
+{{#rustdoc_include snippets/main.rs:return_custom_task}}
 ```
 
 > **Note:** `fetch_ip()` produces the future
