@@ -13,7 +13,8 @@
 - [Runtime](./runtime/task_subscriptions.md)
   - [Tasks](./runtime/task.md)
     - [Custom Task](./runtime/custom_task/custom_task.md)
-  - [Subscriptions]() <!--(./runtime/3_subscriptions.md)-->
+    - [Task From Stream](./runtime/task_from_stream.md)
+  - [Subscriptions](./runtime/subscriptions.md)
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
 - [Structuring Apps](./app_structure/app_structure.md)
