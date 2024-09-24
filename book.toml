@@ -5,6 +5,9 @@ multilingual = false
 src = "src"
 title = "Unofficial Iced Guide"
 
+[build]
+create-missing = false
+
 [output.html]
 git-repository-url = "https://github.com/JL710/iced-guide"
 edit-url-template = "https://github.com/JL710/iced-guide/blob/main/{path}"
