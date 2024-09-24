@@ -26,12 +26,12 @@ Of course, we can change the horizontal alignment for columns and the vertical a
 
 This is how they would align in the center.
 
-In code, if you want to set the [`Alignment`](https://docs.rs/iced/latest/iced/enum.Alignment.html) you can call the [`align_items`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.align_items) method on your column/row. It will return itself with the new alignment.
+In code, if you want to set the [`Alignment`](https://docs.rs/iced/latest/iced/enum.Alignment.html) you can call the [`align_x`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.align_x) method on your column/row. It will return itself with the new alignment.
 ```rust, ignore
 let some_column = iced::widget::column![
     iced::widget::text("Hello World!"),
     iced::widget::text("Another Hello World!")
-].align_items(iced::Alignment::Center)
+].align_x(iced::Alignment::Center)
 ```
 
 
