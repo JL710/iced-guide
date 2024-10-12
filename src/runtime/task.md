@@ -11,11 +11,11 @@ For example, [minimizing](https://docs.rs/iced/latest/iced/window/fn.minimize.ht
 A task will run until it has finished and can return multiple messages during its execution.
 
 ## Executing a Task
-In your App, you can execute a taks by returning it from the [update](https://docs.rs/iced/latest/iced/application/trait.Update.html) function of your application.
+In your App, you can execute a task by returning it from the [update](https://docs.rs/iced/latest/iced/application/trait.Update.html) function of your application.
 
 ## Batch multiple tasks
 Sometimes you want to return more than one task. 
 For that, you can use the [Task::batch](https://docs.rs/iced/latest/iced/task/struct.Task.html#method.batch) function to batch a few of them together like this:
 ```rust,ignore
-return Task::batch(vec![task1, task2, taks3]);
+return Task::batch(vec![task1, task2, task3]);
 ```
