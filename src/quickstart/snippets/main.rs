@@ -34,8 +34,8 @@ impl Counter {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         // handle emitted messages
         match message {
-            Message::IncreaseCounter => self.count += 1,
-            Message::DecreaseCounter => self.count -= 1,
+            Message::IncrementCount => self.count += 1,
+            Message::DecrementCount => self.count -= 1,
         }
         iced::Task::none()
     }
