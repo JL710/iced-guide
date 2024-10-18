@@ -2,6 +2,9 @@
 Iced has the ability to compile to web assembly (WASM). 
 With that, you can run your iced app in the normal web browser.
 
+When run on the web, iced uses a canvas to render the application to it.
+Previously, there was the [`iced_web`](https://github.com/iced-rs/iced_web) repository that used another approach, but since it was hard to maintain, support was dropped. As of today, `iced_web` is out of date and not maintained.
+
 ## Preparation
 Before we start, we need to get the tools for compiling for the web.
 
