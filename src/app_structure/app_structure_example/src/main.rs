@@ -29,7 +29,7 @@ impl App {
         match message {
             Message::NewMessage(view_message) => {
                 if let View::Edit(edit) = &mut self.view {
-                    // Call the update method of the edit view 
+                    // Call the update method of the edit view
                     // and handle the returned action
                     match edit.update(view_message) {
                         new::Action::None => {}
@@ -89,7 +89,7 @@ mod new {
     #[derive(Debug, Clone)]
     pub enum Message {
         Submit,
-        SetChanged(String),
+        ChangeContent(String),
         RandomJoke,
     }
 
@@ -106,7 +106,7 @@ mod new {
         pub fn update(&mut self, message: Message) -> Action {
             match message {
                 Message::Submit => Action::Submitted(self.content.clone()),
-                Message::SetChanged(content) => {
+                Message::ChangeContent(content) => {
                     self.content = content;
                     Action::None
                 }
@@ -116,8 +116,7 @@ mod new {
 
         pub fn view(&self) -> iced::Element<Message> {
             iced::widget::column![
-                iced::widget::text_input("Content", &self.content)
-                    .on_input(Message::SetChanged),
+                iced::widget::text_input("Content", &self.content).on_input(Message::ChangeContent),
                 iced::widget::button("Random Joke").on_press(Message::RandomJoke),
                 iced::widget::button("Submit").on_press(Message::Submit)
             ]
@@ -142,7 +141,7 @@ mod new {
                 let joke = response["joke"].as_str().unwrap();
 
                 // Return the joke as a message
-                Message::Initialize(joke.to_owned())
+                Message::ChangeContent(joke.to_owned())
             })
         }
     }
