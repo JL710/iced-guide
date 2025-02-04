@@ -1,5 +1,7 @@
 # Component
 
+> **Important Notice:** The Component Trait is deprecated, and I strongly advise against its use. If you are interested in creating reusable components, take a look at the [App Structure](./../app_structure/app_structure.md) section.
+
 Sometimes you want to create your own reusable custom components that you can reuse through your applications.
 That is where the [`Component`](https://docs.rs/iced/latest/iced/widget/trait.Component.html) trait comes in place. You can turn anything that implements this trait easily into an Element with the [`component`](https://docs.rs/iced/latest/iced/widget/fn.component.html) function.
 
