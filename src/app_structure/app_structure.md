@@ -26,6 +26,7 @@ enum State {
     }
 }
 ```
+If you do not need to lazy load something from an API or do similar, you can just have a normal struct as state.
 
 ## Mapping
 If you want to compose your UI of subparts that have their own functionality, it makes sense to give them their own messages.
