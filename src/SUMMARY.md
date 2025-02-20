@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](./README.md)
+  - [FAQ](./faq.md)
 - [Quickstart](./quickstart/1_quickstart.md)
     - [Architecture](./quickstart/2_architecture.md)
     - [A Simple Counter App](./quickstart/3_a_simple_counter_app.md)
