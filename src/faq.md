@@ -27,4 +27,4 @@ There is currently an advanced chart api or crate for iced. But there is a [iced
 
 ## How can I create a row/column with draggable items?
 
-For creating a draggable row/column you can use the [`dragkink`](https://github.com/airstrike/dragking) crate that provides such a widget.
+For creating a draggable row/column you can use the [`dragking`](https://github.com/airstrike/dragking) crate that provides such a widget.
