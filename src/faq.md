@@ -20,11 +20,3 @@ Although I would not advise you to do so, there is a [python binding](https://gi
 ## When is the next release, and what features will it bring with it?
 
 The next release will probably happen when the to-dos on the [roadmap](https://whimsical.com/roadmap-iced-7vhq6R35Lp3TmYH4WeYwLM) are finished.
-
-## How can I create charts?
-
-There is currently an advanced chart api or crate for iced. But there is a [iced backend for plotters](https://github.com/Joylei/plotters-iced/tree/master).
-
-## How can I create a row/column with draggable items?
-
-For creating a draggable row/column you can use the [`dragking`](https://github.com/airstrike/dragking) crate that provides such a widget.

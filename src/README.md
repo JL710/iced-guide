@@ -28,15 +28,27 @@ There are a lot of small examples available in the example's directory of the ic
 
 Since the last version, there is also a new, great [pocket guide](https://docs.iced.rs/iced/#the-pocket-guide) that I advise everyone to read.
 
-## Other Resources
+Some large structural changes are discussed and proposed in rfc's that can be found in the [rfcs repository](https://github.com/iced-rs/rfcs).
+
+## Other Learning Resources
 
 There are multiple guides and tutorials that help you to learn iced, including this guide and the [official book](https://book.iced.rs/).
 Here is a list of other cool resources that you might find helpful:
-- [awesome-iced](https://github.com/iced-rs/awesome-iced) a list of applications that use iced
-- [Github Markdown Tutorial](https://github.com/fogarecious/iced_tutorial/tree/main) A very large tutorial covering a lot of stuff, but a bit out of date.
+- [awesome-iced](https://github.com/iced-rs/awesome-iced): a list of applications that use iced
+- [Github Markdown Tutorial](https://github.com/fogarecious/iced_tutorial/tree/main): A very large tutorial covering a lot of stuff, but a bit out of date.
 - [Youtube Text Editor Tutorial](https://www.youtube.com/watch?v=gcBJ7cPSALo): This is a tutorial on how to build a text editor with iced 0.10, so pretty out of date. It is still a good video tutorial, but a lot of the stuff won't work in the latest iced version and can be done way easier with newer versions.
+- Example Applications that show how to structure larger apps
+  - [icebreaker](https://github.com/hecrj/icebreaker): An application that shows great how a larger application can be made
+  - [iced_receipts](https://github.com/airstrike/iced_receipts): A small app that shows advanced structural patterns for iced applications
 
-If you search for additional widgets, you might be happy to see that there is [`iced_aw`](https://github.com/iced-rs/iced_aw), which provides additional widgets.
+## Other Crates
+A list of other crates that you might find helpful while creating a gui with iced.
+
+- [iced_aw](https://github.com/iced-rs/iced_aw): Additional widgets from the community
+- [rfd](https://docs.rs/rfd/latest/rfd/index.html): Pop-ups and file dialogs
+- [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
+- [dragking](https://github.com/airstrike/dragking): Provides a column and row where the user can drag the items around
+- [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications
 
 ## Contribution
 
