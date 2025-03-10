@@ -18,8 +18,8 @@ There, we created a [`Column`](https://docs.rs/iced/latest/iced/widget/struct.Co
 
 You can put any [`Element`](https://docs.rs/iced_core/0.10.0/iced_core/struct.Element.html) inside a [`Column`](https://docs.rs/iced/latest/iced/widget/struct.Column.html) or [`Row`](https://docs.rs/iced/latest/iced/widget/struct.Row.html).
 
-
 ## Alignment
+
 Of course, we can change the horizontal alignment for columns and the vertical alignment for rows.
 
 ![Column and Row Example](assets/column_row_center.drawio.svg)
@@ -34,8 +34,8 @@ let some_column = iced::widget::column![
 ].align_x(iced::Alignment::Center)
 ```
 
-
 ## Spacing
+
 Since you can not set a margin in iced and often want to have a spacing between elements.
 
 Columns and rows have the [`spacing`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.spacing) method to set the spacing.
@@ -49,3 +49,10 @@ let some_column = iced::widget::column![
 ```
 
 ![Spacing Image](assets/column_spacing.drawio.svg)
+
+## Wrapping
+
+Rows can do one thing that columns can't. They are able to wrap. You can activate row wrapping by calling `.wrap()` on them.
+
+When activated, children are layouted different. If the horizontal space is filled with some children, the ret placed in a new row below.
+Children with a width set to `Fill`/`FillPortion` will fill all remaining horizontal space, and thus resulting in a row break. Children with a fixed/shrink width are placed next to each other until the horizontal space left is not enough leading to a row break.
