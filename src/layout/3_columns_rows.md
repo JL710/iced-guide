@@ -11,7 +11,7 @@ By default, they align the items in the top left corner of their space.
 A convenient way to create columns and rows is with the [`column!`](https://docs.rs/iced/latest/iced/widget/macro.column.html) and [`row!`](https://docs.rs/iced/latest/iced/widget/macro.row.html) macros.
 
 We saw one of them in the [Minimal Application - Counter](../quickstart/3_a_simple_counter_app.md).
-```rust,ignore
+```rust
 {{#rustdoc_include ../quickstart/snippets/main.rs:row}}
 ```
 There, we created a [`Column`](https://docs.rs/iced/latest/iced/widget/struct.Column.html) with three children inside. One text and two buttons. The syntax for rows is the same.
@@ -27,7 +27,7 @@ Of course, we can change the horizontal alignment for columns and the vertical a
 This is how they would align in the center.
 
 In code, if you want to set the [`Alignment`](https://docs.rs/iced/latest/iced/enum.Alignment.html) you can call the [`align_x`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.align_x) method on your column/row. It will return itself with the new alignment.
-```rust, ignore
+```rust
 let some_column = iced::widget::column![
     iced::widget::text("Hello World!"),
     iced::widget::text("Another Hello World!")
@@ -41,7 +41,7 @@ Since you can not set a margin in iced and often want to have a spacing between 
 Columns and rows have the [`spacing`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.spacing) method to set the spacing.
 
 Here is an example of how to use spacing on a column:
-```rust, ignore
+```rust
 let some_column = iced::widget::column![
     iced::widget::text("Hello World!"),
     iced::widget::text("Another Hello World!")

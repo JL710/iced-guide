@@ -8,7 +8,7 @@ Here is a small example that shows how to use [`tokio::task::spawn_blocking`](ht
 
 ### Cargo.toml
 Because we want to use `spawn_blocking` from tokio we need to add the `tokio` feature to iced. This will lead to iced using tokio.
-```toml,ignore
+```toml
 {{#rustdoc_include snippets/Cargo.toml}}
 ```
 
@@ -21,11 +21,11 @@ Our computation runs in a task, because we do not want to block our whole UI unt
 Inside the task we call `spawn_blocking` with a closure of our computation. To get the returned value of the closure, we need to await the `JoinHandle`  returned by `spawn_blocking`.
 That will give us the result of the heavy computation without blocking the UI.
 
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/blocking_code.rs:compute_task}}
 ```
 
 #### Full Code
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/blocking_code.rs:all}}
 ```

@@ -16,6 +16,6 @@ In your App, you can execute a task by returning it from the [update](https://do
 ## Batch multiple tasks
 Sometimes you want to return more than one task. 
 For that, you can use the [Task::batch](https://docs.rs/iced/latest/iced/task/struct.Task.html#method.batch) function to batch a few of them together like this:
-```rust,ignore
+```rust
 return Task::batch(vec![task1, task2, task3]);
 ```

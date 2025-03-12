@@ -48,16 +48,16 @@ The user can get a random joke from the API on a button click as well.
 All Jokes are listed in the main/default view.
 
 This is how the view for new jokes looks like using this design:
-```rust, ignore
+```rust
 {{#rustdoc_include app_structure_example/src/main.rs:new_view}}
 ```
 
 As you see, the update function produces this action, that the parent of the view can handle:
-```rust, ignore
+```rust
 {{#rustdoc_include app_structure_example/src/main.rs:action}}
 ```
 
 The application that would host the view could look like this:
-```rust, ignore
+```rust
 {{#rustdoc_include app_structure_example/src/main.rs:app}}
 ```

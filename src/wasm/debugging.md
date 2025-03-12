@@ -8,7 +8,7 @@ For that, we can use the crate [`console_error_panic_hook`](https://crates.io/cr
 
 To use that one you need to set the panic hook at the start of your program like here:
 
-```rust,ignore
+```rust
 fn main() {
     std::panic::set_hook(Box::new(console_error_panic_hook::hook));
 

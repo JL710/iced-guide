@@ -11,6 +11,6 @@ In iced, we don't have an inspection tool. But we have the [`Element.explain`](h
 This function will draw a line around the element and all of its children. With that, you can debug how spacing and sizing are applied by the renderer.
 
 Here is a short snipped that uses `.explain`:
-```rust,ignore
+```rust
 iced::Element::new(your_widget).explain(iced::Color::BLACK)
 ```

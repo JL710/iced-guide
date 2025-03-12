@@ -2,7 +2,7 @@
 
 The Container is useful when aligning items. A Container has one child element (could be a button, text, column, row, etc.).
 
-```rust,ignore
+```rust
 use iced::{widget, Length};
 use iced::alignment::{Horizontal, Vertical};
 

@@ -21,7 +21,7 @@ reqwest = "0.11.24"
 At first, we define what our task will do.
 
 For that, we are creating an async function that makes an async get request to an API that provides the public IP.
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/main.rs:fetch_ip}}
 ```
 
@@ -32,14 +32,14 @@ For that, we are creating an async function that makes an async get request to a
 In the update function we return `Task::none()` or our custom task depending on the message.
 
 If the Message is `Message::CurrentIp` we change our state, if it is `Message::Refetch` we return our task.
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/main.rs:update_function}}
 ```
 
 To create our custom task, we use the [`Task::perform`](https://docs.rs/iced/latest/iced/task/struct.Task.html#method.perform) function.
 It takes a future, in this case our `fetch_ip` function, and a closure that converts the returned value of the future into a massage.
 
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/main.rs:return_custom_task}}
 ```
 
@@ -48,6 +48,6 @@ It takes a future, in this case our `fetch_ip` function, and a closure that conv
 > **Note:** `Message::CurrentIp` is a shorthand for `|x| Message::CurrentIp(x)`
 
 ## Full Code
-```rust,ignore
+```rust
 {{#rustdoc_include snippets/main.rs:all}}
 ```

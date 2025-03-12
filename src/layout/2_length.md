@@ -11,7 +11,7 @@ The `Length` enum has the following variants:
 ## 1. `Length::Fill` enum
 [`Length::Fill`](https://docs.rs/iced/latest/iced/enum.Length.html#variant.Fill) is used to set a widget's width or height to fill the viewport. For example, setting a `container`'s `width` property to `Length::Fill` will set the `container`'s width to fill the available sapce.
 
-```rust,ignore
+```rust
 let ui = container(...)
     .width(Length::Fill)
     .height(50.0);
@@ -28,7 +28,7 @@ This will result in the following,
 
 Let’s say we have two elements: one with `FillPortion(3)` and one with `FillPortion(2)`. The first will get 2 portions of the available space, while the second one would get 3. So basically, the two elements will get it's portions in the ratio of 3:2.
 
-```rust,ignore
+```rust
 let col = column![
     container(...)
         .width(Length::FillPortion(2)),
@@ -48,12 +48,12 @@ This will result in the following,
 ## Fixed
 [`Length::Fixed(f32)`](https://docs.rs/iced/latest/iced/enum.Length.html#variant.Fixed) is used to set a fixed length. This length will be independent from anything else.
 
-```rust,ignore
+```rust
 Length::Fixed(15.0)
 ```
-```rust,ignore
+```rust
 Length::from(15.0)
 ```
-```rust,ignore
+```rust
 Length::from(15)    
 ```
