@@ -15,7 +15,8 @@
   - [Tasks](./runtime/task.md)
     - [Custom Task](./runtime/custom_task/custom_task.md)
     - [Task From Stream](./runtime/task_from_stream.md)
-  - [Subscriptions](./runtime/subscriptions.md)
+  - [Subscriptions](./runtime/subscriptions/README.md)
+    - [Listen to Events](./runtime/subscriptions/listen_to_events.md)
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
 - [Structuring Apps](./app_structure/app_structure.md)
