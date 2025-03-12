@@ -56,8 +56,8 @@ impl Counter {
         ];
         // ANCHOR_END: row
         widget::container(row)
-            .center_x(iced::widget::Fill)
-            .center_y(iced::widget::Fill)
+            .center_x(iced::Length::Fill)
+            .center_y(iced::Length::Fill)
             .width(iced::Length::Fill)
             .height(iced::Length::Fill)
             .into()
