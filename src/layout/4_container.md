@@ -12,12 +12,11 @@ let stuff_centered = widget::Container::new(widget::text("Some Text"))
     .width(Length::Fill)
     .height(Length::Fill);
 ```
-> **Note:** 
+> **Note:**
 >
-> We use `width` and `height` to maximize the size of the Container.
-> This makes space for centering. 
+> We use width and height to maximize the size of the container, creating extra space for centering.
 >
-> This it not exactly necessary as long as the container is large enough.
-> If there is no space you will not see a difference between applied alignment and none.
+> However, this is not strictly necessary if the container is already large enough;
+> without additional space, there will be no noticeable difference between applying alignment and not applying any alignment.
 
 Both [`align_x`](https://docs.rs/iced/latest/iced/widget/struct.Container.html#method.align_x) and [`align_y`](https://docs.rs/iced/latest/iced/widget/struct.Container.html#method.align_y) methods are available for alignment purposes on [`Container`](https://docs.rs/iced/latest/iced/widget/struct.Container.html).

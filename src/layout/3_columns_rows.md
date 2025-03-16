@@ -36,11 +36,11 @@ let some_column = iced::widget::column![
 
 ## Spacing
 
-Since you can not set a margin in iced and often want to have a spacing between elements.
+Because you cannot set margins in Iced and often want to add space between elements.
 
-Columns and rows have the [`spacing`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.spacing) method to set the spacing.
+Columns and rows provide a [`spacing`](https://docs.rs/iced/latest/iced/widget/struct.Column.html#method.spacing) method to control the gap/spacing.
 
-Here is an example of how to use spacing on a column:
+Below is an example of how to use spacing on a column:
 ```rust
 let some_column = iced::widget::column![
     iced::widget::text("Hello World!"),
@@ -52,7 +52,7 @@ let some_column = iced::widget::column![
 
 ## Wrapping
 
-Rows can do one thing that columns can't. They are able to wrap. You can activate row wrapping by calling `.wrap()` on them.
+Rows offer a feature that columns don't—they can wrap their children elements onto new lines. You enable this by calling the `.wrap()` method on a row.
 
-When activated, children are layouted different. If the horizontal space is filled with some children, the ret placed in a new row below.
-Children with a width set to `Fill`/`FillPortion` will fill all remaining horizontal space, and thus resulting in a row break. Children with a fixed/shrink width are placed next to each other until the horizontal space left is not enough leading to a row break.
+Once wrapping is activated, the layout of the row’s children changes. If the available horizontal space fills up, any extra children automatically move to a new row below.
+Additionally, children with a width set to `Fill` or `FillPortion` expand to take up any remaining horizontal space, which can trigger a row break. In contrast, children with fixed or shrink widths continue to be placed side by side until there isn’t enough space, at which point they break onto a new row.
