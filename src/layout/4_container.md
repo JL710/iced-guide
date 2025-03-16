@@ -14,7 +14,7 @@ let stuff_centered = widget::Container::new(widget::text("Some Text"))
 ```
 > **Note:**
 >
-> We use width and height to maximize the size of the container, creating extra space for centering.
+> We use `width` and `height` to maximize the size of the container, creating extra space for centering.
 >
 > However, this is not strictly necessary if the container is already large enough;
 > without additional space, there will be no noticeable difference between applying alignment and not applying any alignment.

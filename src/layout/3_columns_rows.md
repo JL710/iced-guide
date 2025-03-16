@@ -52,7 +52,7 @@ let some_column = iced::widget::column![
 
 ## Wrapping
 
-Rows offer a feature that columns don't—they can wrap their children elements onto new lines. You enable this by calling the `.wrap()` method on a row.
+Rows offer a feature that columns don't, they can wrap their children elements onto new lines. You enable this by calling the `.wrap()` method on a row.
 
 Once wrapping is activated, the layout of the row’s children changes. If the available horizontal space fills up, any extra children automatically move to a new row below.
 Additionally, children with a width set to `Fill` or `FillPortion` expand to take up any remaining horizontal space, which can trigger a row break. In contrast, children with fixed or shrink widths continue to be placed side by side until there isn’t enough space, at which point they break onto a new row.
