@@ -9,6 +9,7 @@ If you want to specifically use tiny-skia as render backend, you can do that wit
 [env]
 ICED_BACKEND = "tiny-skia"
 ```
+
 ## Selecting a Graphics Backend for WGPU:
 
 For Hardware Accelerated Rendering(i.e. Using a GPU to render) Iced uses [WGPU](https://github.com/gfx-rs/wgpu).
@@ -20,6 +21,7 @@ To force a specific graphics backend for WGPU you can set an environemnt variabl
 [env]
 WGPU_BACKEND = "vulkan" # It can have these values: dx12 / vulkan / metal / gl
 ```
+
 > **NOTE**:
 >
 > To set these Environment Variables in Cargo, you need to create a `.cargo` directory in the root of your repository.
