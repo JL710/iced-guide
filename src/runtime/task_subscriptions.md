@@ -1,10 +1,11 @@
 # Subscriptions and Tasks
 
-Sometimes you have a task that takes a bit and should run in the background. If you just put it in your update function, the GUI will be locked and unresponsive until the task is finished. 
-This might be a web request or listening to external events.
+Sometimes you have a task that takes some time to complete and should run in the background.
+If you run it in your update function, the GUI becomes locked and unresponsive until the task is finished.
+This could be a web request or an operation that listens for external events.
 
-Iced has two solutions to this issue. The `Task` and `Subscription`.
+Iced offers two solutions to this issue: `Task` and `Subscription`.
 
-A task will run until it is finished, while a subscription runs as long as the application says so.
+A task runs until it completes, whereas a subscription continues running as long as the application requires it.
 
-In this chapter, we will look into both of them and how we can use them.
+In this chapter, we will examine both solutions and explore how to use them.
