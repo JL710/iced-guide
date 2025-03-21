@@ -27,3 +27,5 @@
 
 - [Wasm](./wasm/wasm.md)
   - [Debugging](./wasm/debugging.md)
+
+- [Debug Mode](./debug_mode/README.md)
