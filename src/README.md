@@ -50,6 +50,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [dragking](https://github.com/airstrike/dragking): Provides a column and row where the user can drag the items around
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications
 - [iced_webview](https://crates.io/crates/iced_webview): A webview widget for Iced using the Ultralight/Webkit browser engine (notably the licence of the browser engine can be retrictive depending on your use case)
+- [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 
 ## Contribution
 
