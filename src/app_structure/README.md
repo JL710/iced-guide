@@ -2,6 +2,8 @@
 When you create larger iced apps, you might want to have reusable components and views.
 There are several techniques to achieve this.
 
+To demonstrate them, we'll build a simple joke listing app throughout this chapter.
+
 ## Proposed Naming Convention
 
 To support productive discussions and clearer explanations, this guide proposes the following pattern names.
