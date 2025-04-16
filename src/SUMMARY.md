@@ -19,7 +19,7 @@
     - [Listen to Events](./runtime/subscriptions/listen_to_events.md)
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
-- [Structuring Apps](./app_structure/README.md)
+- [Patterns for Structuring Apps](./app_structure/README.md)
   - [Viewable](./app_structure/viewable.md)
   - [Component](./app_structure/component.md)
 
