@@ -9,6 +9,7 @@ enum Message {
     // This message is used to handle the new views message
     NewMessage(new::Message),
     New,
+    Delete(usize),
 }
 
 #[derive(Debug, Default)]
@@ -50,6 +51,9 @@ impl App {
                 // Run the task and map it to the higher level message
                 return task.map(Message::NewMessage);
             }
+            Message::Delete(index) => {
+                self.items.remove(index);
+            }
         }
         iced::Task::none()
     }
@@ -60,12 +64,22 @@ impl App {
                 let items = self
                     .items
                     .iter()
-                    .map(|item| iced::widget::text(item).into())
+                    .enumerate()
+                    .map(|(index, item)| {
+                        // A viewable can be used like any other widget,
+                        // but does not require you to use the more complex widget API
+                        viewable::ItemRow::new(iced::widget::text(item))
+                            .on_delete(Message::Delete(index))
+                            .into()
+                    })
                     .collect();
+
                 iced::widget::column![
-                    iced::widget::button("Edit").on_press(Message::New),
+                    iced::widget::button("New").on_press(Message::New),
                     iced::widget::Column::from_vec(items)
                 ]
+                // Some spacing goes a long way to make your UI more visually appealing
+                .spacing(10)
                 .into()
             }
             // If the view is an edit view, call the view method of the edit view
@@ -75,6 +89,66 @@ impl App {
     }
 }
 // ANCHOR_END: app
+
+mod viewable {
+    // ANCHOR: viewable
+
+    // Depending on your use case, you can instead also
+    // accept types like `&str` or other references to your app state.
+    pub struct ItemRow<'a, Message> {
+        item: iced::Element<'a, Message>,
+        on_delete: Option<Message>,
+        on_edit: Option<Message>,
+    }
+
+    // While you could just make all fields public, it's recommended
+    // to add chainable helper functions to make the API more ergonomic and easier to read.
+    impl<'a, Message> ItemRow<'a, Message> {
+        // if you can, prefer using `impl Into` for other elements.
+        // It makes the callsite look much nicer.
+        pub fn new(item: impl Into<iced::Element<'a, Message>>) -> Self {
+            Self {
+                item: item.into(),
+                on_delete: None,
+                on_edit: None,
+            }
+        }
+
+        pub fn on_delete(mut self, message: Message) -> Self {
+            self.on_delete = Some(message);
+            self
+        }
+
+        pub fn on_edit(mut self, message: Message) -> Self {
+            self.on_edit = Some(message);
+            self
+        }
+    }
+
+    impl<'a, Message> From<ItemRow<'a, Message>> for iced::Element<'a, Message>
+    where
+        Message: Clone + 'a,
+    {
+        // Here you can put the code which builds the actual view.
+        fn from(item_row: ItemRow<'a, Message>) -> Self {
+            let mut row = iced::widget::row![item_row.item]
+                // In your viewable, you can handle things like spacing and alignment,
+                // just like you would in your view function.
+                .spacing(10);
+
+            if let Some(on_delete) = item_row.on_delete {
+                row = row.push(iced::widget::button("Delete").on_press(on_delete));
+            }
+
+            if let Some(on_edit) = item_row.on_edit {
+                row = row.push(iced::widget::button("Edit").on_press(on_edit));
+            }
+
+            row.into()
+        }
+    }
+    // ANCHOR_END: viewable
+}
 
 // ANCHOR: new_view
 mod new {

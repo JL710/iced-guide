@@ -1,18 +1,34 @@
-# Structuring Apps
-When you create larger iced apps, you might want to have reusable components and views.
-For that, there is a common approach that is also used in this [showcase](https://github.com/hecrj/icebreaker) from the founder of iced.
 
-In this architecture a view/component is independent of the application and is split into three parts, message, the state and the action.
+# The Component Pattern
+
+The component pattern allows you to cleanly structure your application, including your state, update and view logic.
+This pattern can also be found in this [showcase](https://github.com/hecrj/icebreaker) from the founder of iced.
+
+Just like your top level iced application, a component implements the Model-View-Update architecture and implements the following:
+
+- The component state, usually named after the component (e.g. `MainMenu`)
+- It's own `Message`
+- An `Action` enum
+
+In effect, the component is a self contained iced program.
 
 The state will have a normal view function that returns a `iced::Element<Message>`.
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
-Common variants for this enum can be `None`, `Task(iced::Task<Message>)` and `Submit(String)`. You can think of this action like a message that is sent from the view to the parent application that should handle it.
 
-This kind of architecture will enhance composability.
+```rs
+impl MyComponent {
+    // instead of this
+    pub fn update(&mut self, message: Message) -> Task<Message> {}
+    // we implement this
+    pub fn update(&mut self, message: Message) -> Action {}
+}
+```
+
+Common variants the `Action` enum can be `None`, `Task(iced::Task<Message>)` and `Submit(String)`. You can think of this action like a message that is sent from the view to the parent application that should handle it.
 
 ## Initial State
-The view should also have a function that creates a new instance of that view. 
+The view should also have a function that creates a new instance of that view.
 If some task needs to be done for the initial state of the view (i.e. fetching data), something like `(Self, iced::Task<Message>)` should be returned by that function.
 The task would be executed, and the data is sent via a message to the view.
 
