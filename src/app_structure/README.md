@@ -1,13 +1,21 @@
 # Structuring Apps
 When you create larger iced apps, you might want to have reusable components and views.
-There are several techniques to achieve this.
+There are a lot of different ways to structure your app.
 
-To demonstrate them, we'll build a simple joke listing app throughout this chapter.
+To make starting out easier, you'll find some patterns you can use here.
+
+> **NOTE:** These patterns are just suggestions for how you could solve the problem.
+>
+> Don't just follow them blindly and instead look at them more as examples on how you could solve the problem.
+>
+> You can mix and match these patterns to fit your need or build something entirely different.
+
+To demonstrate out patterns, we'll build a simple joke listing app throughout this chapter.
 
 ## Proposed Naming Convention
 
 To support productive discussions and clearer explanations, this guide proposes the following pattern names.
-These patterns have existed way before this article, but the goal is to name and explain them.
+These patterns have existed way before this article, but by giving them names, we can e.g. ask about the difference between a Viewable and a Widget?.
 
 The names are in no way official or endorsed by the iced project.
 
@@ -21,7 +29,14 @@ it is significantly more complex and difficult to implement.
 
 So before trying to implement a custom widget, we'd recommend you try one of the following patters first.
 
+### View-Helper
+
+A view-helper is the simplest way to add some composability to your application.
+It's just a function, which creates an `Element`.
+
 ### Viewable
+
+If you expand a view-helper, you might arrive at the viewable pattern.
 
 A viewable is the little brother of a widget.
 It allows you to enjoy the reusability of a widget without the complexity.

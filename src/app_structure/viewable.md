@@ -1,6 +1,9 @@
 
 # The Viewable Pattern
 
+The viewable pattern is an extension of the view-helper pattern,
+which allows for a bit cleaner code on the call site.
+
 A viewable is a Struct which is build during the view function in your app and implements `into<iced::Element>`.
 
 In practive, it behaves and is used like any other iced widget,
@@ -69,3 +72,13 @@ impl App{
     }
 }
 ```
+
+## Conclusion
+
+The viewable pattern is great way to build your own "widgets",
+especially since you can make using them really ergonomic.
+
+In some cases, a viewable might be overkill - you may be interested in the [View-Helper](./view-helper.md) for those times.
+
+A Viewable also can't hold any application state.
+For that, you could take a look at the [Component Pattern](./component.md).

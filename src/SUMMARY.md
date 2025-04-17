@@ -20,6 +20,7 @@
   - [Blocking Code](./runtime/blocking_code/blocking_code.md)
 
 - [Patterns for Structuring Apps](./app_structure/README.md)
+  - [View-Helper](./app_structure/view-helper.md)
   - [Viewable](./app_structure/viewable.md)
   - [Component](./app_structure/component.md)
 

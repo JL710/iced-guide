@@ -175,6 +175,8 @@ As already hinted in the beginning, the update function of a component does have
 Instead of return an `iced::Task`, we return an `Action`.
 An `Action` allows us to communicate with the parent of our component. In that regard, they are similar to events from other UI frameworks.
 
+Some applications, like [Halloy](https://github.com/squidowl/halloy) actually do call this type `Event` instead of `Action`.
+
 First we'll start by defining our component's action type:
 
 ```rust
@@ -203,24 +205,17 @@ impl App {
 }
 ```
 
+After hooking up the app and update functions, we're done.
 
-## Example
-The example shows an unfinished joke listing app with a view for creating jokes.
-When the user tries to create a new joke, a default joke, fetched from an API, is provided.
-The user can get a random joke from the API on a button click as well.
-All Jokes are listed in the main/default view.
+## Conclusion
 
-This is how the view for new jokes looks like using this design:
-```rust
-{{#rustdoc_include app_structure_example/src/main.rs:new_view}}
-```
+The component pattern is the default way to divide your state and update logic into smaller pieces.
+Keep in mind, that default doesn't neccesarily mean, it's the right solution for you.
 
-As you see, the update function produces this action, that the parent of the view can handle:
-```rust
-{{#rustdoc_include app_structure_example/src/main.rs:action}}
-```
+This pattern is great, because it structured just like your iced application
+and encompasses everything you need for that part of the application.
 
-The application that would host the view could look like this:
-```rust
-{{#rustdoc_include app_structure_example/src/main.rs:app}}
-```
+It does however introduce a lot of builderplate code, which isn't always warranted.
+
+If you don't need the internal state and update logic, you might instead be more interested
+in the [Viewable Pattern](./viewable.md).
