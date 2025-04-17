@@ -205,7 +205,7 @@ impl App {
 }
 ```
 
-After hooking up the app and update functions, we're done.
+After hooking up the `view` and `update` functions, we're done.
 
 ## Conclusion
 
