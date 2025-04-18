@@ -29,3 +29,8 @@
   - [Debugging](./wasm/debugging.md)
 
 - [Debug Mode](./debug_mode/README.md)
+
+- [Widget API](./widget_api/README.md)
+  - [Common Structs](./widget_api/common_structs.md)
+  - [Methods](./widget_api/methods.md)
+  - [Operations](./widget_api/operations.md)
