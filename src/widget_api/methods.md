@@ -141,3 +141,16 @@ If your widget, for example, has some area that can be grabbed and moved, you ca
 ## overlay
 
 This method returns the overlay of the widget if there is any. A good example of this can be found in the form of the tooltip widget.
+
+If you have child widgets it could look something like this:
+```rust
+fn overlay<'a>(
+    &'a mut self,
+    tree: &'a mut Tree,
+    layout: Layout<'_>,
+    renderer: &Renderer,
+    translation: Vector,
+) -> Option<overlay::Element<'a, Message, Theme, Renderer>> {
+    overlay::from_children(&mut self.children, tree, layout, renderer, translation)
+}
+```
