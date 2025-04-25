@@ -5,7 +5,6 @@
 In rare cases, you might want to write a custom widget. A custom widget gives you full control over the layout and drawing process. A custom widget is defined as something that implements the [`Widget`](https://docs.rs/iced/latest/iced/advanced/trait.Widget.html) trait.
 
 You might want to use other existing widgets in your custom widget. It is recommended that you store them as `Element`s in your widget struct. When calling methods on the children that take the state `Tree`, you need to make sure to pass the correct child tree from `Tree.children` to the child widget.  
-If you want them to produce messages that are local to your widget, just like a component, you can create a new `Shell` and give it to them in the `on_event` function.
 
 To get detailed examples of the `Widget` trait you can always take a look at the core widgets like `Button`.
 
