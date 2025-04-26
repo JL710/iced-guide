@@ -23,6 +23,8 @@
 
 - [Custom Component](./custom_component/custom_component.md)
 
+- [SVG](./svg.md)
+
 - [Render Backend](./render_backend.md)
 
 - [Wasm](./wasm/wasm.md)
