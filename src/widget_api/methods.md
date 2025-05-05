@@ -127,6 +127,8 @@ The `Clipboard` parameter gives access to the clipboard of the user's system.
 This is the only method of your widget that can emit messages to the application. For that, a `Shell` is provided as a parameter.
 But the `Shell` can do other things as well. You can check if the current layout is valid or invalidate it, request redraws, check if the widget tree is valid and invalidate the widget tree, etc.
 
+If you have child widgets that you want to produce messages that are local to your widget, just like a component, you can create a new `Shell` and give it to them in the `on_event` method.
+
 The method returns `Status::Ignored` if neither the widget nor its children have handled the event or `Status::Captured` else.
 For easier merging of the Statuses with child widgets, you can use the `merge` function on the `Status` and merge to `Status` into one.
 
