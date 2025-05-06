@@ -12,7 +12,7 @@ Just like your top level iced application, a component implements the Model-View
 
 In effect, the component is a self contained iced program.
 
-The state will have a normal view function that returns a `iced::Element<Message>`.
+The state will have a normal view function that returns a [`iced::Element<Message>`](https://docs.rs/iced/latest/iced/type.Element.html).
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
 
@@ -25,7 +25,7 @@ impl MyComponent {
 }
 ```
 
-Common variants the `Action` enum can be `None`, `Task(iced::Task<Message>)` and `Submit{ username: String, password: String }`. You can think of this action like a message that is sent from the view to the parent application that should handle it.
+Common variants the `Action` enum can be `None`, `Task(iced::Task<Message>)` and `Submit { username: String, password: String }`. You can think of this action like a message that is sent from the view to the parent application that should handle it.
 
 ## The State
 

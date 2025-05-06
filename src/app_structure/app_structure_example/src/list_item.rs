@@ -1,6 +1,6 @@
 // ANCHOR: all
 
-// ANCHOR: dependencies
+// ANCHOR: list_item_struct
 // Depending on your use case, you can instead also
 // accept types like `&str` or other references to your app state.
 pub struct ListItem<'a, Message> {
@@ -8,7 +8,7 @@ pub struct ListItem<'a, Message> {
     on_delete: Option<Message>,
     on_edit: Option<Message>,
 }
-// ANCHOR_END: dependencies
+// ANCHOR_END: list_item_struct
 
 // ANCHOR: builder
 impl<'a, Message> ListItem<'a, Message> {
