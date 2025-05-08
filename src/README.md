@@ -42,6 +42,7 @@ Here is a list of other cool resources that you might find helpful:
   - [iced_receipts](https://github.com/airstrike/iced_receipts): A small app that shows advanced structural patterns for iced applications
 
 ## Other Crates
+
 A list of other crates that you might find helpful while creating a gui with iced.
 
 - [iced_aw](https://github.com/iced-rs/iced_aw): Additional widgets from the community
@@ -51,6 +52,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications
 - [iced_webview](https://crates.io/crates/iced_webview): A webview widget for Iced using the Ultralight/Webkit browser engine (notably the licence of the browser engine can be retrictive depending on your use case)
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
+- [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
 
 ## Contribution
 
