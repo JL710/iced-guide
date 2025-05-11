@@ -11,6 +11,10 @@ To make starting out easier, you'll find some patterns you can use here.
 > You can mix and match these patterns to fit your need or build something entirely different.
 
 To demonstrate our patterns, we'll build a simple joke listing app throughout this chapter.
+You can view the resulting application here:
+
+[https://github.com/JL710/iced-guide/tree/main/src/app_structure/app_structure_example]()
+
 
 ## Proposed Naming Convention
 
