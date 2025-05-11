@@ -156,7 +156,7 @@ To map our Message, we can simply use `iced::Element<component::Message>.map(cra
 impl App {
     fn view(&self) -> iced::Element<Message> {
         match &self.view {
-            {{#rustdoc_include app_structure_example/src/main.rs:new_joke_view}}
+{{#include app_structure_example/src/main.rs:new_joke_view}}
             // ...
         }
     }
@@ -198,7 +198,7 @@ Our component's update function now returns an `Action` which we'll want to reac
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-            {{#rustdoc_include app_structure_example/src/main.rs:update_component}}
+{{#include app_structure_example/src/main.rs:update_component}}
             // ...
         }
     }
