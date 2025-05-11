@@ -66,7 +66,11 @@ In this case, we're only using `on_delete`.
 This will cause the viewable to add a delete button, but to forfeit the edit button.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:viewable}}
+impl App {
+    fn view(&self) -> iced::Element<Message> {
+    {{#rustdoc_include app_structure_example/src/main.rs:viewable}}
+    }
+}
 ```
 
 ## Conclusion

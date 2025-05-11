@@ -113,7 +113,14 @@ In our case, we want to show it, after the user clicks an "Add Joke" button.
 For that we'll just add a button to the app's `view` method and edit the app's `update` function to include this:
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:create_component}}
+impl App {
+    fn update(&mut self, message: Message) -> iced::Task<Message> {
+        match message {
+            {{#rustdoc_include app_structure_example/src/main.rs:create_component}}
+            // ...
+        }
+    }
+}
 ```
 
 ## View & Mapping
@@ -146,7 +153,14 @@ To map our Message, we can simply use `iced::Element<component::Message>.map(cra
 
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:new_joke_view}}
+impl App {
+    fn view(&self) -> iced::Element<Message> {
+        match &self.view {
+            {{#rustdoc_include app_structure_example/src/main.rs:new_joke_view}}
+            // ...
+        }
+    }
+}
 ```
 
 The `.map` function takes a closure that takes the message and converts it into another message.
@@ -181,7 +195,14 @@ Our component's update function now returns an `Action` which we'll want to reac
 > **Note:** As with our view before, we'll have to map the task, should one be returned.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:update_component}}
+impl App {
+    fn update(&mut self, message: Message) -> iced::Task<Message> {
+        match message {
+            {{#rustdoc_include app_structure_example/src/main.rs:update_component}}
+            // ...
+        }
+    }
+}
 ```
 
 After hooking up the `view` and `update` functions, we're done.

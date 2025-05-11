@@ -81,8 +81,8 @@ impl App {
 
     fn view(&self) -> iced::Element<Message> {
         match &self.view {
-            // ANCHOR: viewable
             View::ListJokes => {
+                // ANCHOR: viewable
                 let items = self
                     .items
                     .iter()
@@ -106,8 +106,8 @@ impl App {
                 // Some spacing goes a long way to make your UI more visually appealing
                 .spacing(10)
                 .into()
+                // ANCHOR_END: viewable
             }
-            // ANCHOR_END: viewable
             // If the view is an edit view, call the view method of the edit view
             // and map the returned message to the higher level message
             // ANCHOR: new_joke_view
