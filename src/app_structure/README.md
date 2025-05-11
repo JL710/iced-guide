@@ -10,7 +10,7 @@ To make starting out easier, you'll find some patterns you can use here.
 >
 > You can mix and match these patterns to fit your need or build something entirely different.
 
-To demonstrate out patterns, we'll build a simple joke listing app throughout this chapter.
+To demonstrate our patterns, we'll build a simple joke listing app throughout this chapter.
 
 ## Proposed Naming Convention
 
