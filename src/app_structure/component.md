@@ -116,7 +116,7 @@ For that we'll just add a button to the app's `view` method and edit the app's `
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-            {{#rustdoc_include app_structure_example/src/main.rs:create_component}}
+{{#include app_structure_example/src/main.rs:create_component}}
             // ...
         }
     }
