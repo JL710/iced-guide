@@ -1,3 +1,6 @@
+mod list_item;
+mod new_joke;
+
 // ANCHOR: all
 fn main() {
     iced::run("Project Structure Example", App::update, App::view).unwrap();
@@ -7,48 +10,70 @@ fn main() {
 #[derive(Debug, Clone)]
 enum Message {
     // This message is used to handle the new views message
-    NewMessage(new::Message),
-    New,
+    NewJoke(new_joke::Message),
+    OpenNewJokeComponent,
+    Delete(usize),
 }
 
-#[derive(Debug, Default)]
+#[derive(Default)]
+// ANCHOR: view_enum
 enum View {
     #[default]
-    Default,
-    Edit(new::NewView),
+    ListJokes,
+    // This holds our new joke components state
+    NewJoke(new_joke::NewJoke),
 }
+// ANCHOR_END: view_enum
 
-#[derive(Debug, Default)]
+// ANCHOR: app_state
+#[derive(Default)]
 struct App {
     view: View,
     items: Vec<String>,
 }
+// ANCHOR_END: app_state
 
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-            Message::NewMessage(view_message) => {
-                if let View::Edit(edit) = &mut self.view {
+            // ANCHOR: update_component
+            Message::NewJoke(view_message) => {
+                // as with all enums in rust, we'll need to use an if-let expression
+                // to get access to our component from the `View` enum
+                if let View::NewJoke(edit) = &mut self.view {
                     // Call the update method of the edit view
                     // and handle the returned action
                     match edit.update(view_message) {
-                        new::Action::None => {}
-                        // If the action is a task, map the
-                        // task to a message, the higher level message
-                        new::Action::Task(task) => return task.map(Message::NewMessage),
-                        new::Action::Submitted(content) => {
-                            self.view = View::Default;
-                            self.items.push(content);
+                        // The none action is a no-op
+                        new_joke::Action::None => {}
+
+                        // If the action is a task, we'll need to map it, to ensure it returns the right Message type.
+                        // This is the exact same as with `view` and the returned `iced::Element`
+                        new_joke::Action::Run(task) => return task.map(Message::NewJoke),
+
+                        // If the action is a cancel, switch back to the list view
+                        new_joke::Action::Cancel => {
+                            self.view = View::ListJokes;
+                        }
+
+                        // If the action is a submit, add the new joke before returning to the list view
+                        new_joke::Action::Submit(new_joke_content) => {
+                            self.view = View::ListJokes;
+                            self.items.push(new_joke_content);
                         }
                     }
                 }
             }
-            Message::New => {
-                // Create a new view
-                let (view, task) = new::NewView::new();
-                self.view = View::Edit(view);
-                // Run the task and map it to the higher level message
-                return task.map(Message::NewMessage);
+            // ANCHOR_END: update_component
+            // ANCHOR: create_component
+            Message::OpenNewJokeComponent => {
+                // Create a new component
+                let component = new_joke::NewJoke::new();
+                self.view = View::NewJoke(component);
+            }
+            // ANCHOR_END: create_component
+            Message::Delete(index) => {
+                self.items.remove(index);
             }
         }
         iced::Task::none()
@@ -56,95 +81,41 @@ impl App {
 
     fn view(&self) -> iced::Element<Message> {
         match &self.view {
-            View::Default => {
+            View::ListJokes => {
+                // ANCHOR: viewable
                 let items = self
                     .items
                     .iter()
-                    .map(|item| iced::widget::text(item).into())
+                    // since we want deletion, we'll need the index of each item, so we know which one to delete
+                    .enumerate()
+                    .map(|(index, item)| {
+                        // create a listitem for each joke
+                        list_item::ListItem::new(iced::widget::text(item))
+                            // save the index to delete in the message
+                            .on_delete(Message::Delete(index))
+                            // since we implemented the `From` trait, we can just use into() to create an element,
+                            // just as if we were using a widget
+                            .into()
+                    })
                     .collect();
+
                 iced::widget::column![
-                    iced::widget::button("Edit").on_press(Message::New),
+                    iced::widget::button("New").on_press(Message::OpenNewJokeComponent),
                     iced::widget::Column::from_vec(items)
                 ]
+                // Some spacing goes a long way to make your UI more visually appealing
+                .spacing(10)
                 .into()
+                // ANCHOR_END: viewable
             }
             // If the view is an edit view, call the view method of the edit view
             // and map the returned message to the higher level message
-            View::Edit(edit) => edit.view().map(Message::NewMessage),
+            // ANCHOR: new_joke_view
+            View::NewJoke(new_joke) => new_joke.view().map(Message::NewJoke),
+            // ANCHOR_END: new_joke_view
         }
     }
 }
 // ANCHOR_END: app
 
-// ANCHOR: new_view
-mod new {
-    // ANCHOR: action
-    pub enum Action {
-        None,
-        Task(iced::Task<Message>),
-        Submitted(String),
-    }
-    // ANCHOR_END: action
-
-    #[derive(Debug, Clone)]
-    pub enum Message {
-        Submit,
-        ChangeContent(String),
-        RandomJoke,
-    }
-
-    #[derive(Debug, Default)]
-    pub struct NewView {
-        content: String,
-    }
-
-    impl NewView {
-        pub fn new() -> (Self, iced::Task<Message>) {
-            (Self::default(), Self::random_joke_task())
-        }
-
-        pub fn update(&mut self, message: Message) -> Action {
-            match message {
-                Message::Submit => Action::Submitted(self.content.clone()),
-                Message::ChangeContent(content) => {
-                    self.content = content;
-                    Action::None
-                }
-                Message::RandomJoke => Action::Task(Self::random_joke_task()),
-            }
-        }
-
-        pub fn view(&self) -> iced::Element<Message> {
-            iced::widget::column![
-                iced::widget::text_input("Content", &self.content).on_input(Message::ChangeContent),
-                iced::widget::button("Random Joke").on_press(Message::RandomJoke),
-                iced::widget::button("Submit").on_press(Message::Submit)
-            ]
-            .into()
-        }
-
-        fn random_joke_task() -> iced::Task<Message> {
-            iced::Task::future(async {
-                // Fetch a joke from the internet
-                let client = reqwest::Client::new();
-                let response: serde_json::Value = client
-                    .get("https://icanhazdadjoke.com")
-                    .header("Accept", "application/json")
-                    .send()
-                    .await
-                    .unwrap()
-                    .json()
-                    .await
-                    .unwrap();
-
-                // Parse the response
-                let joke = response["joke"].as_str().unwrap();
-
-                // Return the joke as a message
-                Message::ChangeContent(joke.to_owned())
-            })
-        }
-    }
-}
-// ANCHOR_END: new_view
 // ANCHOR_END: all
