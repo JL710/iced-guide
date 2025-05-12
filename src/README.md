@@ -49,11 +49,11 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [rfd](https://docs.rs/rfd/latest/rfd/index.html): Pop-ups and file dialogs
 - [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
 - [dragking](https://github.com/airstrike/dragking): Provides a column and row where the user can drag the items around
-- [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications
 - [iced_webview](https://crates.io/crates/iced_webview): A webview widget for Iced using the Ultralight/Webkit browser engine (notably the licence of the browser engine can be retrictive depending on your use case)
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 - [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
 - [iced_toasts](https://crates.io/crates/iced_toasts) add-on crate to provides a simple way to add toast notifications
+- [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications (although unmaintained, and still on iced 0.9 and pretty out of date)
 
 ## Contribution
 
