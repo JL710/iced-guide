@@ -49,6 +49,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [rfd](https://docs.rs/rfd/latest/rfd/index.html): Pop-ups and file dialogs
 - [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
 - [dragking](https://github.com/airstrike/dragking): Provides a column and row where the user can drag the items around
+- [sweeten](https://github.com/airstrike/sweeten): sweeten your daily iced brew
 - [iced_webview](https://crates.io/crates/iced_webview): A webview widget for Iced using the Ultralight/Webkit browser engine (notably the licence of the browser engine can be retrictive depending on your use case)
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 - [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
