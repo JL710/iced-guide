@@ -10,3 +10,5 @@ To fix that, you can simple download more fonts as you need from [github](https:
 ```rust
 .font(include_bytes!("FiraSans-Bold.ttf"))
 ```
+
+> Since this is only necessary on wasm, if your app runs on native and wasm, you should only load it when compiling to wasm.
