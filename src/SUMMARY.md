@@ -32,6 +32,7 @@
 - [Render Backend](./render_backend.md)
 
 - [Wasm](./wasm/wasm.md)
+  - [Styled Text](./wasm/styled_text.md)
   - [Debugging](./wasm/debugging.md)
 
 - [Debug Mode](./debug_mode/README.md)
