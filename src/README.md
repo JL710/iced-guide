@@ -57,6 +57,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_dialog](https://github.com/pml68/iced_dialog/tree/master) provides a native, customizable message dialog widget
 - [iced_split](https://github.com/edwloef/iced_split) split widgets (vertical and horizontal draggable splits)
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications (although unmaintained, and still on iced 0.9 and pretty out of date)
+- [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master) Showcases a sample of widgets styled according to fluent design principles
 
 ## Contribution
 
