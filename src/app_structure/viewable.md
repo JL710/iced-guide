@@ -25,8 +25,6 @@ Additionally, we want enable adding a delete and an edit button.
 Since these buttons will always look the same,
 all we need is the Message which should be triggered when the button is clicked.
 
-> **NOTE:** If you are familiar enough with rust's type system, you could also use
-
 To make those additional buttons optional, we'll use an `Option<Message>`.
 
 ## The Builder
