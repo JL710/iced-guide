@@ -45,6 +45,8 @@ Here is a list of other cool resources that you might find helpful:
 
 A list of other crates that you might find helpful while creating a gui with iced.
 
+> **Caution:** since iced evolves pretty fast, keep in mind that the following crates might be for different versions of iced and thus incompatible with the version that you are using 
+
 - [iced_aw](https://github.com/iced-rs/iced_aw): Additional widgets from the community
 - [rfd](https://docs.rs/rfd/latest/rfd/index.html): Pop-ups and file dialogs
 - [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
@@ -61,6 +63,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_drop](https://github.com/jhannyj/iced_drop) A small library which provides a custom widget and operation to make drag and drop easier to implement
 - [iced_table](https://github.com/tarkah/iced_table) A table widget
 - [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter) A custom syntax highlighter that uses the colors from your app's Theme
+- [iced_term](https://github.com/Harzu/iced_term/tree/master) Terminal emulator widget powered by ICED framework and alacritty terminal backend
 
 ## Contribution
 
