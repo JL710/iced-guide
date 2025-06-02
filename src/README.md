@@ -60,6 +60,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master) Showcases a sample of widgets styled according to fluent design principles
 - [iced_drop](https://github.com/jhannyj/iced_drop) A small library which provides a custom widget and operation to make drag and drop easier to implement
 - [iced_table](https://github.com/tarkah/iced_table) A table widget
+- [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter) A custom syntax highlighter that uses the colors from your app's Theme
 
 ## Contribution
 
