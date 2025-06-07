@@ -64,6 +64,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_table](https://github.com/tarkah/iced_table) A table widget
 - [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter) A custom syntax highlighter that uses the colors from your app's Theme
 - [iced_term](https://github.com/Harzu/iced_term/tree/master) Terminal emulator widget powered by ICED framework and alacritty terminal backend
+- [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master) A terminal widget with customizable datastream
 
 ## Contribution
 
