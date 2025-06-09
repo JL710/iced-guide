@@ -131,6 +131,10 @@ If you have child widgets that you want to produce messages that are local to yo
 
 The method returns `Status::Ignored` if neither the widget nor its children have handled the event or `Status::Captured` else.
 For easier merging of the Statuses with child widgets, you can use the `merge` function on the `Status` and merge to `Status` into one.
+That could look this this:
+```rust
+[status1, status2, status3, ...].into_iter().fold(iced::event::Status::Ignored, iced::event::Status::merge)
+```
 
 If you want to do some animations, you can trigger/request redraws with the shell until the animation is over.
 
