@@ -18,7 +18,7 @@ which could be a text, an image or maybe even a row with both.
 
 Additionally, we want enable adding a delete and an edit button.
 Since these buttons will always look the same,
-all we need is the Message which should be triggered when the button is clicked.
+all we need is the `Message` which should be triggered when the button is clicked.
 
 To make those additional buttons optional, we'll use an `Option<Message>`.
 
@@ -108,7 +108,6 @@ list_item(ListItem {
         on_edit: Some(Message::Edit(1)),
     }
 );
-
 ```
 
 We can already gain a small improvement like this:
