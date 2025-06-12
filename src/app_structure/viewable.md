@@ -9,7 +9,7 @@ A viewable is a Struct which is build during the view function in your app and i
 In practice, it behaves and is used like any other iced widget,
 it may contain other [`iced::Element`](https://docs.rs/iced/latest/iced/type.Element.html)s or references to your app state, like a `&str`.
 
-## What we want to archive
+## What we want to achieve
 
 Let's imagine we want to have a list with some additional options.
 
