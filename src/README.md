@@ -28,7 +28,8 @@ There are a lot of small examples available in the example's directory of the ic
 
 Since the last version, there is also a new, great [pocket guide](https://docs.iced.rs/iced/#the-pocket-guide) that I advise everyone to read.
 
-Some large structural changes are discussed and proposed in rfc's that can be found in the [rfcs repository](https://github.com/iced-rs/rfcs).
+Some large structural changes are discussed and proposed in rfc's that can be found in the [rfcs repository](https://github.com/iced-rs/rfcs). 
+If you are wondering when and what new features are planned, you can take a look at the [roadmap](https://whimsical.com/roadmap-iced-7vhq6R35Lp3TmYH4WeYwLM).
 
 ## Other Learning Resources
 
