@@ -47,7 +47,7 @@ fn list_item<'a, Message>(item: iced::Element<'a, Message>, on_delete: Option<Me
 Now if we want to call this helper, the call site would look like this.
 
 ```rust
-list_item(text("I'm item 1"), Message::Delete(1), Message::Delete(1))
+list_item(text("I'm item 1"), Message::Delete(1), Message::Edit(1))
 ```
 
 This works, but if we wanted to add additional buttons (e.g. duplicate) we'd have to add more and more parameters.
