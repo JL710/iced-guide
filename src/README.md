@@ -58,17 +58,18 @@ A list of other crates that you might find helpful while creating a gui with ice
     - [csmoe/iced-webview](https://github.com/csmoe/iced-webview): A webview widget based on the chromium embedded framework
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 - [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
-- [iced_toasts](https://crates.io/crates/iced_toasts) add-on crate to provides a simple way to add toast notifications
-- [iced_dialog](https://github.com/pml68/iced_dialog/tree/master) provides a native, customizable message dialog widget
-- [iced_split](https://github.com/edwloef/iced_split) split widgets (vertical and horizontal draggable splits)
+- [iced_toasts](https://crates.io/crates/iced_toasts): add-on crate to provides a simple way to add toast notifications
+- [iced_dialog](https://github.com/pml68/iced_dialog/tree/master): provides a native, customizable message dialog widget
+- [iced_split](https://github.com/edwloef/iced_split): split widgets (vertical and horizontal draggable splits)
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications (although unmaintained, and still on iced 0.9 and pretty out of date)
-- [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master) Showcases a sample of widgets styled according to fluent design principles
-- [iced_drop](https://github.com/jhannyj/iced_drop) A small library which provides a custom widget and operation to make drag and drop easier to implement
-- [iced_table](https://github.com/tarkah/iced_table) A table widget
-- [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter) A custom syntax highlighter that uses the colors from your app's Theme
-- [iced_term](https://github.com/Harzu/iced_term/tree/master) Terminal emulator widget powered by ICED framework and alacritty terminal backend
-- [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master) A terminal widget with customizable datastream
-- [slippery](https://github.com/peterkrull/slippery) A slippy map widget for the Iced toolkit.
+- [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master): Showcases a sample of widgets styled according to fluent design principles
+- [iced_drop](https://github.com/jhannyj/iced_drop): A small library which provides a custom widget and operation to make drag and drop easier to implement
+- [iced_table](https://github.com/tarkah/iced_table): A table widget
+- [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter): A custom syntax highlighter that uses the colors from your app's Theme
+- [iced_term](https://github.com/Harzu/iced_term/tree/master): Terminal emulator widget powered by ICED framework and alacritty terminal backend
+- [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master): A terminal widget with customizable datastream
+- [slippery](https://github.com/peterkrull/slippery): A slippy map widget for the Iced toolkit.
+- [iced_gif](https://github.com/Redhawk18/iced_gif): A gif widget for iced 
 
 ## Contribution
 
