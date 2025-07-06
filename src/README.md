@@ -4,7 +4,8 @@
 
 # Welcome to the unofficial iced-rs guide 
 
-Iced is an Open Source GUI library written in rust to create beautiful and minimal cross platform applications. It leverages the power of Google's [Skia](https://skia.org/) (via [tiny-skia](https://github.com/RazrFalcon/tiny-skia)) and wGPU to render beautiful UI while maintaining clean and maintainable code by using the ELM (or MVU) architecture.
+Iced is an Open Source GUI library written in rust to create beautiful and minimal cross platform applications. It leverages the power of Google's [Skia](https://skia.org/) (via [tiny-skia](https://github.com/RazrFalcon/tiny-skia)) for software rendering and wGPU for hardware rendering. 
+It can render beautiful UI while maintaining clean and maintainable code by using the ELM (or MVU) architecture.
 
 Iced focuses on Simplicity and type-safety so that you can concenterate on your implementation without any framework specific distractions.
 
