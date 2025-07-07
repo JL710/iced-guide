@@ -47,12 +47,12 @@ impl App {
         // ANCHOR_END: update
     }
 
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         iced::widget::column![
             // Display the information if it is available
             iced::widget::Text::new(self.hard_to_process_information.map_or(
                 "Information will be ready in a second...".to_string(),
-                |x| format!("Information: {}", x),
+                |x| format!("Information: {x}"),
             )),
             // Display a button to start the calculation
             iced::widget::button("Start Calculation").on_press_maybe(
