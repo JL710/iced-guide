@@ -18,6 +18,7 @@ impl App {
             Message::CalculatedInformation(information) => {
                 // Set the information
                 self.hard_to_process_information = Some(information);
+                self.calculation_in_progress = false;
             }
             Message::StartCalculatingInformation => {
                 // Change the state to indicate that the calculation is in progress
@@ -46,12 +47,12 @@ impl App {
         // ANCHOR_END: update
     }
 
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         iced::widget::column![
             // Display the information if it is available
             iced::widget::Text::new(self.hard_to_process_information.map_or(
                 "Information will be ready in a second...".to_string(),
-                |x| format!("Information: {}", x),
+                |x| format!("Information: {x}"),
             )),
             // Display a button to start the calculation
             iced::widget::button("Start Calculation").on_press_maybe(

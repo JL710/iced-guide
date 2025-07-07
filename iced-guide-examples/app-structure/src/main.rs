@@ -79,7 +79,7 @@ impl App {
         iced::Task::none()
     }
 
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         match &self.view {
             View::ListJokes => {
                 // ANCHOR: viewable

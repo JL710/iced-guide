@@ -12,6 +12,8 @@ The `SUMMARY.md` dictates the layout of the guide, and all pages are registered 
 
 The file/directory layout is not required to match the guide layout by mdBook, but it is best practice to keep them somewhat in sync. 
 
+Example code that is not directly in the markdown files is contained in the [iced-guide-examples](./iced-guide-examples) directory. You can reference that directory from anywhere in the guide by using `{{code}}/`.
+
 ## Run the guide for development
 
 ```

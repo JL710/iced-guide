@@ -7,16 +7,13 @@ enum Message {
     CurrentIp(String),
 }
 
+#[derive(Default)]
 struct App {
     ip: String,
 }
 
 impl App {
-    fn new() -> (Self, iced::Task<Message>) {
-        (App { ip: String::new() }, Task::none())
-    }
-
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         iced::widget::column![
             iced::widget::text(&self.ip),
             iced::widget::button("Start task").on_press(Message::Refetch)

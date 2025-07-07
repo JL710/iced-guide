@@ -41,7 +41,7 @@ impl NewJoke {
 
 // ANCHOR: view
 impl NewJoke {
-    pub fn view(&self) -> iced::Element<Message> {
+    pub fn view(&self) -> iced::Element<'_, Message> {
         iced::widget::column![
             iced::widget::text_input("Content", &self.joke)
                 // on_input expects a closure, which would usually look like this:

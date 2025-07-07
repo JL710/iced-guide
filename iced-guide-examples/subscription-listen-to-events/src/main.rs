@@ -12,15 +12,14 @@ enum Message {
 fn update(_state: &mut u8, message: Message) -> iced::Task<Message> {
     // handle emitted messages
     match message {
-        Message::Event(event) => match event {
-            iced::event::Event::Keyboard(keyboard_event) => match keyboard_event {
-                iced::keyboard::Event::KeyReleased { key, .. } => {
-                    println!("Key {:?} was pressed", key);
-                }
-                _ => {}
-            },
-            _ => {}
-        },
+        Message::Event(event) => {
+            if let iced::event::Event::Keyboard(iced::keyboard::Event::KeyReleased {
+                key, ..
+            }) = event
+            {
+                println!("Key {key:?} was pressed");
+            }
+        }
     }
     iced::Task::none()
 }

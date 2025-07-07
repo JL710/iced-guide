@@ -1,11 +1,9 @@
 [package]
-name = "app_structure_example"
+name = "app-structure"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-iced = { version = "0.13.0", features = [
-    "tokio",
-] }
+iced.workspace = true
 reqwest = { version = "0.12.5", features = ["json"] }
 serde_json = "1.0.120"

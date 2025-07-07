@@ -2,15 +2,15 @@
 
 `main.rs`:
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:all}}
+{{#rustdoc_include {{code}}/app-structure/src/main.rs:all}}
 ```
 
 `list_item.rs`:
 ```rust
-{{#rustdoc_include app_structure_example/src/list_item.rs:all}}
+{{#rustdoc_include {{code}}/app-structure/src/list_item.rs:all}}
 ```
 
 `new_joke.rs`:
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:all}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:all}}
 ```

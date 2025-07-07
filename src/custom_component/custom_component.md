@@ -18,7 +18,7 @@ These are similar to the 3 parts of your application with one difference. The in
 ### Component itself
 At first, we create the component struct itself:
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:hyperlink_struct}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:hyperlink_struct}}
 ```
 
 As you see, it has one field `link`. Here, we store the link that will be displayed and opened when the hyperlink is clicked.
@@ -26,7 +26,7 @@ As you see, it has one field `link`. Here, we store the link that will be displa
 ### Message / Event
 Now we need to create the message that will be used inside our component:
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:hyperlink_event}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:hyperlink_event}}
 ```
 Here we have three events for our component. The `Clicked` event is called every time the user clicks onto the component. 
 The `MouseEnter` and `MouseExit` events are called when the mouse enters over the component and leaves (in other words, hovering over the component).
@@ -34,7 +34,7 @@ The `MouseEnter` and `MouseExit` events are called when the mouse enters over th
 ### State
 In the state of our component, we store if the mouse hovers over the component.
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:hyperlink_state}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:hyperlink_state}}
 ```
 
 ### Implementing the Component trait
@@ -42,13 +42,13 @@ Now we can implement the [`Component`](https://docs.rs/iced/latest/iced/widget/t
 
 #### Full Implementation
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:implementing_component}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:implementing_component}}
 ```
 
 #### Types
 We define the types for our state and message/event:
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:component_types}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:component_types}}
 ```
 
 #### View and Update logic
@@ -58,7 +58,7 @@ In the update function, we set the hovered field of the state or print "open lin
 Instead of printing something you could use crates like [opener](https://docs.rs/opener/latest/opener/) to open files and website, but that is beyond this example.
 
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:component_update}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:component_update}}
 ```
 
 As you see, we return `None` in the update function. Instead of `None` we could return a `Some(Message)` that is propagated to the parent application.
@@ -69,5 +69,5 @@ In this case, we have a mouse area with a text inside.
 The text color changes when the mouse is hovered over the component. 
 If the mouse hovers above the component is determined by the `state.hovered` field that is hold up to date by our update function.
 ```rust 
-{{#rustdoc_include snippets/hyperlink.rs:component_view}}
+{{#rustdoc_include {{code}}/custom-component/src/lib.rs:component_view}}
 ```
