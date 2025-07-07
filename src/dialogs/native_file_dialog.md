@@ -67,3 +67,28 @@ We leverege the `Task`'s monadic api to make this implementation succinct and cl
 ```rust
 {{#rustdoc_include snippets/main.rs:all}}
 ```
+
+
+## Saving Files
+To open a save-file dialog, use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html)'s [`save_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.save_file)
+
+
+```rust
+{{#rustdoc_include snippets/save.rs:save_dialog}}
+```
+
+Similar to [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file),  [`save_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.save_file) will return an an `Option<`[`Filehandle`](https://docs.rs/rfd/latest/rfd/struct.FileHandle.html)`>`, 
+
+
+### Complete Example
+
+`Cargo.toml`
+```toml
+{{#rustdoc_include snippets/save_Cargo.toml}}
+```
+
+`main.rs`
+
+```rust
+{{#rustdoc_include snippets/save.rs:all}}
+```
