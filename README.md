@@ -1,6 +1,6 @@
 # iced-guide
 
-Welcome to the [Unofficial Iced Guide](https://jl710.github.io/iced-guide/)!
+Welcome to the [Unofficial Iced Guide](https://jl710.github.io/iced-guide/) for *mostly* iced 0.13.1!
 
 This guide is built using [mdBook](https://github.com/rust-lang/mdBook) ([mdBook Guide](https://rust-lang.github.io/mdBook/)). 
 It is made up of basic markdown files with some extensions that mdBook provides ([mainly including file sections](https://rust-lang.github.io/mdBook/format/mdbook.html#including-files)).
