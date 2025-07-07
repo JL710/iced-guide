@@ -7,6 +7,7 @@ enum Message {
     CurrentIp(String),
 }
 
+#[derive(Default)]
 struct App {
     ip: String,
 }

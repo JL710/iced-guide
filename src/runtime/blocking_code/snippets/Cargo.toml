@@ -1,3 +1,0 @@
-[dependencies]
-iced = { version = "0.13.1", features = ["tokio"] }
-tokio = { version = "1.38.0", features = ["rt"] }

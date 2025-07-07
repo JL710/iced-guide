@@ -33,13 +33,13 @@ Your state is usually called after the it's function, e.g. `NewJoke` or `LazyIma
 It contains the data you are currently working with.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:state}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:state}}
 ```
 
 Your state should have a function, which creates a new instance.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:new}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:new}}
 ```
 
 ### Handling lazy loading
@@ -87,7 +87,7 @@ Your component will have it's own internal messages, which work just like in you
 For a `LoginForm` they might look like this:
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:message}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:message}}
 ```
 
 ## Embedding our state
@@ -98,13 +98,13 @@ Depending on your use case, you can embed it directly, as an `Option` or inside 
 For demonstration purposes, we'll add our own little enum.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:view_enum}}
+{{#rustdoc_include {{code}}/app-structure/src/main.rs:view_enum}}
 ```
 
 Now that we have a nice way to specify out view, let's add it to the apps state:
 
 ```rust
-{{#rustdoc_include app_structure_example/src/main.rs:app_state}}
+{{#rustdoc_include {{code}}/app-structure/src/main.rs:app_state}}
 ```
 
 Before we can enjoy our beautiful component, we'll need to actually create the component's state somewhere.
@@ -116,7 +116,7 @@ For that we'll just add a button to the app's `view` method and edit the app's `
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-{{#include app_structure_example/src/main.rs:create_component}}
+{{#include {{code}}/app-structure/src/main.rs:create_component}}
             // ...
         }
     }
@@ -128,7 +128,7 @@ impl App {
 Following the trend of mirroring what an iced application does, you'll also want to implement a `view` function.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:view}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:view}}
 ```
 
 Now we'll obviously want to use this view as part of our main view.
@@ -156,7 +156,7 @@ To map our Message, we can simply use `iced::Element<component::Message>.map(cra
 impl App {
     fn view(&self) -> iced::Element<Message> {
         match &self.view {
-{{#include app_structure_example/src/main.rs:new_joke_view}}
+{{#include {{code}}/app-structure/src/main.rs:new_joke_view}}
             // ...
         }
     }
@@ -180,13 +180,13 @@ Some applications, like [Halloy](https://github.com/squidowl/halloy) actually do
 First we'll start by defining our component's action type:
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:action}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:action}}
 ```
 
 With our action ready, we can add our update function. To make the update method easier to read, we handle task creation in a seperate function.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/new_joke.rs:update}}
+{{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:update}}
 ```
 
 As with the view before, we'll now need to call our component from the apps main update function.
@@ -198,7 +198,7 @@ Our component's update function now returns an `Action` which we'll want to reac
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-{{#include app_structure_example/src/main.rs:update_component}}
+{{#include {{code}}/app-structure/src/main.rs:update_component}}
             // ...
         }
     }

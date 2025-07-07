@@ -74,7 +74,7 @@ To create a viewable, we'll start with creating it's struct, which contains all 
 For this, we just pack all the parameters into a struct like this
 
 ```rust
-{{#rustdoc_include app_structure_example/src/list_item.rs:list_item_struct}}
+{{#rustdoc_include {{code}}/app-structure/src/list_item.rs:list_item_struct}}
 ```
 
 Then we just change the function to accept a `ListItem` struct.
@@ -147,7 +147,7 @@ For that, we'll have to implement the `From` trait.
 In most cases you can just copy `impl` block and function signature like shown here:
 
 ```rust
-{{#rustdoc_include app_structure_example/src/list_item.rs:from}}
+{{#rustdoc_include {{code}}/app-structure/src/list_item.rs:from}}
 ```
 
 If you want to support custom themes or additional renderers,
@@ -168,7 +168,7 @@ The recommended builder pattern requests all mandatory dependencies in the const
 > In practice, this isn't always the best idea, because it creates more boilerplate and duplicate code.
 
 ```rust
-{{#rustdoc_include app_structure_example/src/list_item.rs:builder}}
+{{#rustdoc_include {{code}}/app-structure/src/list_item.rs:builder}}
 ```
 
 ## Using The Viewable
@@ -181,7 +181,7 @@ This will cause the viewable to add a delete button, but to forfeit the edit but
 ```rust
 impl App {
     fn view(&self) -> iced::Element<Message> {
-    {{#include app_structure_example/src/main.rs:viewable}}
+    {{#include {{code}}/app-structure/src/main.rs:viewable}}
     }
 }
 ```

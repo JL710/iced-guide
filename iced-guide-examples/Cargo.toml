@@ -1,0 +1,19 @@
+[package]
+name = "iced-guide-examples"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[workspace]
+members = [
+    "blocking-code",
+    "custom-component",
+    "custom-task",
+    "quickstart",
+    "subscription-listen-to-events",
+    "app-structure",
+]
+
+[workspace.dependencies]
+iced = { version = "0.13.1", features = ["tokio", "lazy"] }

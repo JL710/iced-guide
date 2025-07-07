@@ -18,6 +18,7 @@ impl App {
             Message::CalculatedInformation(information) => {
                 // Set the information
                 self.hard_to_process_information = Some(information);
+                self.calculation_in_progress = false;
             }
             Message::StartCalculatingInformation => {
                 // Change the state to indicate that the calculation is in progress

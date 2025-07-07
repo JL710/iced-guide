@@ -51,14 +51,17 @@ impl<Message> Component<Message> for Hyperlink {
         &self,
         state: &Self::State,
     ) -> iced::Element<'_, Self::Event, iced::Theme, iced::Renderer> {
+        let hovered = state.hovered;
         widget::container(
-            widget::mouse_area(widget::text(&self.link).style(iced::theme::Text::Color(
-                if state.hovered {
-                    iced::Color::from_rgb(0.5, 0.5, 0.5)
-                } else {
-                    iced::Color::from_rgb(0.0, 0.0, 0.0)
-                },
-            )))
+            widget::mouse_area(widget::text(&self.link).style(move |_| {
+                iced::widget::text::Style {
+                    color: if hovered {
+                        Some(iced::Color::from_rgb(0.5, 0.5, 0.5))
+                    } else {
+                        Some(iced::Color::from_rgb(0.0, 0.0, 0.0))
+                    },
+                }
+            }))
             .on_enter(HyperlinkEvent::MouseEnter)
             .on_exit(HyperlinkEvent::MouseExit)
             .on_press(HyperlinkEvent::Clicked),

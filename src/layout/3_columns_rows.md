@@ -12,7 +12,7 @@ A convenient way to create columns and rows is with the [`column!`](https://docs
 
 We saw one of them in the [Minimal Application - Counter](../quickstart/3_a_simple_counter_app.md).
 ```rust
-{{#rustdoc_include ../quickstart/snippets/main.rs:row}}
+{{#rustdoc_include {{code}}/quickstart/src/main.rs:row}}
 ```
 There, we created a [`Column`](https://docs.rs/iced/latest/iced/widget/struct.Column.html) with three children inside. One text and two buttons. The syntax for rows is the same.
 

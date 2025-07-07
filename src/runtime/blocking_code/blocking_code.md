@@ -9,7 +9,7 @@ Here is a small example that shows how to use [`tokio::task::spawn_blocking`](ht
 ### Cargo.toml
 Because we want to use `spawn_blocking` from tokio we need to add the `tokio` feature to iced. This will lead to iced using tokio.
 ```toml
-{{#rustdoc_include snippets/Cargo.toml}}
+iced = { ... , features = ["tokio", ...] }
 ```
 
 ### Actual Example
@@ -22,10 +22,10 @@ Inside the task we call `spawn_blocking` with a closure of our computation. To g
 That will give us the result of the heavy computation without blocking the UI.
 
 ```rust
-{{#rustdoc_include snippets/blocking_code.rs:compute_task}}
+{{#rustdoc_include {{code}}/blocking-code/src/main.rs:compute_task}}
 ```
 
 #### Full Code
 ```rust
-{{#rustdoc_include snippets/blocking_code.rs:all}}
+{{#rustdoc_include {{code}}/blocking-code/src/main.rs:all}}
 ```
