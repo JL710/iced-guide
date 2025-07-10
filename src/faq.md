@@ -7,7 +7,7 @@ For IOS, there is [this repository](https://github.com/iced-rs/ios-examples), bu
 
 ## Is there an easy way to create pop-ups?
 
-Iced has no built in way for pop-ups such as error, ok/cancel and file dialog popups. Although you could build them by creating multiple windows, this can be a bit complicated at the beginning. A lot of people simply use [`rfd`](https://docs.rs/rfd/latest/rfd/index.html) for that use case, which works great, but has a GTK3 runtime dependency on Linux for its `MessageDialog`. Another option for message dialogs is [`iced_dialog`](https://iced-dialog.pml68.dev/iced_dialog/index.html), which provides an iced „native” implementation with no extra dependencies.
+Iced has no built in way for pop-ups such as error, ok/cancel and file dialog popups. Although you could build them by creating multiple windows, this can be a bit complicated at the beginning. A lot of people simply use [`rfd`](https://docs.rs/rfd/latest/rfd/index.html) for that use case, which works great, but has a GTK3 runtime dependency on Linux for its `MessageDialog`. Another option for message dialogs is [`iced_dialog`](https://iced-dialog.pml68.dev/iced_dialog/index.html), which provides an iced "native" implementation with no extra dependencies.
 
 ## How can I run stuff in the background / multithreaded / async?
 
