@@ -17,6 +17,7 @@ Example code that is not directly in the markdown files is contained in the [ice
 ## Run the guide for development
 
 ```
+pip install git+https://github.com/JL710/iced-guide.git
 mdbook watch
 ```
 > Note: You must have mdBook installed (`cargo install mdbook`).
