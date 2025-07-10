@@ -16,6 +16,6 @@ git-repository-url = "https://github.com/JL710/iced-guide"
 edit-url-template = "https://github.com/JL710/iced-guide/blob/main/{path}"
 
 [preprocessor.project-path]
-command = "./project_path.py"
+command = "python3 ./project_path.py"
 before = ["links"]
 paths = [["code", "../iced-guide-examples"]]
