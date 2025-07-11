@@ -27,6 +27,8 @@
 
 - [Custom Component](./custom_component/custom_component.md)
 
+- [Dialogs](./dialogs/README.md)
+  - [Native File Dialogs](./dialogs/native_file_dialog.md)
 - [SVG](./svg.md)
 
 - [Render Backend](./render_backend.md)
