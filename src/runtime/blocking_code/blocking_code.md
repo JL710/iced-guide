@@ -1,12 +1,15 @@
 # Blocking Code
-To run non async code / blocking in a `Task` or a `Subscription` we can use [`tokio::task::spawn_blocking`](https://dtantsur.github.io/rust-openstack/tokio/task/fn.spawn_blocking.html)
 
-> **Note:** This might only work on native and not on wasm
+> **Note:** Currently, it is not possible to run blocking code on wasm.
 
-## Example
-Here is a small example that shows how to use [`tokio::task::spawn_blocking`](https://dtantsur.github.io/rust-openstack/tokio/task/fn.spawn_blocking.html).
 
-### Cargo.toml
+## Tokio
+If your iced application is using the [`Tokio`](https://docs.rs/tokio/latest/tokio/) runtime, to run blocking code in a `Task` or a `Subscription` we can use [`tokio::task::spawn_blocking`](https://docs.rs/tokio/latest/tokio/task/fn.spawn_blocking.html).
+
+### Example
+Here is a small example that shows how to use [`tokio::task::spawn_blocking`](https://docs.rs/tokio/latest/tokio/task/fn.spawn_blocking.html).
+
+#### Cargo.toml
 Because we want to use `spawn_blocking` from tokio we need to add the `tokio` feature to iced. This will lead to iced using tokio.
 ```toml
 iced = { ... , features = ["tokio", ...] }
@@ -22,10 +25,53 @@ Inside the task we call `spawn_blocking` with a closure of our computation. To g
 That will give us the result of the heavy computation without blocking the UI.
 
 ```rust
-{{#rustdoc_include {{code}}/blocking-code/src/main.rs:compute_task}}
+{{#rustdoc_include {{code}}/blocking-code-tokio/src/main.rs:compute_task}}
 ```
 
-#### Full Code
+### Full Code
 ```rust
-{{#rustdoc_include {{code}}/blocking-code/src/main.rs:all}}
+{{#rustdoc_include {{code}}/blocking-code-tokio/src/main.rs:all}}
+```
+
+## Smol
+If your iced application is using the [`Smol`](https://docs.rs/smol) runtime, you can use [`smol::unblock`](https://docs.rs/smol/latest/smol/fn.unblock.html).
+
+Add [`smol`](https://docs.rs/smol/latest/smol/) to cargo.toml:
+
+```toml
+smol = "2"
+```
+
+```rust
+#[derive(Debug, Clone)]
+struct MeaningOfLife(String);
+
+async fn meaning_of_life() -> MeaningOfLife {
+    smol::unblock(|| calculate_meaning()).await
+}
+
+fn calculate_meaning() -> MeaningOfLife {
+    std::thread::sleep(Duration::from_millis(3000));
+    
+    MeaningOfLife(String::from("The meaning of life is 42."))
+}
+
+
+```
+## Oneshot Channel
+
+Another way to run blocking code is to use a [`oneshot`](https://docs.rs/futures/latest/futures/channel/oneshot/index.html) channel:
+
+```rust
+{{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:oneshot}}
+
+```
+A oneshot channel provides a type-safe way of sending a single value between threads / asynchronous tasks.
+
+Furthermore, this approach does not require any extra dependencies or features as iced conveniently re-exports the [`futures`](https://docs.rs/futures/latest/futures) crate.
+
+## Complete Example
+```rust
+{{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:all}}
+
 ```
