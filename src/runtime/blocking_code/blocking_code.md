@@ -33,14 +33,31 @@ That will give us the result of the heavy computation without blocking the UI.
 {{#rustdoc_include snippets/blocking_code.rs:all}}
 ```
 
-### Pitfalls
-TODO
-
 ## Smol
-If your iced application is using the [`Smol`](https://docs.rs/smol) runtime, you can use [`smol::unblock`](https://docs.rs/smol/latest/smol/fn.unblock.html)
+If your iced application is using the [`Smol`](https://docs.rs/smol) runtime, you can use [`smol::unblock`](https://docs.rs/smol/latest/smol/fn.unblock.html).
 
-TODO: Examples
+Add [`smol`](https://docs.rs/smol/latest/smol/) to cargo.toml:
 
+```toml
+smol = "2"
+```
+
+```rust
+#[derive(Debug, Clone)]
+struct MeaningOfLife(String);
+
+async fn meaning_of_life() -> MeaningOfLife {
+    smol::unblock(|| calculate_meaning()).await
+}
+
+fn calculate_meaning() -> MeaningOfLife {
+    std::thread::sleep(Duration::from_millis(3000));
+    
+    MeaningOfLife(String::from("The meaning of life is 42."))
+}
+
+
+```
 ## Oneshot Channel
 
 Another way to run blocking code is to use a [`oneshot`](https://docs.rs/futures/latest/futures/channel/oneshot/index.html) channel:
