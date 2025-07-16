@@ -14,7 +14,10 @@ members = [
     "quickstart",
     "subscription-listen-to-events",
     "app-structure",
+    "save-dialog",
+    "image-load-dialog",
 ]
 
 [workspace.dependencies]
-iced = { version = "0.13.1", features = ["tokio", "lazy"] }
+iced = { version = "0.13.1", features = ["tokio", "lazy", "image"] }
+rfd = "0.15"
