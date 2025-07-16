@@ -31,7 +31,7 @@ impl App {
         Task::none()
     }
 
-    pub fn view(&self) -> Element<Message> {
+    pub fn view(&self) -> Element<'_, Message> {
         center(button("Export Build Information").on_press(Message::Save)).into()
     }
 }

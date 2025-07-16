@@ -8,6 +8,7 @@ fn main() -> iced::Result {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 enum Error {
     InvalidImage
 }
@@ -25,7 +26,7 @@ struct App {
 }
 
 impl App {
-    pub fn view(&self) -> Element<Message> {
+    pub fn view(&self) -> Element<'_, Message> {
         center(
             column![button("Open Image").on_press(Message::OpenImage)]
                 .push_maybe(self.loaded_image.as_ref().map(image))
