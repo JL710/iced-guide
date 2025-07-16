@@ -25,12 +25,12 @@ Inside the task we call `spawn_blocking` with a closure of our computation. To g
 That will give us the result of the heavy computation without blocking the UI.
 
 ```rust
-{{#rustdoc_include {{code}}/blocking-code/src/main.rs:compute_task}}
+{{#rustdoc_include {{code}}/blocking-code-tokio/src/main.rs:compute_task}}
 ```
 
 ### Full Code
 ```rust
-{{#rustdoc_include snippets/blocking_code.rs:all}}
+{{#rustdoc_include {{code}}/blocking-code-tokio/src/main.rs:all}}
 ```
 
 ## Smol
@@ -63,7 +63,7 @@ fn calculate_meaning() -> MeaningOfLife {
 Another way to run blocking code is to use a [`oneshot`](https://docs.rs/futures/latest/futures/channel/oneshot/index.html) channel:
 
 ```rust
-{{#rustdoc_include {{code}}/blocking-code/src/blocking_code_oneshot.rs:oneshot}}
+{{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:oneshot}}
 
 ```
 A oneshot channel provides a type-safe way of sending a single value between threads / asynchronous tasks.
@@ -72,6 +72,6 @@ Furthermore, this approach does not require any extra dependencies or features a
 
 ## Complete Example
 ```rust
-{{#rustdoc_include {{code}}/blocking-code/src/blocking_code_oneshot.rs:all}}
+{{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:all}}
 
 ```

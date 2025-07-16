@@ -30,7 +30,7 @@ struct App {
 }
 
 impl App {
-    pub fn view(&self) -> Element<Message> {
+    pub fn view(&self) -> Element<'_, Message> {
         let main: Element<_> = match &self.state {
             State::Unknown => {
                 button("Find the meaning of life.")

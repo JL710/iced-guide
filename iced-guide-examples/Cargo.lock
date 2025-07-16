@@ -400,6 +400,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "blocking-code-tokio"
+version = "0.1.0"
+dependencies = [
+ "iced",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
