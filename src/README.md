@@ -72,8 +72,9 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter): A custom syntax highlighter that uses the colors from your app's Theme
 - [iced_term](https://github.com/Harzu/iced_term/tree/master): Terminal emulator widget powered by ICED framework and alacritty terminal backend
 - [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master): A terminal widget with customizable datastream
-- [slippery](https://github.com/peterkrull/slippery): A slippy map widget for the Iced toolkit.
-- [iced_gif](https://github.com/Redhawk18/iced_gif): A gif widget for iced 
+- [slippery](https://github.com/peterkrull/slippery): A slippy map widget for the Iced toolkit
+- [iced_gif](https://github.com/Redhawk18/iced_gif): A gif widget for iced
+- [iced_palace](https://github.com/hecrj/iced_palace): A royal collection of exquisite widgets and helpers to rule your iced kingdom 
 
 ## Contribution
 
