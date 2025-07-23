@@ -20,3 +20,7 @@ Although I would not advise you to do so, there is a [python binding](https://gi
 ## When is the next release, and what features will it bring with it?
 
 The next release will probably happen when the to-dos on the [roadmap](https://whimsical.com/roadmap-iced-7vhq6R35Lp3TmYH4WeYwLM) are finished.
+
+## Serde support for iced types?
+
+There was a [discussion on discord](https://discord.com/channels/628993209984614400/1304452091808583732/1304452091808583732) about adding serde support for the types in iced like `Theme` and `Color`. In the end, hecrj (maintainer of iced) was decided against it.
