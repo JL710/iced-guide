@@ -40,7 +40,7 @@ jobs:
           curl -sSL $url | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
       - name: Install mdbook-project-path preprocessor
-        run: "pip3 install git+https://github.com/JL710/mdbook-project-path.git"
+        run: "pip3 install git+https://codeberg.org/JL710/mdbook-project-path.git"
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
