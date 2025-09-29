@@ -9,3 +9,7 @@ iced.workspace = true
 [[bin]]
 name = "themes"
 path = "src/themes.rs"
+
+[[bin]]
+name = "styling"
+path = "src/styling.rs"
