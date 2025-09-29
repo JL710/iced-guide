@@ -79,7 +79,7 @@ Then we run the counter with an initial state and a start task that does nothing
 {{#rustdoc_include {{code}}/quickstart/src/main.rs:main}}
 ```
 
-> **Note:** The main function should have a return type of `Result<(), iced::Error>`.
+> **Note:** `iced::Result` is simply a type alias for `Result<(), iced::Error>`.
 
 ## 5. Full Code
 Now that we completed our simple counter application, the complete code will look like this.

@@ -67,7 +67,7 @@ impl Counter {
 // ANCHOR_END: implement_counter
 
 // ANCHOR: main
-fn main() -> Result<(), iced::Error> {
+fn main() -> iced::Result {
     // run the app from main function
     iced::application("Counter Example", Counter::update, Counter::view)
         .run_with(|| (Counter::new(), iced::Task::none()))

@@ -32,7 +32,7 @@ fn view(_state: &u8) -> iced::Element<'_, Message> {
 // ANCHOR_END: view
 
 // ANCHOR: main
-fn main() -> Result<(), iced::Error> {
+fn main() -> iced::Result {
     // run the app from main function
     iced::application("Event example", update, view)
         .subscription(|_state| iced::event::listen().map(Message::Event))
