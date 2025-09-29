@@ -11,6 +11,8 @@
     - [Columns and Rows](./layout/3_columns_rows.md)
     - [Container](./layout/4_container.md)
 
+- [Themes and styling](./themes_and_styling/README.md)
+
 - [Runtime](./runtime/task_subscriptions.md)
   - [Tasks](./runtime/task.md)
     - [Custom Task](./runtime/custom_task/custom_task.md)

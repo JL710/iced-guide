@@ -1,0 +1,11 @@
+[package]
+name = "themes-and-styling"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+iced.workspace = true
+
+[[bin]]
+name = "themes"
+path = "src/themes.rs"
