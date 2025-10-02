@@ -4,15 +4,15 @@
 The component pattern allows you to cleanly structure your application, including your state, update and view logic.
 This pattern can also be found in this [showcase](https://github.com/hecrj/icebreaker) from the founder of iced.
 
-Just like your top level iced application, a component implements the Model-View-Update architecture and implements the following:
+Just like your top-level iced application, a component implements the Model-View-Update architecture and implements the following:
 
-- The component state, usually named after it's function (e.g. `LoginForm`)
-- It's own `Message`
+- The component state, usually named after its function (e.g. `LoginForm`)
+- Its own `Message`
 - An `Action` enum
 
-In effect, the component is a self contained iced program.
+In effect, the component is a self-contained iced program.
 
-The state will have a normal view function that returns a [`iced::Element<Message>`](https://docs.rs/iced/latest/iced/type.Element.html).
+The state will have a normal view function that returns an [`iced::Element<Message>`](https://docs.rs/iced/latest/iced/type.Element.html).
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
 
@@ -29,14 +29,14 @@ Common variants the `Action` enum can be `None`, `Task(iced::Task<Message>)` and
 
 ## The State
 
-Your state is usually called after the it's function, e.g. `NewJoke` or `LazyImage`.
+Your state is usually called after its function, e.g. `NewJoke` or `LazyImage`.
 It contains the data you are currently working with.
 
 ```rust
 {{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:state}}
 ```
 
-Your state should have a function, which creates a new instance.
+Your state should have a function that creates a new instance.
 
 ```rust
 {{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:new}}
@@ -59,7 +59,7 @@ pub enum LazyImage {
 ```
 
 If you need to execute some code asynchronously after your component is created, you can instead return `(Self, iced::Task<Message>)`.
-This mirrors iced's `run_with` function, which allows you to run a task when starting your applocation.
+This mirrors iced's `run_with` function, which allows you to run a task when starting your application.
 
 ```rust
 impl LazyImage {
@@ -83,7 +83,7 @@ impl LazyImage {
 
 ## Message
 
-Your component will have it's own internal messages, which work just like in your top level iced application.
+Your component will have its own internal messages, which work just like in your top-level iced application.
 For a `LoginForm` they might look like this:
 
 ```rust
@@ -135,13 +135,13 @@ Now we'll obviously want to use this view as part of our main view.
 But our main view expects a return value of `iced::Element<crate::Message>`, while our view returns `iced::Element<new_joke__message>`.
 Thankfully, iced allows us to **map** them.
 
-First we'll need to add an message variant to our main `Message`.
+First we'll need to add a message variant to our main `Message`.
 
 ```rust
 // Main Application Message
 pub enum Message
 {
-    LoginForm(new_joke::Message),
+    NewJoke(new_joke::Message),
     // ...
 }
 ```
@@ -172,7 +172,7 @@ Map functions like this are available on [`Task::map`](https://docs.iced.rs/iced
 
 As already hinted in the beginning, the update function of a component does have a significant change compared to a normal iced application.
 
-Instead of return an `iced::Task`, we return an `Action`.
+Instead of returning an `iced::Task`, we return an `Action`.
 An `Action` allows us to communicate with the parent of our component. In that regard, they are similar to events from other UI frameworks.
 
 Some applications, like [Halloy](https://github.com/squidowl/halloy) actually do call this type `Event` instead of `Action`.
@@ -189,8 +189,8 @@ With our action ready, we can add our update function. To make the update method
 {{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:update}}
 ```
 
-As with the view before, we'll now need to call our component from the apps main update function.
-Our component's update function now returns an `Action` which we'll want to react to.
+As with the view before, we'll now need to call our component from the app's main update function.
+Our component's update function now returns an `Action` that we'll want to react to.
 
 > **Note:** As with our view before, we'll have to map the task, should one be returned.
 
@@ -210,12 +210,12 @@ After hooking up the `view` and `update` functions, we're done.
 ## Conclusion
 
 The component pattern is the default way to divide your state and update logic into smaller pieces.
-Keep in mind, that default doesn't neccesarily mean, it's the right solution for you.
+Keep in mind that default doesn't necessarily mean it's the right solution for you.
 
-This pattern is great, because it structured just like your iced application
+This pattern is great because it's structured just like your iced application
 and encompasses everything you need for that part of the application.
 
-It does however introduce a lot of builderplate code, which isn't always warranted.
+It does, however, introduce a lot of boilerplate code, which isn't always warranted.
 
 If you don't need the internal state and update logic, you might instead be more interested
 in the [Viewable Pattern](./viewable.md).
