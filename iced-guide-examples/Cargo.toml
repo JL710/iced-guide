@@ -7,15 +7,16 @@ edition = "2024"
 
 [workspace]
 members = [
-    "blocking-code-tokio",
-    "blocking-code-oneshot",
-    "custom-component",
-    "custom-task",
-    "quickstart",
-    "subscription-listen-to-events",
-    "app-structure",
-    "save-dialog",
-    "image-load-dialog",
+  "blocking-code-tokio",
+  "blocking-code-oneshot",
+  "custom-component",
+  "custom-task",
+  "quickstart",
+  "subscription-listen-to-events",
+  "app-structure",
+  "save-dialog",
+  "image-load-dialog",
+  "themes-and-styling",
 ]
 
 [workspace.dependencies]
