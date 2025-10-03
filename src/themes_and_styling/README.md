@@ -37,7 +37,7 @@ Then you can use it like so:
 
 ## Custom themes
 
-The built-in `iced::Theme` type has a `Custom` variant which can be created using [`Theme::custom`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom) (or [`Theme::custom_with_fn`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom_with_fn) for greater control over the generated color palette).
+The built-in [`iced::Theme`](https://docs.rs/iced/latest/iced/enum.Theme.html) type has a [`Custom`](https://docs.rs/iced/latest/iced/enum.Theme.html#variant.Custom) variant which can be created using [`Theme::custom`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom) (or [`Theme::custom_with_fn`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom_with_fn) for greater control over the generated color palette).
 
 If you need even more customization, you can create your own `Theme` type. The requirements are:
 - Implement `Default` and [`DefaultStyle`](https://docs.rs/iced/0.13.1/iced/application/trait.DefaultStyle.html) (`iced::theme::Base` in later iced versions) for your custom type.
@@ -61,7 +61,7 @@ You can also easily create static (or even dynamic) inline styles:
 {{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:inline_style}}
 ```
 
-Notice the two underscores? They're for the `&Theme` and `Status` that get passed to our closure. What's this `Status`, you ask? Well, a button may be hovered at a given moment, or it could be disabled, be pressed down, or neither. Taking this into account, lets see how we can create a dynamic styling method:
+Notice the two underscores? They're for the `&Theme` and [`Status`](https://docs.rs/iced/latest/iced/widget/button/enum.Status.html) that get passed to our closure. What's this [`Status`](https://docs.rs/iced/latest/iced/widget/button/enum.Status.html), you ask? Well, a button may be hovered at a given moment, or it could be disabled, be pressed down, or neither. Taking this into account, lets see how we can create a dynamic styling method:
 
 ```rust
 {{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:style_method}}
