@@ -55,8 +55,6 @@ fn calculate_meaning() -> MeaningOfLife {
     
     MeaningOfLife(String::from("The meaning of life is 42."))
 }
-
-
 ```
 ## Oneshot Channel
 
@@ -64,7 +62,6 @@ Another way to run blocking code is to use a [`oneshot`](https://docs.rs/futures
 
 ```rust
 {{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:oneshot}}
-
 ```
 A oneshot channel provides a type-safe way of sending a single value between threads / asynchronous tasks.
 
@@ -73,5 +70,4 @@ Furthermore, this approach does not require any extra dependencies or features a
 ## Complete Example
 ```rust
 {{#rustdoc_include {{code}}/blocking-code-oneshot/src/main.rs:all}}
-
 ```
