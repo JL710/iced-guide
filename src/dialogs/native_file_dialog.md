@@ -42,7 +42,7 @@ pub fn open_image() -> Task<Message> {
 ```
 
 ### Solution
-Use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html)'s [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file) in combination with iced's [`Task`](https://docs.rs/iced/latest/iced/struct.Task.html).
+Use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html)'s [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file) in combination with iced's [`Task`](https://docs.rs/iced/0.13.1/iced/struct.Task.html).
 
 ```rust
 {{#rustdoc_include {{code}}/image-load-dialog/src/main.rs:open_image}}

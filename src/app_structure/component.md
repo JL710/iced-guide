@@ -12,7 +12,7 @@ Just like your top-level iced application, a component implements the Model-View
 
 In effect, the component is a self-contained iced program.
 
-The state will have a normal view function that returns an [`iced::Element<Message>`](https://docs.rs/iced/latest/iced/type.Element.html).
+The state will have a normal view function that returns an [`iced::Element<Message>`](https://docs.rs/iced/0.13.1/iced/type.Element.html).
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
 

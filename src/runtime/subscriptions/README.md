@@ -5,7 +5,7 @@ One key difference is that we control how long a subscription runs. That leads t
 
 > **Warning:** I am not that familiar with the iced internals so the following might be incorrect. It is only how I understood it.
 
-A `Subscription` runs as long as we return it from the closure provided by the [`subscription`](https://docs.rs/iced/latest/iced/application/struct.Application.html#method.subscription) function.
+A `Subscription` runs as long as we return it from the closure provided by the [`subscription`](https://docs.rs/iced/0.13.1/iced/application/struct.Application.html#method.subscription) function.
 The runtime calls that method after each update and checks if a new or old subscription is provided.
 
 Every `Subscription` has an ID. If you use `Subscription::run_with_id` you specify the ID. If you use `Subscription::run` the function pointer is used, which could cause bugs, from what I have heard.

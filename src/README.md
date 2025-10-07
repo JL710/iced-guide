@@ -17,7 +17,7 @@ If you do not like discord, there is a [discourse](https://discourse.iced.rs/) a
 ## Disclaimer
 
 To make it clear at the beginning. This is not an official guide. It is not approved by the iced-rs team!
-If you search for the [official documentation](https://docs.rs/iced/latest/iced/) or [iced book](https://book.iced.rs/) take a look at the [Iced website](https://iced.rs/).
+If you search for the [official documentation](https://docs.rs/iced/0.13.1/iced/) or [iced book](https://book.iced.rs/) take a look at the [Iced website](https://iced.rs/).
 
 ## Different versions
 
@@ -26,7 +26,7 @@ A lot of people on the [discord](https://discord.gg/3xZJ65GAhd) use the master b
 
 ## Documentation Resources
 
-You will find docs of the released iced versions here on [docs.rs](https://docs.rs/iced/latest/iced/). 
+You will find docs of the released iced versions here on [docs.rs](https://docs.rs/iced/0.13.1/iced/). 
 If you want to see the docs of the master branch (dev version) you can get them [here](https://docs.iced.rs/iced/).
 There are a lot of small examples available in the example's directory of the iced repo. But make sure you select the proper git tag/branch for the iced version that you use.
 

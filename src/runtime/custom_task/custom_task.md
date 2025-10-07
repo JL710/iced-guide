@@ -8,7 +8,7 @@ One of them is [reqwest](https://docs.rs/reqwest/latest/reqwest/index.html). We 
 
 The other one is iced.
 Since this is a guide for iced, that should not wonder you.
-But as you see, we added the [`tokio`](https://docs.rs/crate/iced/latest/features#tokio) feature.
+But as you see, we added the [`tokio`](https://docs.rs/crate/iced/0.13.1/features#tokio) feature.
 This lets iced use tokio as part of the runtime as needed for reqwest.
 
 ```toml
@@ -36,7 +36,7 @@ If the Message is `Message::CurrentIp` we change our state, if it is `Message::R
 {{#rustdoc_include {{code}}/custom-task/src/main.rs:update_function}}
 ```
 
-To create our custom task, we use the [`Task::perform`](https://docs.rs/iced/latest/iced/task/struct.Task.html#method.perform) function.
+To create our custom task, we use the [`Task::perform`](https://docs.rs/iced/0.13.1/iced/task/struct.Task.html#method.perform) function.
 It takes a future, in this case our `fetch_ip` function, and a closure that converts the returned value of the future into a message.
 
 ```rust

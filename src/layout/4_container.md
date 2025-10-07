@@ -19,4 +19,4 @@ let stuff_centered = widget::Container::new(widget::text("Some Text"))
 > However, this is not strictly necessary if the container is already large enough;
 > without additional space, there will be no noticeable difference between applying alignment and not applying any alignment.
 
-Both [`align_x`](https://docs.rs/iced/latest/iced/widget/struct.Container.html#method.align_x) and [`align_y`](https://docs.rs/iced/latest/iced/widget/struct.Container.html#method.align_y) methods are available for alignment purposes on [`Container`](https://docs.rs/iced/latest/iced/widget/struct.Container.html).
+Both [`align_x`](https://docs.rs/iced/0.13.1/iced/widget/struct.Container.html#method.align_x) and [`align_y`](https://docs.rs/iced/0.13.1/iced/widget/struct.Container.html#method.align_y) methods are available for alignment purposes on [`Container`](https://docs.rs/iced/0.13.1/iced/widget/struct.Container.html).

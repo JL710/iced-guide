@@ -3,7 +3,7 @@
 > **Important Notice:** The Component Trait is deprecated, and I strongly advise against its use. If you are interested in creating reusable components, take a look at the [App Structure](./../app_structure) section.
 
 Sometimes you want to create your own reusable custom components that you can reuse through your applications.
-That is where the [`Component`](https://docs.rs/iced/latest/iced/widget/trait.Component.html) trait comes in place. You can turn anything that implements this trait easily into an Element with the [`component`](https://docs.rs/iced/latest/iced/widget/fn.component.html) function.
+That is where the [`Component`](https://docs.rs/iced/0.13.1/iced/widget/trait.Component.html) trait comes in place. You can turn anything that implements this trait easily into an Element with the [`component`](https://docs.rs/iced/0.13.1/iced/widget/fn.component.html) function.
 
 Components should only be used as reusable widgets and not for organizing code or splitting your applications into different parts!
 
@@ -38,7 +38,7 @@ In the state of our component, we store if the mouse hovers over the component.
 ```
 
 ### Implementing the Component trait
-Now we can implement the [`Component`](https://docs.rs/iced/latest/iced/widget/trait.Component.html) trait for the `Hyperlink` struct.
+Now we can implement the [`Component`](https://docs.rs/iced/0.13.1/iced/widget/trait.Component.html) trait for the `Hyperlink` struct.
 
 #### Full Implementation
 ```rust 

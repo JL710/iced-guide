@@ -22,7 +22,7 @@ In the update method we can use that event and react to it:
 {{#rustdoc_include {{code}}/subscription-listen-to-events/src/main.rs:update}}
 ```
 
-> **Important Note**: The example uses [`iced::event::listen`](https://docs.rs/iced/latest/iced/event/fn.listen.html) that reacts to all kind of events. There are specific subscriptions for special event kinds, such as [window](https://docs.iced.rs/iced/window/fn.events.html), [key_press](https://docs.iced.rs/iced/keyboard/fn.on_key_press.html) and [key_release](https://docs.iced.rs/iced/keyboard/fn.on_key_release.html), as well. 
+> **Important Note**: The example uses [`iced::event::listen`](https://docs.rs/iced/0.13.1/iced/event/fn.listen.html) that reacts to all kind of events. There are specific subscriptions for special event kinds, such as [window](https://docs.iced.rs/iced/window/fn.events.html), [key_press](https://docs.iced.rs/iced/keyboard/fn.on_key_press.html) and [key_release](https://docs.iced.rs/iced/keyboard/fn.on_key_release.html), as well. 
 
 ## Full Code
 ```rust

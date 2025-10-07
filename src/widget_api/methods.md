@@ -55,7 +55,7 @@ fn children(&self) -> Vec<Tree> {
 
 ## size
 
-The `size` method returns the size of the widget. That size can be used by other widgets to find a good layout. A good example of this is [`iced::advanced::layout::flex`](https://docs.rs/iced/latest/iced/advanced/layout/flex/index.html).
+The `size` method returns the size of the widget. That size can be used by other widgets to find a good layout. A good example of this is [`iced::advanced::layout::flex`](https://docs.rs/iced/0.13.1/iced/advanced/layout/flex/index.html).
 
 The size method could look like this:
 ```rs
