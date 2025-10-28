@@ -32,11 +32,9 @@ struct App {
 impl App {
     pub fn view(&self) -> Element<'_, Message> {
         let main: Element<_> = match &self.state {
-            State::Unknown => {
-                button("Find the meaning of life.")
-                    .on_press(Message::FindTheMeaningOfLife)
-                    .into()
-            },
+            State::Unknown => button("Find the meaning of life.")
+                .on_press(Message::FindTheMeaningOfLife)
+                .into(),
             State::Searching => text("Searching...").into(),
             State::Found(MeaningOfLife(meaning)) => text(meaning).into(),
             State::NotFound => text("Could not find the meaning of life.").into(),
@@ -50,10 +48,7 @@ impl App {
             Message::FindTheMeaningOfLife => {
                 self.state = State::Searching;
 
-                Task::perform(
-                    meaning_of_life(), 
-                    Message::TheMeaningOfLife
-                )
+                Task::perform(meaning_of_life(), Message::TheMeaningOfLife)
             }
             Message::TheMeaningOfLife(meaning) => {
                 self.state = match meaning {
@@ -81,9 +76,7 @@ async fn meaning_of_life() -> Option<MeaningOfLife> {
     std::thread::spawn(|| {
         let result = calculate_meaning();
 
-        result_tx
-            .send(result)
-            .expect("Showing the meaning of life");
+        result_tx.send(result).expect("Showing the meaning of life");
     });
 
     // Wait for our result to arrive.
@@ -93,7 +86,7 @@ async fn meaning_of_life() -> Option<MeaningOfLife> {
 fn calculate_meaning() -> MeaningOfLife {
     // Super long and complicated calculation.
     std::thread::sleep(Duration::from_millis(3000));
-    
+
     MeaningOfLife(String::from("The meaning of life is 42."))
 }
 

@@ -43,8 +43,7 @@ impl App {
             // ANCHOR: style_method
             button("User defined style method")
                 .on_press(Message::Noop)
-                .style(button_background)
-            // ANCHOR_END: style_method
+                .style(button_background) // ANCHOR_END: style_method
         ]
         .spacing(10)
         .into()

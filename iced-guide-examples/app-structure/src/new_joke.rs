@@ -16,9 +16,9 @@ pub enum Action {
     Submit(String),
     // The user wants to cancel adding a new joke
     Cancel,
-    // The components needs to run a task
+    // The compositions needs to run a task
     Run(iced::Task<Message>),
-    // The component does not require any additional actions
+    // The composition does not require any additional actions
     None,
 }
 // ANCHOR_END: action

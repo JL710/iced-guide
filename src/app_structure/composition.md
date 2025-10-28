@@ -1,23 +1,25 @@
 
-# The Component Pattern
+# The Composition Pattern
 
-The component pattern allows you to cleanly structure your application, including your state, update and view logic.
+> *Notice:* This pattern was called Component Pattern in past versions of this guide
+
+The composition pattern allows you to cleanly structure your application, including your state, update and view logic.
 This pattern can also be found in this [showcase](https://github.com/hecrj/icebreaker) from the founder of iced.
 
-Just like your top-level iced application, a component implements the Model-View-Update architecture and implements the following:
+Just like your top-level iced application, a composition implements the Model-View-Update architecture and implements the following:
 
-- The component state, usually named after its function (e.g. `LoginForm`)
+- The composition state, usually named after its function (e.g. `LoginForm`)
 - Its own `Message`
 - An `Action` enum
 
-In effect, the component is a self-contained iced program.
+In effect, the composition is a self-contained iced program.
 
 The state will have a normal view function that returns an [`iced::Element<Message>`](https://docs.rs/iced/0.13.1/iced/type.Element.html).
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
 
 ```rust
-impl MyComponent {
+impl MyComposition {
     // instead of this
     pub fn update(&mut self, message: Message) -> Task<Message> {}
     // we implement this
@@ -58,7 +60,7 @@ pub enum LazyImage {
 }
 ```
 
-If you need to execute some code asynchronously after your component is created, you can instead return `(Self, iced::Task<Message>)`.
+If you need to execute some code asynchronously after your composition is created, you can instead return `(Self, iced::Task<Message>)`.
 This mirrors iced's `run_with` function, which allows you to run a task when starting your application.
 
 ```rust
@@ -83,7 +85,7 @@ impl LazyImage {
 
 ## Message
 
-Your component will have its own internal messages, which work just like in your top-level iced application.
+Your composition will have its own internal messages, which work just like in your top-level iced application.
 For a `LoginForm` they might look like this:
 
 ```rust
@@ -92,7 +94,7 @@ For a `LoginForm` they might look like this:
 
 ## Embedding our state
 
-To use our component, we'll need to add it to our application state.
+To use our composition, we'll need to add it to our application state.
 
 Depending on your use case, you can embed it directly, as an `Option` or inside another enum.
 For demonstration purposes, we'll add our own little enum.
@@ -107,7 +109,7 @@ Now that we have a nice way to specify out view, let's add it to the apps state:
 {{#rustdoc_include {{code}}/app-structure/src/main.rs:app_state}}
 ```
 
-Before we can enjoy our beautiful component, we'll need to actually create the component's state somewhere.
+Before we can enjoy our beautiful composition, we'll need to actually create the composition's state somewhere.
 In our case, we want to show it, after the user clicks an "Add Joke" button.
 
 For that we'll just add a button to the app's `view` method and edit the app's `update` function to include this:
@@ -116,7 +118,7 @@ For that we'll just add a button to the app's `view` method and edit the app's `
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-{{#include {{code}}/app-structure/src/main.rs:create_component}}
+{{#include {{code}}/app-structure/src/main.rs:create_composition}}
             // ...
         }
     }
@@ -146,10 +148,10 @@ pub enum Message
 }
 ```
 
-After that we can actually call the `view` method of our new component.
+After that we can actually call the `view` method of our new composiotion.
 
-To map our Message, we can simply use `iced::Element<component::Message>.map(crate::Message::Component)`.
-> **Note:** this is a shortcut for `iced::Element<component::Message>.map(|component_message| crate::Message::Component(component_message))`
+To map our Message, we can simply use `iced::Element<composition::Message>.map(crate::Message::Composition)`.
+> **Note:** this is a shortcut for `iced::Element<composition::Message>.map(|composition_message| crate::Message::Composition(composition_message))`
 
 
 ```rust
@@ -170,14 +172,14 @@ Map functions like this are available on [`Task::map`](https://docs.iced.rs/iced
 
 ## Update & Action
 
-As already hinted in the beginning, the update function of a component does have a significant change compared to a normal iced application.
+As already hinted in the beginning, the update function of a composition does have a significant change compared to a normal iced application.
 
 Instead of returning an `iced::Task`, we return an `Action`.
-An `Action` allows us to communicate with the parent of our component. In that regard, they are similar to events from other UI frameworks.
+An `Action` allows us to communicate with the parent of our composition. In that regard, they are similar to events from other UI frameworks.
 
 Some applications, like [Halloy](https://github.com/squidowl/halloy) actually do call this type `Event` instead of `Action`.
 
-First we'll start by defining our component's action type:
+First we'll start by defining our compositions's action type:
 
 ```rust
 {{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:action}}
@@ -189,8 +191,8 @@ With our action ready, we can add our update function. To make the update method
 {{#rustdoc_include {{code}}/app-structure/src/new_joke.rs:update}}
 ```
 
-As with the view before, we'll now need to call our component from the app's main update function.
-Our component's update function now returns an `Action` that we'll want to react to.
+As with the view before, we'll now need to call our composition from the app's main update function.
+Our composition's update function now returns an `Action` that we'll want to react to.
 
 > **Note:** As with our view before, we'll have to map the task, should one be returned.
 
@@ -198,7 +200,7 @@ Our component's update function now returns an `Action` that we'll want to react
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-{{#include {{code}}/app-structure/src/main.rs:update_component}}
+{{#include {{code}}/app-structure/src/main.rs:update_composition}}
             // ...
         }
     }
@@ -209,7 +211,7 @@ After hooking up the `view` and `update` functions, we're done.
 
 ## Conclusion
 
-The component pattern is the default way to divide your state and update logic into smaller pieces.
+The composition pattern is the default way to divide your state and update logic into smaller pieces.
 Keep in mind that default doesn't necessarily mean it's the right solution for you.
 
 This pattern is great because it's structured just like your iced application

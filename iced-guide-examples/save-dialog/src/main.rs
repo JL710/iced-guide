@@ -44,10 +44,7 @@ pub fn export_build_info() -> Task<Message> {
             .save_file(),
     )
     .then(|handle| match handle {
-        Some(handle) => Task::perform(
-            save_build_info(handle), 
-            Message::Exported
-        ),
+        Some(handle) => Task::perform(save_build_info(handle), Message::Exported),
         None => Task::done(Message::ExportCancelled),
     })
 }

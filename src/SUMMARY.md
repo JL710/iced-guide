@@ -24,7 +24,7 @@
 - [Patterns for Structuring Apps](./app_structure/README.md)
   - [View-Helper](./app_structure/view-helper.md)
   - [Viewable](./app_structure/viewable.md)
-  - [Component](./app_structure/component.md)
+  - [Composition](./app_structure/composition.md)
   - [Final Application](./app_structure/full-code.md)
 
 - [Custom Component](./custom_component/custom_component.md)

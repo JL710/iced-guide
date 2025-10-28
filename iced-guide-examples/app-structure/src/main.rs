@@ -11,7 +11,7 @@ fn main() {
 enum Message {
     // This message is used to handle the new views message
     NewJoke(new_joke::Message),
-    OpenNewJokeComponent,
+    OpenNewJokeComposition,
     Delete(usize),
 }
 
@@ -20,7 +20,7 @@ enum Message {
 enum View {
     #[default]
     ListJokes,
-    // This holds our new joke components state
+    // This holds our new joke compositions state
     NewJoke(new_joke::NewJoke),
 }
 // ANCHOR_END: view_enum
@@ -36,10 +36,10 @@ struct App {
 impl App {
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         match message {
-            // ANCHOR: update_component
+            // ANCHOR: update_composition
             Message::NewJoke(view_message) => {
                 // as with all enums in rust, we'll need to use an if-let expression
-                // to get access to our component from the `View` enum
+                // to get access to our composition from the `View` enum
                 if let View::NewJoke(edit) = &mut self.view {
                     // Call the update method of the edit view
                     // and handle the returned action
@@ -64,14 +64,14 @@ impl App {
                     }
                 }
             }
-            // ANCHOR_END: update_component
-            // ANCHOR: create_component
-            Message::OpenNewJokeComponent => {
-                // Create a new component
-                let component = new_joke::NewJoke::new();
-                self.view = View::NewJoke(component);
+            // ANCHOR_END: update_composition
+            // ANCHOR: create_composition
+            Message::OpenNewJokeComposition => {
+                // Create a new composition
+                let composition = new_joke::NewJoke::new();
+                self.view = View::NewJoke(composition);
             }
-            // ANCHOR_END: create_component
+            // ANCHOR_END: create_composition
             Message::Delete(index) => {
                 self.items.remove(index);
             }
@@ -100,7 +100,7 @@ impl App {
                     .collect();
 
                 iced::widget::column![
-                    iced::widget::button("New").on_press(Message::OpenNewJokeComponent),
+                    iced::widget::button("New").on_press(Message::OpenNewJokeComposition),
                     iced::widget::Column::from_vec(items)
                 ]
                 // Some spacing goes a long way to make your UI more visually appealing

@@ -1,5 +1,5 @@
 # Structuring Apps
-When you create larger iced apps, you might want to have reusable components and views.
+When you create larger iced apps, you might want to have reusable compositions and views.
 There are a lot of different ways to structure your app.
 
 To make starting out easier, you'll find some patterns you can use here.
@@ -44,16 +44,10 @@ It allows you to enjoy the reusability of a widget without the complexity.
 A viewable *does not* contain any application state itself.
 It is instead used in building the view from your application state.
 
-If you want to add state or interactions, take a look at the component pattern
+If you want to add state or interactions, take a look at the composition pattern
 
-### Component
+# Composition
 
-> **WARNING:**
->
-> Iced has a deprecated trait which is also called `Component`.
->
-> The component pattern is something else and we strongly recommend using the component pattern instead of the old trait.
+A composition is a rust module, which can be used to implement an interactive part of your application.
 
-A component is a rust module, which can be used to implement an interactive part of your application.
-
-Components can hold their own state and be interactive on their own.
+Compositions can hold their own state and be interactive on their own.

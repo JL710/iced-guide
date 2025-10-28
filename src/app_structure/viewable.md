@@ -194,4 +194,4 @@ especially since you can make using them really ergonomic.
 In some cases, a viewable might be overkill - you may be interested in the [View-Helper](./view-helper.md) for those times.
 
 A Viewable also can't hold any application state.
-For that, you could take a look at the [Component Pattern](./component.md).
+For that, you could take a look at the [Composition Pattern](./composition.md).

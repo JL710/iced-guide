@@ -1,5 +1,5 @@
 // ANCHOR: all
-use iced::{widget::pick_list, Element, Theme};
+use iced::{Element, Theme, widget::pick_list};
 
 // ANCHOR: main
 fn main() -> iced::Result {
