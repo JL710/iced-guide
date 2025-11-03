@@ -69,7 +69,7 @@ In the next steps, you'll learn how to transform our view-helper `list_item` int
 
 ## Dependencies
 
-To create a viewable, we'll start with creating it's struct, which contains all dependencies we'll need to build our view tree later.
+To create a viewable, we'll start with creating its struct, which contains all dependencies we'll need to build our view tree later.
 
 For this, we just pack all the parameters into a struct like this
 
