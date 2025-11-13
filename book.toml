@@ -14,6 +14,10 @@ runnable = false
 git-repository-url = "https://github.com/JL710/iced-guide"
 edit-url-template = "https://github.com/JL710/iced-guide/blob/main/{path}"
 
+[output.html.fold]
+enable = true
+level = 0
+
 [preprocessor.project-path]
 command = "mdbook-project-path"
 before = ["links"]
