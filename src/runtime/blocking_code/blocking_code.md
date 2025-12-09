@@ -12,7 +12,7 @@ Here is a small example that shows how to use [`tokio::task::spawn_blocking`](ht
 #### Cargo.toml
 Because we want to use `spawn_blocking` from tokio we need to add the `tokio` feature to iced. This will lead to iced using tokio.
 ```toml
-iced = { ... , features = ["tokio", ...] }
+iced = { ..., features = [..., "tokio"] }
 ```
 
 ### Actual Example

@@ -28,6 +28,7 @@ The message defines any events or interactions that your program will care about
 In iced, it will be implemented using the rust enum. For example, let's take a simple counter app, the Messages / Events that might occur are stored in the Message enum, For example, 
 
 ```rust
+#[derive(Debug, Clone, Copy)]
 enum Message {
     IncrementCount,
     DecrementCount
@@ -43,6 +44,7 @@ fn update(&mut self, message: Message) -> iced::Task<Message> {
         Message::IncrementCount => self.count += 1,
         Message::DecrementCount => self.count -= 1
     }
+
     iced::Task::none()
 }
 ```

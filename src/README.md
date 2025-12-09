@@ -9,7 +9,7 @@ It can render beautiful UI while maintaining clean and maintainable code by usin
 
 Iced focuses on Simplicity and type-safety so that you can concenterate on your implementation without any framework specific distractions.
 
-This guide tries to explain the basics of the Iced GUI library (*mostly* 0.13.1) for the Rust programming language.
+This guide tries to explain the basics of the Iced GUI library (*mostly* 0.14) for the Rust programming language.
 
 Most of the discussions and community talk are centered around the [iced discord](https://discord.gg/3xZJ65GAhd). If you want to talk with people about iced, that's probably the best place.
 If you do not like discord, there is a [discourse](https://discourse.iced.rs/) as well.
@@ -17,7 +17,7 @@ If you do not like discord, there is a [discourse](https://discourse.iced.rs/) a
 ## Disclaimer
 
 To make it clear at the beginning. This is not an official guide. It is not approved by the iced-rs team!
-If you search for the [official documentation](https://docs.rs/iced/0.13.1/iced/) or [iced book](https://book.iced.rs/) take a look at the [Iced website](https://iced.rs/).
+If you search for the [official documentation](https://docs.rs/iced/0.14/iced/) or [iced book](https://book.iced.rs/) take a look at the [Iced website](https://iced.rs/).
 
 ## Different versions
 
@@ -26,11 +26,11 @@ A lot of people on the [discord](https://discord.gg/3xZJ65GAhd) use the master b
 
 ## Documentation Resources
 
-You will find docs of the released iced versions here on [docs.rs](https://docs.rs/iced/0.13.1/iced/). 
+You will find docs of the released iced versions here on [docs.rs](https://docs.rs/iced/0.14/iced/). 
 If you want to see the docs of the master branch (dev version) you can get them [here](https://docs.iced.rs/iced/).
 There are a lot of small examples available in the example's directory of the iced repo. But make sure you select the proper git tag/branch for the iced version that you use.
 
-Since the last version, there is also a new, great [pocket guide](https://docs.iced.rs/iced/#the-pocket-guide) that I advise everyone to read.
+Since the last version, there is also a new, great [pocket guide](https://docs.rs/iced/0.14/iced/#the-pocket-guide) that I advise everyone to read.
 
 Some large structural changes are discussed and proposed in rfc's that can be found in the [rfcs repository](https://github.com/iced-rs/rfcs). 
 If you are wondering when and what new features are planned, you can take a look at the [roadmap](https://whimsical.com/roadmap-iced-7vhq6R35Lp3TmYH4WeYwLM).
@@ -66,13 +66,13 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 - [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
 - [iced_toasts](https://crates.io/crates/iced_toasts): add-on crate to provides a simple way to add toast notifications
-- [iced_dialog](https://github.com/pml68/iced_dialog/tree/master): provides a native, customizable message dialog widget
+- [iced_dialog](https://crates.io/crates/iced_dialog): provides a native, customizable message dialog widget
 - [iced_split](https://github.com/edwloef/iced_split): split widgets (vertical and horizontal draggable splits)
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications (although unmaintained, and still on iced 0.9 and pretty out of date)
 - [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master): Showcases a sample of widgets styled according to fluent design principles
-- [iced_drop](https://github.com/jhannyj/iced_drop): A small library which provides a custom widget and operation to make drag and drop easier to implement
+- [iced_drop](https://github.com/pml68/iced_drop/tree/0.14): A small library which provides a custom widget and operation to make drag and drop easier to implement
 - [iced_table](https://github.com/tarkah/iced_table): A table widget
-- [iced_custom_highlighter](https://github.com/pml68/iced_custom_highlighter): A custom syntax highlighter that uses the colors from your app's Theme
+- [iced_custom_highlighter](https://crates.io/crates/iced_custom_highlighter): A custom syntax highlighter that uses the colors from your app's Theme
 - [iced_term](https://github.com/Harzu/iced_term/tree/master): Terminal emulator widget powered by ICED framework and alacritty terminal backend
 - [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master): A terminal widget with customizable datastream
 - [slippery](https://github.com/peterkrull/slippery): A slippy map widget for the Iced toolkit
