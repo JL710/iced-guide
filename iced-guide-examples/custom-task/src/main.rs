@@ -15,7 +15,7 @@ struct App {
 impl App {
     fn view(&self) -> iced::Element<'_, Message> {
         iced::widget::column![
-            iced::widget::text(&self.ip),
+            self.ip.as_str(),
             iced::widget::button("Start task").on_press(Message::Refetch)
         ]
         .into()
@@ -24,15 +24,16 @@ impl App {
     // ANCHOR: update_function
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         println!("update");
+
         match message {
             // ANCHOR: return_custom_task
-            Message::Refetch => return Task::perform(fetch_ip(), Message::CurrentIp),
+            Message::Refetch => Task::perform(fetch_ip(), Message::CurrentIp),
             // ANCHOR_END: return_custom_task
             Message::CurrentIp(text) => {
                 self.ip = text;
+                Task::none()
             }
         }
-        Task::none()
     }
     // ANCHOR_END: update_function
 }
@@ -49,7 +50,7 @@ async fn fetch_ip() -> String {
 }
 // ANCHOR_END: fetch_ip
 
-fn main() {
-    iced::run("Custom Task Example", App::update, App::view).unwrap();
+fn main() -> iced::Result {
+    iced::run(App::update, App::view)
 }
 // ANCHOR_END: all

@@ -6,7 +6,7 @@ use iced::{Element, Task};
 use std::time::Duration;
 
 fn main() -> iced::Result {
-    iced::application("Find the meaning of life", App::update, App::view).run()
+    iced::run(App::update, App::view)
 }
 
 #[derive(Debug, Clone)]
@@ -35,9 +35,9 @@ impl App {
             State::Unknown => button("Find the meaning of life.")
                 .on_press(Message::FindTheMeaningOfLife)
                 .into(),
-            State::Searching => text("Searching...").into(),
+            State::Searching => "Searching...".into(),
             State::Found(MeaningOfLife(meaning)) => text(meaning).into(),
-            State::NotFound => text("Could not find the meaning of life.").into(),
+            State::NotFound => "Could not find the meaning of life.".into(),
         };
 
         center(main).into()

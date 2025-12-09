@@ -5,7 +5,7 @@ use iced::{
 };
 
 fn main() -> iced::Result {
-    iced::run("Styling", App::update, App::view)
+    iced::run(App::update, App::view)
 }
 
 #[derive(Default)]
@@ -43,42 +43,35 @@ impl App {
             // ANCHOR: style_method
             button("User defined style method")
                 .on_press(Message::Noop)
-                .style(button_background) // ANCHOR_END: style_method
+                .style(button_danger_text)
+            // ANCHOR_END: style_method
         ]
         .spacing(10)
         .into()
     }
 }
 
-// ANCHOR: button_background
-// This style was backported from 0.14, where it's available built in.
-fn button_background(theme: &Theme, status: button::Status) -> button::Style {
+// ANCHOR: button_danger_text
+// This is a *slightly* modified version of button::text
+fn button_danger_text(theme: &Theme, status: button::Status) -> button::Style {
     let palette = theme.extended_palette();
+
     let base = button::Style {
-        background: Some(palette.background.base.color.into()),
-        text_color: palette.background.base.text,
-        border: border::rounded(2),
-        ..Default::default()
+        text_color: palette.danger.base.color,
+        ..button::Style::default()
     };
 
     match status {
-        button::Status::Active => base,
-        button::Status::Pressed => button::Style {
-            background: Some(palette.background.strong.color.into()),
-            ..base
-        },
+        button::Status::Active | button::Status::Pressed => base,
         button::Status::Hovered => button::Style {
-            background: Some(palette.background.weak.color.into()),
+            text_color: palette.danger.base.color.scale_alpha(0.8),
             ..base
         },
         button::Status::Disabled => button::Style {
-            background: base
-                .background
-                .map(|background| background.scale_alpha(0.5)),
-            text_color: base.text_color.scale_alpha(0.5),
+            text_color: palette.danger.base.color.scale_alpha(0.5),
             ..base
-        },
+        }
     }
 }
-// ANCHOR_END: button_background
+// ANCHOR_END: button_danger_text
 // ANCHOR_END: all
