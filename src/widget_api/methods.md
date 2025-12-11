@@ -44,18 +44,18 @@ fn diff(&self, tree: &mut Tree) {
 
 ### children
 
-If your widget uses other children, you need to return their state `Tree`s from the `children` method. The order of the child `Tree`s returned determines the order of `Tree.children` in all other methods.
+If your widget uses other children, you need to return their state `Tree`s from the `children` method. The order of the child `Tree`s returned determines the order of `tree.children` in all other methods.
 
 This method could look like this:
 ```rs
 fn children(&self) -> Vec<Tree> {
-	vec![Tree::new(&self.your_widget_as_element)]
+	vec![Tree::new(&self.content)]
 }
 ```
 
 ## size
 
-The `size` method returns the size of the widget. That size can be used by other widgets to find a good layout. A good example of this is [`iced::advanced::layout::flex`](https://docs.rs/iced/0.13.1/iced/advanced/layout/flex/index.html).
+The `size` method returns the size of the widget. That size can be used by other widgets to find a good layout. A good example of this is [`iced::advanced::layout::flex`](https://docs.rs/iced/0.14/iced/advanced/layout/flex/index.html).
 
 The size method could look like this:
 ```rs
@@ -70,7 +70,7 @@ The `layout` method defines the layout of the widget and all of its child widget
 
 To do that, you are given the `Limits` of the widget, meaning the minimum and maximum size that the widget can get, and the current state `Tree`.
 
-If you have child widgets, you need to call their `layout` methods with their state from `Tree.children`, the `Renderer` (you can simply use the one that is given as a parameter) and limits you want to assign to the child. The returned `Node` shall be included in the returned `Node.children` of your widget.
+If you have child widgets, you need to call their `layout` methods with their state from `tree.children`, the `Renderer` (you can simply use the one that is given as a parameter) and limits you want to assign to the child. The returned `Node` shall be included in the returned `node.children` of your widget.
 
 ## draw
 
@@ -80,12 +80,10 @@ With the given viewport, you can know what region of your window is currently vi
 
 In general, your widget should use the theme provided colors to fit into the application style. The text color is provided by the style parameter.
 
-You can access the position, area and layout of your children via the given `Layout` parameter. The order of child layouts provided in `layout.children()` is equal to the order of `Node.children` returned by the `layout` method.  
-To draw child widgets, you can simply call their `draw` methods with the appropriate state (from `Tree.children`) and layout (from `Layout.children()`).
+You can access the position, area and layout of your children via the given `Layout` parameter. The order of child layouts provided in `layout.children()` is equal to the order of `node.children` returned by the `layout` method.  
+To draw child widgets, you can simply call their `draw` methods with the appropriate state (from `tree.children`) and layout (from `layout.children()`).
 
 Since you might want to draw some special effect or graphic depending on the mouse position, you can access it if available with the `Cursor` parameter.
-
-> by default, if the cursor position is available if it is over the window
 
 ## operate
 
@@ -104,22 +102,23 @@ fn operate(
 	renderer: &Renderer,
 	operation: &mut dyn Operation,
 ) {
-	operation.container(None, layout.bounds(), &mut |operation| {
-		self.your_child_element.as_widget().operate(
-			&mut tree.children[0],
-			layout.children().next().unwrap(),
-			renderer,
-			operation,
-		);
-	});
+    operation.container(self.id.as_ref(), layout.bounds());
+    operation.traverse(&mut |operation| {
+        self.content.as_widget_mut().operate(
+            tree,
+            layout.children().next().unwrap(),
+            renderer,
+            operation,
+        );
+    });
 }
 ```
 
 If you are interested in implementing operations for your widget, see the [operation section](./operations.md).
 
-## on_event
+## update
 
-The `on_event` method processes an `Event`.
+The `update` method processes an `Event`.
 
 The `Cursor` parameter provides access to the current mouse position.
 The `Clipboard` parameter gives access to the clipboard of the user's system.
@@ -127,18 +126,17 @@ The `Clipboard` parameter gives access to the clipboard of the user's system.
 This is the only method of your widget that can emit messages to the application. For that, a `Shell` is provided as a parameter.
 But the `Shell` can do other things as well. You can check if the current layout is valid or invalidate it, request redraws, check if the widget tree is valid and invalidate the widget tree, etc.
 
-If you have child widgets that you want to produce messages that are local to your widget, just like a component, you can create a new `Shell` and give it to them in the `on_event` method.
+You must manually trigger redraws in update if your widget is meant to be interactive. You can take a look at [`Button`'s `update` method](https://github.com/iced-rs/iced/blob/0.14/widget/src/button.rs#L275-L361) to see how it reacts to mouse interactions.
 
-The method returns `Status::Ignored` if neither the widget nor its children have handled the event or `Status::Captured` else.
-For easier merging of the Statuses with child widgets, you can use the `merge` function on the `Status` and merge to `Status` into one.
-That could look this this:
-```rust
-[status1, status2, status3, ...].into_iter().fold(iced::event::Status::Ignored, iced::event::Status::merge)
-```
+You can also [*capture* events](https://docs.rs/iced/latest/iced/advanced/struct.Shell.html#method.is_event_captured) if you want to sign to ancestor widgets that they should ignore it, and check whether the event you received [is captured](https://docs.rs/iced/latest/iced/advanced/struct.Shell.html#method.is_event_captured) so you may ignore it yourself. This is optional, and widgets can choose to ignore that a certain event is captured, reacting to it all the same.
 
-If you want to do some animations, you can trigger/request redraws with the shell until the animation is over.
+> **NOTE:** If you want to check for the event being captured by child widgets, make sure to call `update` on them first and *then* check whether the event is captured.
 
-## mouse interaction
+If you have child widgets that you want to produce messages that are local to your widget, just like a component, you can create a new `Shell` and give it to them in the `update` method.
+
+If you want to do some animations, you can trigger/request redraws with the shell until the animation is over, possibly making use of the [`animation`](https://docs.rs/iced/0.14/iced/animation/) module.
+
+## mouse_interaction
 
 This method returns the current mouse `Interaction`.  
 A mouse interaction is mostly how the cursor is displayed. You often see your cursor changes when you are resizing or moving some element on the screen.
@@ -150,13 +148,21 @@ This method returns the overlay of the widget if there is any. A good example of
 
 If you have child widgets it could look something like this:
 ```rust
-fn overlay<'a>(
-    &'a mut self,
-    tree: &'a mut Tree,
-    layout: Layout<'_>,
+fn overlay<'b>(
+    &'b mut self,
+    tree: &'b mut Tree,
+    layout: Layout<'b>,
     renderer: &Renderer,
+    viewport: &Rectangle,
     translation: Vector,
-) -> Option<overlay::Element<'a, Message, Theme, Renderer>> {
-    overlay::from_children(&mut self.children, tree, layout, renderer, translation)
+) -> Option<overlay::Element<'b, Message, Theme, Renderer>> {
+    overlay::from_children(
+        &mut self.children,
+        tree,
+        layout,
+        renderer,
+        viewport,
+        translation
+    )
 }
 ```
