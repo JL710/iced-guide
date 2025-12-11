@@ -54,8 +54,7 @@ impl App {
 fn open_image() -> Task<Message> {
     Task::future(
         rfd::AsyncFileDialog::new()
-            .add_filter(
-                // <-- (OPTIONAL) Add a filter to only allow PNG and JPEG formats.
+            .add_filter( // <-- (OPTIONAL) Add a filter to only allow PNG and JPEG formats.
                 "Image Formats",
                 &["png", "jpg", "jpeg"],
             )

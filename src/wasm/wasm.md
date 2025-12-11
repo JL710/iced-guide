@@ -19,14 +19,13 @@ cargo build --target wasm32-unknown-unknown
 ```
 
 ### Install Trunk
-We will use [trunk](https://trunkrs.dev/) for building and serving the web page. 
-For that, we need to install trunk via cargo:
+We will use [trunk](https://trunkrs.dev/) for building and serving the web page. For that, we need to install trunk via cargo:
 ```
 cargo install --locked trunk
 ```
 
 ### Create index.html
-For trunk we need to create a `index.html` file that trunk will use as the base file.
+For trunk we need to create a `index.html` file in the root of your project that trunk will use as the base file.
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,14 +36,13 @@ For trunk we need to create a `index.html` file that trunk will use as the base 
     <base data-trunk-public-url />
 </head>
 <body style="margin: 0; padding: 0; width:100%; height:100svh">
-<link data-trunk rel="rust" href="Cargo.toml" data-wasm-opt="z" data-bin="directoryname" />
+<link data-trunk rel="rust" href="Cargo.toml" data-wasm-opt="z" data-bin="{project name}" />
 </body>
 </html>
 ```
-Replace the `directoryname` with the name of your project.
 
 ## Iced Features that are important for wasm
-- `web-colors` on  the web, the colors of your app might not be correct or as intended, this feature fixes that.
+- `web-colors` on  the web, the colors of your app might not be correct or as intended, this feature fixes that. It's enabled by default.
 - `webgl` makes your app run in browsers that do not support wgpu (sadly, wgpu is not supported on all browsers and all platforms).
 
 ## Running the App using Trunk
