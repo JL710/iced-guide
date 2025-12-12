@@ -29,7 +29,7 @@ This will result in the following,
 Let’s say we have two elements: one with `FillPortion(3)` and one with `FillPortion(2)`. The first will get 2 portions of the available space, while the second one would get 3. So basically, the two elements will get it's portions in the ratio of 3:2.
 
 ```rust
-let col = column![
+let my_row = row![
     container(...)
         .width(Length::FillPortion(2)),
     container(...)
