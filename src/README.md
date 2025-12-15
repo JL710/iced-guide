@@ -54,7 +54,9 @@ A list of other crates that you might find helpful while creating a gui with ice
 
 - [iced_aw](https://github.com/iced-rs/iced_aw): Additional widgets from the community
 - [rfd](https://docs.rs/rfd/latest/rfd/index.html): Pop-ups and file dialogs
-- [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
+- Diagramms/Plotting
+    - [iced_aksel](https://github.com/QuistHQ/iced_aksel) An experimental but promising and good looking diagram wrapping the Aksel plotting core
+    - [plotters-iced](https://github.com/Joylei/plotters-iced): Plotters backend for iced - for Plotting data
 - [dragking](https://github.com/airstrike/dragking): Provides a column and row where the user can drag the items around
 - [sweeten](https://github.com/airstrike/sweeten): sweeten your daily iced brew
 - webview
