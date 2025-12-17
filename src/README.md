@@ -42,6 +42,7 @@ Here is a list of other cool resources that you might find helpful:
 - [awesome-iced](https://github.com/iced-rs/awesome-iced): a list of applications that use iced
 - [Github Markdown Tutorial](https://github.com/fogarecious/iced_tutorial/tree/main): A very large tutorial covering a lot of stuff, but a bit out of date.
 - [Youtube Text Editor Tutorial](https://www.youtube.com/watch?v=gcBJ7cPSALo): This is a tutorial on how to build a text editor with iced 0.10, so pretty out of date. It is still a good video tutorial, but a lot of the stuff won't work in the latest iced version and can be done way easier with newer versions.
+- [7GUIs in Rust with Iced](https://github.com/tonybierman/rust-iced-7guis): 7GUIs is a benchmark for comparing GUI frameworks. It defines seven tasks that represent common GUI programming challenges.  In this repository, you'll find each of the 7 tasks implemented using Iced.
 - Example Applications that show how to structure larger apps
   - [icebreaker](https://github.com/hecrj/icebreaker): An application that shows great how a larger application can be made
   - [iced_receipts](https://github.com/airstrike/iced_receipts): A small app that shows advanced structural patterns for iced applications
