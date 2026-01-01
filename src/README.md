@@ -78,7 +78,8 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [frostdbyte_terminal](https://github.com/Rahn-IT/frostbyte_terminal/tree/master): A terminal widget with customizable datastream
 - [slippery](https://github.com/peterkrull/slippery): A slippy map widget for the Iced toolkit
 - [iced_gif](https://github.com/Redhawk18/iced_gif): A gif widget for iced
-- [iced_palace](https://github.com/hecrj/iced_palace): A royal collection of exquisite widgets and helpers to rule your iced kingdom 
+- [iced_palace](https://github.com/hecrj/iced_palace): A royal collection of exquisite widgets and helpers to rule your iced kingdom
+- [iced_nodegraph](https://github.com/tuco86/iced_nodegraph): A high-performance node graph editor widget
 
 ## Contribution
 
