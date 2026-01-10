@@ -24,3 +24,7 @@ The next release will probably happen when the to-dos on the [roadmap](https://w
 ## Serde support for iced types?
 
 There was a [discussion on discord](https://discord.com/channels/628993209984614400/1304452091808583732/1304452091808583732) about adding serde support for the types in iced like `Theme` and `Color`. In the end, hecrj (maintainer of iced) was decided against it.
+
+## Tray Icon Support
+
+Iced has currently no build in tray icon support. There are other rust crates that you can use to create a tray icon. You could use [tray-icon-rs](https://github.com/olback/tray-item-rs) for example (note that it has a large gtk dependency).
