@@ -134,7 +134,7 @@ Following the trend of mirroring what an iced application does, you'll also want
 ```
 
 Now we'll obviously want to use this view as part of our main view.
-But our main view expects a return value of `iced::Element<crate::Message>`, while our view returns `iced::Element<new_joke__message>`.
+But our main view expects a return value of `iced::Element<crate::Message>`, while our view returns `iced::Element<new_joke::Message>`.
 Thankfully, iced allows us to **map** them.
 
 First we'll need to add a message variant to our main `Message`.
