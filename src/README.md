@@ -82,8 +82,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 
 ## Contribution
 
-If you want to contribute to this guide, you can open an issue on GitHub and make a pull request. 
-For large changes, it is preferred that you open an issue first to discuss the changes. 
-For any small changes, spelling, grammar and formatting fixes, directly opening a pull request should not be a problem.
+If you want to contribute to this guide, you can open an issue on GitHub and/or make a pull request.
+We are very happy for if you decide to contribute. If you want to discuss your changes or ideas before contributing, you can open an issue or send a message in the iced discord.
 
 &copy; Héctor Ramón ([hecrj](https://github.com/hecrj)) for the iced logo.
