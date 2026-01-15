@@ -65,6 +65,7 @@ A list of other crates that you might find helpful while creating a gui with ice
     - [csmoe/iced-webview](https://github.com/csmoe/iced-webview): A webview widget based on the chromium embedded framework
 - [iced_divider](https://github.com/icedpygui/iced_divider): "An Iced widget used to change the size of adjacent containers using the mouse horizontally or vertically."
 - [modav_widgets](https://github.com/EmmanuelDodoo/modav_widgets/tree/main): custom widgets and experimental UI components for the [modav project](https://github.com/EmmanuelDodoo/modav) (very nice table and tree view widget)
+- A Disruption's [widgets](https://github.com/A-Disruption/widgets): a collection of high quality custom widgets
 - [iced_toasts](https://crates.io/crates/iced_toasts): add-on crate to provides a simple way to add toast notifications
 - [iced_dialog](https://crates.io/crates/iced_dialog): provides a native, customizable message dialog widget
 - [iced_split](https://github.com/edwloef/iced_split): split widgets (vertical and horizontal draggable splits)
