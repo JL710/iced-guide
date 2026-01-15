@@ -1,6 +1,6 @@
 # Blocking Code
 
-> **Note:** Currently, it is not possible to run blocking code on wasm.
+> **NOTE:** Currently, it is not possible to run blocking code on wasm.
 
 
 ## Tokio

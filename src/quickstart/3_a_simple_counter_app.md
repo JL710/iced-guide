@@ -9,7 +9,7 @@ Our goal is to create a simple counter where we have a number displayed that we 
 ## Creating a new Project 
 First of all, make sure *Rust* is installed in your system. If not head over to [Rust Installation Page](https://www.rust-lang.org/tools/install).
 
-> **_Note:_** Iced 0.14 (the latest release as of me writing this) requires Rust 1.88 or above. `rustup` is the preferrable way of managing your Rust toolchain(s).
+> **NOTE:** Iced 0.14 (the latest release as of me writing this) requires Rust 1.88 or above. `rustup` is the preferrable way of managing your Rust toolchain(s).
 
 After installing rust, create a new binary crate by executing,
 ```console
@@ -67,7 +67,7 @@ The only thing left is to define our View (a.k.a UI). Define your View Logic in 
 ```
 In the above code, we can see that the `button`'s `on_press` function accepts the message type to be emitted.
 
-> Note: By default, the `view()` function returns the type `Element<'_, Message>`. So, we use `.into()` for conversion purpose.
+> **NOTE:** The `view()` function returns the type `Element<'_, Message>`. So, we use `.into()` for conversion purpose.
 
 That's pretty much everything for a simple counter app. Now, let's run it.
 
@@ -81,7 +81,7 @@ Then we specify our window title and run the counter.
 {{#rustdoc_include {{code}}/quickstart/src/main.rs:main}}
 ```
 
-> **Note:** `iced::Result` is simply a type alias for `Result<(), iced::Error>`.
+> **NOTE:** `iced::Result` is simply a type alias for `Result<(), iced::Error>`.
 
 ## 5. Full Code
 Now that we completed our simple counter application, the complete code will look like this.

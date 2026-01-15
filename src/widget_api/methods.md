@@ -19,7 +19,7 @@ fn state(&self) -> iced::advanced::widget::tree::State {
 
 To identify the different states, the `Tag` is used. The `tag` method returns a Tag based on your state type. Internally, it uses the TypeId of your state to identify it. 
 
-> **Note:** You are right if you think: "If if uses the type ID, can two of my widget states be accidentally swapped?", you are right. They can. For those cases the diff method should fix it.
+> **NOTE:** You are right if you think: "If if uses the type ID, can two of my widget states be accidentally swapped?", you are right. They can. For those cases the diff method should fix it.
 
 For most use cases, the `tag` method will look like this:
 ```rs

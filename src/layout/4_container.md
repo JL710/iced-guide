@@ -12,7 +12,7 @@ let stuff_centered = widget::Container::new("Some Text")
     .width(Length::Fill)
     .height(Length::Fill);
 ```
-> **Note:**
+> **NOTE:**
 >
 > We use `width` and `height` to maximize the size of the container, creating extra space for centering.
 >

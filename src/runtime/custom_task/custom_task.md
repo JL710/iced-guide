@@ -43,9 +43,9 @@ It takes a future, in this case our `fetch_ip` function, and a closure that conv
 {{#rustdoc_include {{code}}/custom-task/src/main.rs:return_custom_task}}
 ```
 
-> **Note:** `fetch_ip()` produces the future
+> **NOTE:** `fetch_ip()` produces the future
 
-> **Note:** `Message::CurrentIp` is a shorthand for `|x| Message::CurrentIp(x)`
+> **NOTE:** `Message::CurrentIp` is a shorthand for `|x| Message::CurrentIp(x)`
 
 ## Full Code
 ```rust

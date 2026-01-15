@@ -151,7 +151,7 @@ pub enum Message
 After that we can actually call the `view` method of our new composiotion.
 
 To map our Message, we can simply use `iced::Element<composition::Message>.map(crate::Message::Composition)`.
-> **Note:** this is a shortcut for `iced::Element<composition::Message>.map(|composition_message| crate::Message::Composition(composition_message))`
+> **NOTE:** this is a shortcut for `iced::Element<composition::Message>.map(|composition_message| crate::Message::Composition(composition_message))`
 
 
 ```rust
@@ -194,7 +194,7 @@ With our action ready, we can add our update function. To make the update method
 As with the view before, we'll now need to call our composition from the app's main update function.
 Our composition's update function now returns an `Action` that we'll want to react to.
 
-> **Note:** As with our view before, we'll have to map the task, should one be returned.
+> **NOTE:** As with our view before, we'll have to map the task, should one be returned.
 
 ```rust
 impl App {

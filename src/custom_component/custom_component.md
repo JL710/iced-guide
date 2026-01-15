@@ -9,7 +9,7 @@ That is where the [`Component`](https://docs.rs/iced/0.14/iced/widget/trait.Comp
 
 Components should only be used as reusable widgets and not for organizing code or splitting your applications into different parts!
 
-> **Note**: Component is only available on crate feature `lazy`.
+> **NOTE:** Component is only available on crate feature `lazy`.
 
 ## The 3 parts of a Component
 Each component is build out of three parts: the component itself, the state of the component and the internal message of the component.

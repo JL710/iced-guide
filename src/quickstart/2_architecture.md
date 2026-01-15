@@ -13,6 +13,8 @@ This architecture splits your code into 4 main parts:
     <img src="assets/elm-schematic.svg">
 </div>
 
+> **NOTE:** The snippets shown below are just for example purposes and will not compile.
+
 ## State
 The state contains all the data that your program wants to store throughout its lifespan. This is implemented using a struct. For example, in case of a simple counter app, which increments or decrements the current count value, the state would be like this,
 
@@ -61,7 +63,5 @@ fn view(&self) {
     ]
 }
 ```
-
-> **_Note:_** The snippets shown above are just for example purposes and will not compile.
 
 Now that we got a basic understanding of the ELM architecture, we can deep dive into Iced and create a simple **counter** app.
