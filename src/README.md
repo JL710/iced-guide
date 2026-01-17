@@ -79,6 +79,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_gif](https://github.com/Redhawk18/iced_gif): A gif widget for iced
 - [iced_palace](https://github.com/hecrj/iced_palace): A royal collection of exquisite widgets and helpers to rule your iced kingdom
 - [iced_nodegraph](https://github.com/tuco86/iced_nodegraph): A high-performance node graph editor widget
+- [frostmark](https://github.com/Mrmayman/frostmark): An HTML + Markdown viewer for iced
 
 ## Contribution
 
