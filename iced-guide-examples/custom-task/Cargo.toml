@@ -5,4 +5,4 @@ edition = "2024"
 
 [dependencies]
 iced.workspace = true
-reqwest = "0.12.22"
+reqwest = "0.12"

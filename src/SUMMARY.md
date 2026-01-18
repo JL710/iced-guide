@@ -39,7 +39,7 @@
   - [Styled Text](./wasm/styled_text.md)
   - [Debugging](./wasm/debugging.md)
 
-- [Debug Mode](./debug_mode/README.md)
+- [Comet](./comet/README.md)
 
 - [Widget API](./widget_api/README.md)
   - [Common Structs](./widget_api/common_structs.md)

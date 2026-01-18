@@ -14,7 +14,7 @@ Just like your top-level iced application, a composition implements the Model-Vi
 
 In effect, the composition is a self-contained iced program.
 
-The state will have a normal view function that returns an [`iced::Element<Message>`](https://docs.rs/iced/0.13.1/iced/type.Element.html).
+The state will have a normal view function that returns an [`iced::Element<'_, Message>`](https://docs.rs/iced/0.14/iced/type.Element.html).
 
 The update function will differ a bit. Instead of a Task like our main application, it will return an action enum.
 
@@ -151,12 +151,12 @@ pub enum Message
 After that we can actually call the `view` method of our new composiotion.
 
 To map our Message, we can simply use `iced::Element<composition::Message>.map(crate::Message::Composition)`.
-> **Note:** this is a shortcut for `iced::Element<composition::Message>.map(|composition_message| crate::Message::Composition(composition_message))`
+> **NOTE:** this is a shortcut for `iced::Element<composition::Message>.map(|composition_message| crate::Message::Composition(composition_message))`
 
 
 ```rust
 impl App {
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
         match &self.view {
 {{#include {{code}}/app-structure/src/main.rs:new_joke_view}}
             // ...
@@ -168,7 +168,7 @@ impl App {
 The `.map` function takes a closure that takes the message and converts it into another message.
 This often requires having a dedicated message variant on the application level that contains the view message.
 
-Map functions like this are available on [`Task::map`](https://docs.iced.rs/iced/struct.Task.html#method.map), [`Subscription::map`](https://docs.iced.rs/iced/struct.Subscription.html#method.map), [`Element::map`](https://docs.iced.rs/iced/type.Element.html#method.map).
+Map functions like this are available on [`Task::map`](https://docs.rs/iced/0.14/iced/struct.Task.html#method.map), [`Subscription::map`](https://docs.rs/iced/0.14/iced/struct.Subscription.html#method.map), [`Element::map`](https://docs.rs/iced/0.14/iced/type.Element.html#method.map).
 
 ## Update & Action
 
@@ -194,7 +194,7 @@ With our action ready, we can add our update function. To make the update method
 As with the view before, we'll now need to call our composition from the app's main update function.
 Our composition's update function now returns an `Action` that we'll want to react to.
 
-> **Note:** As with our view before, we'll have to map the task, should one be returned.
+> **NOTE:** As with our view before, we'll have to map the task, should one be returned.
 
 ```rust
 impl App {

@@ -46,7 +46,7 @@ It is instead used in building the view from your application state.
 
 If you want to add state or interactions, take a look at the composition pattern
 
-# Composition
+### Composition
 
 A composition is a rust module, which can be used to implement an interactive part of your application.
 

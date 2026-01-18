@@ -5,7 +5,7 @@ use iced::widget::{button, center};
 use iced::{Element, Task};
 
 fn main() -> iced::Result {
-    iced::application("Save File Dialog Example", App::update, App::view).run()
+    iced::run(App::update, App::view)
 }
 
 #[derive(Debug, Clone)]

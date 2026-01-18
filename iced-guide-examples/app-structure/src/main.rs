@@ -2,8 +2,8 @@ mod list_item;
 mod new_joke;
 
 // ANCHOR: all
-fn main() {
-    iced::run("Project Structure Example", App::update, App::view).unwrap();
+fn main() -> iced::Result {
+    iced::run(App::update, App::view)
 }
 
 // ANCHOR: app

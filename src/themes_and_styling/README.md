@@ -22,6 +22,10 @@ A nicer way to do this is by storing the theme in your app struct, then implemen
 {{#rustdoc_include {{code}}/themes-and-styling/src/themes.rs:theme_fn}}
 ```
 
+> **NOTE:** Returning `Option<Theme>` allows us to fall back to the default theme (this depends on the user's OS settings) when we return `None`.
+>
+> This is reactive, i.e. changing that preference will cause our app to react as well, so long as we still return `None`.
+
 Then you can use it like so:
 
 ```rust
@@ -37,13 +41,13 @@ Then you can use it like so:
 
 ## Custom themes
 
-The built-in [`iced::Theme`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html) type has a [`Custom`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#variant.Custom) variant which can be created using [`Theme::custom`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom) (or [`Theme::custom_with_fn`](https://docs.rs/iced/0.13.1/iced/enum.Theme.html#method.custom_with_fn) for greater control over the generated color palette).
+The built-in [`iced::Theme`](https://docs.rs/iced/0.14/iced/enum.Theme.html) type has a [`Custom`](https://docs.rs/iced/0.14/iced/enum.Theme.html#variant.Custom) variant which can be created using [`Theme::custom`](https://docs.rs/iced/0.14/iced/enum.Theme.html#method.custom) (or [`Theme::custom_with_fn`](https://docs.rs/iced/0.14/iced/enum.Theme.html#method.custom_with_fn) for greater control over the generated color palette).
 
 If you need even more customization, you can create your own `Theme` type. The requirements are:
-- Implement `Default` and [`DefaultStyle`](https://docs.rs/iced/0.13.1/iced/application/trait.DefaultStyle.html) (`iced::theme::Base` in later iced versions) for your custom type.
+- Implement [`Base`](https://docs.rs/iced/0.14/iced/theme/trait.Base.html) for your custom type.
 - For each widget you plan to support, implement its `Catalog` trait (if it has one) and the dependencies of that trait.
 
-For a reference custom theme, see [`iced_material`](https://sr.ht/~pml68/iced_material). (This is written for iced 0.14, but the `Catalog` traits haven't changed much compared to 0.13)
+For a reference custom theme, see [`iced_material`](https://sr.ht/~pml68/iced_material).
 
 ## Styling
 
@@ -61,14 +65,14 @@ You can also easily create static (or even dynamic) inline styles:
 {{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:inline_style}}
 ```
 
-Notice the two underscores? They're for the `&Theme` and [`Status`](https://docs.rs/iced/0.13.1/iced/widget/button/enum.Status.html) that get passed to our closure. What's this [`Status`](https://docs.rs/iced/0.13.1/iced/widget/button/enum.Status.html), you ask? Well, a button may be hovered at a given moment, or it could be disabled, be pressed down, or neither. Taking this into account, lets see how we can create a dynamic styling method:
+Notice the two underscores? They're for the `&Theme` and [`Status`](https://docs.rs/iced/0.14/iced/widget/button/enum.Status.html) that get passed to our closure. What's this [`Status`](https://docs.rs/iced/0.14/iced/widget/button/enum.Status.html), you ask? Well, a button may be hovered at a given moment, or it could be disabled, be pressed down, or neither. Taking this into account, lets see how we can create a dynamic styling method:
 
 ```rust
 {{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:style_method}}
 ```
 
 ```rust
-{{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:button_background}}
+{{#rustdoc_include {{code}}/themes-and-styling/src/styling.rs:button_danger_text}}
 ```
 
 ### Complete example

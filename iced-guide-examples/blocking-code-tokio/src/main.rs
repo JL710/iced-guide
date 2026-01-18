@@ -19,13 +19,14 @@ impl App {
                 // Set the information
                 self.hard_to_process_information = Some(information);
                 self.calculation_in_progress = false;
+                iced::Task::none()
             }
             Message::StartCalculatingInformation => {
                 // Change the state to indicate that the calculation is in progress
                 self.calculation_in_progress = true;
                 // Return a task that will calculate the information
                 // ANCHOR: compute_task
-                return iced::Task::future(async {
+                iced::Task::future(async {
                     let information = tokio::task::spawn_blocking(|| {
                         println!("Calculating information...");
                         // Simulate a long computation
@@ -39,11 +40,10 @@ impl App {
 
                     // Send the information back to the update function
                     Message::CalculatedInformation(information)
-                });
+                })
                 // ANCHOR_END: compute_task
             }
         }
-        iced::Task::none()
         // ANCHOR_END: update
     }
 
@@ -67,7 +67,7 @@ impl App {
     }
 }
 
-fn main() {
-    iced::run("Task Example", App::update, App::view).unwrap();
+fn main() -> iced::Result {
+    iced::run(App::update, App::view)
 }
 // ANCHOR_END: all

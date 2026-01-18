@@ -7,13 +7,13 @@ which allows for a bit cleaner code on the call site.
 A viewable is a Struct which is build during the view function in your app and implements `Into<iced::Element>`.
 
 In practice, it behaves and is used like any other iced widget,
-it may contain other [`iced::Element`](https://docs.rs/iced/0.13.1/iced/type.Element.html)s or references to your app state, like a `&str`.
+it may contain other [`iced::Element`](https://docs.rs/iced/0.14/iced/type.Element.html)s or references to your app state, like a `&str`.
 
 ## What we want to achieve
 
 Let's imagine we want to have a list with some additional options.
 
-In our case, we want to display an arbitrary [`Element`](https://docs.rs/iced/0.13.1/iced/type.Element.html),
+In our case, we want to display an arbitrary [`Element`](https://docs.rs/iced/0.14/iced/type.Element.html),
 which could be a text, an image or maybe even a row with both.
 
 Additionally, we want enable adding a delete and an edit button.
@@ -151,7 +151,7 @@ In most cases you can just copy `impl` block and function signature like shown h
 ```
 
 If you want to support custom themes or additional renderers,
-you'll have to specify the additional generic parameters for [`iced::Element`](https://docs.rs/iced/0.13.1/iced/type.Element.html)
+you'll have to specify the additional generic parameters for [`iced::Element`](https://docs.rs/iced/0.14/iced/type.Element.html)
 and set the constraints according to what you need. Since we're using the default theme and renderer, we can skip this step.
 
 ## The Builder
@@ -180,7 +180,7 @@ This will cause the viewable to add a delete button, but to forfeit the edit but
 
 ```rust
 impl App {
-    fn view(&self) -> iced::Element<Message> {
+    fn view(&self) -> iced::Element<'_, Message> {
     {{#include {{code}}/app-structure/src/main.rs:viewable}}
     }
 }

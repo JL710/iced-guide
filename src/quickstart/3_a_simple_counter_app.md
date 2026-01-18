@@ -9,6 +9,8 @@ Our goal is to create a simple counter where we have a number displayed that we 
 ## Creating a new Project 
 First of all, make sure *Rust* is installed in your system. If not head over to [Rust Installation Page](https://www.rust-lang.org/tools/install).
 
+> **NOTE:** Iced 0.14 (the latest release as of me writing this) requires Rust 1.88 or above. `rustup` is the preferrable way of managing your Rust toolchain(s).
+
 After installing rust, create a new binary crate by executing,
 ```console
 $ cargo new counter-app-iced
@@ -59,27 +61,27 @@ Now we have to handle the **messages** that are emitted by the View Logic. The `
 > **Tip:** Use `count.saturating_add(1)` or `count.saturating_sub(1)` for more error proof and optimized code.
 
 ### View logic
-The only thing left is to define our View (a.k.a UI). Define your View Logic in the `view` function. In iced, all UI components are called [**widgets**](https://docs.rs/iced/0.13.1/iced/widget/index.html). For a counter, we need two `button` widgets (one for incrementing and another for decrementing) and a `text` widget. They need to be aligned one after another in a **horizontal** manner. So, we use `row` widget macro to align our widgets in a horizontal manner.
+The only thing left is to define our View (a.k.a UI). Define your View Logic in the `view` function. In iced, all UI components are called [**widgets**](https://docs.rs/iced/0.14/iced/widget/index.html). For a counter, we need two `button` widgets (one for incrementing and another for decrementing) and a `text` widget. They need to be aligned one after another in a **horizontal** manner. So, we use `row` widget macro to align our widgets in a horizontal manner.
 ```rust
 {{#rustdoc_include {{code}}/quickstart/src/main.rs:view}}
 ```
 In the above code, we can see that the `button`'s `on_press` function accepts the message type to be emitted.
 
-> Note: By default, the `view()` function returns the type `Element<'_, Message>`. So, we use `.into()` for conversion purpose.
+> **NOTE:** The `view()` function returns the type `Element<'_, Message>`. So, we use `.into()` for conversion purpose.
 
 That's pretty much everything for a simple counter app. Now, let's run it.
 
 ## 4. Running the Counter
 To run the counter we first create a application with the `application` function. 
-With that function we define our Window Title and the update and view functions.
+With that function we define our state's boot, update and view functions.
 This illicitly defines out state type and the message type.
 
-Then we run the counter with an initial state and a start task that does nothing.
+Then we specify our window title and run the counter.
 ```rust
 {{#rustdoc_include {{code}}/quickstart/src/main.rs:main}}
 ```
 
-> **Note:** `iced::Result` is simply a type alias for `Result<(), iced::Error>`.
+> **NOTE:** `iced::Result` is simply a type alias for `Result<(), iced::Error>`.
 
 ## 5. Full Code
 Now that we completed our simple counter application, the complete code will look like this.

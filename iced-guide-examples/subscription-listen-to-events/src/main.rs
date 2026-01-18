@@ -9,7 +9,7 @@ enum Message {
 // ANCHOR_END: message_enum
 
 // ANCHOR: update
-fn update(_state: &mut u8, message: Message) -> iced::Task<Message> {
+fn update(state: &mut u32, message: Message) {
     // handle emitted messages
     match message {
         Message::Event(event) => {
@@ -18,23 +18,23 @@ fn update(_state: &mut u8, message: Message) -> iced::Task<Message> {
             }) = event
             {
                 println!("Key {key:?} was pressed");
+                *state += 1;
             }
         }
     }
-    iced::Task::none()
 }
 // ANCHOR_END: update
 
 // ANCHOR: view
-fn view(_state: &u8) -> iced::Element<'_, Message> {
-    widget::text("Event Example").into()
+fn view(state: &u32) -> iced::Element<'_, Message> {
+    widget::text!("Keys pressed: {}", state).into()
 }
 // ANCHOR_END: view
 
 // ANCHOR: main
 fn main() -> iced::Result {
     // run the app from main function
-    iced::application("Event example", update, view)
+    iced::application(|| 0, update, view)
         .subscription(|_state| iced::event::listen().map(Message::Event))
         .run()
 }
