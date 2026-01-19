@@ -82,6 +82,10 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_nodegraph](https://github.com/tuco86/iced_nodegraph): A high-performance node graph editor widget
 - [frostmark](https://github.com/Mrmayman/frostmark): An HTML + Markdown viewer for iced
 
+## Guide Versions
+
+The guide tries to be up to date for one iced version. Older versions of this guide for older iced versions can be found via the tags in the git repo. Those versions are simply old versions of this guide and not maintained!
+
 ## Contribution
 
 If you want to contribute to this guide, you can open an issue on GitHub and/or make a pull request.
