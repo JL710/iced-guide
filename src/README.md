@@ -71,7 +71,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [iced_split](https://github.com/edwloef/iced_split): split widgets (vertical and horizontal draggable splits)
 - [iced_audio](https://github.com/iced-rs/iced_audio): Helpful widgets for audio applications (although unmaintained, and still on iced 0.9 and pretty out of date)
 - [fluent_iced_gallery](https://github.com/frgp42/fluent_iced_gallery/tree/master): Showcases a sample of widgets styled according to fluent design principles
-- [iced_drop](https://github.com/pml68/iced_drop/tree/0.14): A small library which provides a custom widget and operation to make drag and drop easier to implement
+- [iced_drop](https://crates.io/crates/iced_drop): A small library which provides a custom widget and operation to make drag and drop easier to implement
 - [iced_table](https://github.com/tarkah/iced_table): A table widget
 - [iced_custom_highlighter](https://crates.io/crates/iced_custom_highlighter): A custom syntax highlighter that uses the colors from your app's Theme
 - [iced_term](https://github.com/Harzu/iced_term/tree/master): Terminal emulator widget powered by ICED framework and alacritty terminal backend
