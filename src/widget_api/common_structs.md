@@ -10,12 +10,12 @@ If the widget with shrink as width is placed in a row with an item that has set 
 
 If the Size of the returned node is larger than the maximum specified by the limits, as far as I tested in rows and columns, other widgets that come after the widget will have just less space available (in their layout methods). But it is not recommended to take more space than there is specified as the maximum in the limits.
 
-## Node's
+## Nodes
 
 A Node is a rectangle with position and size that can have a list of children.
 
-You can move or translate its position with the `.move_to` and `.translate` position. The node also provides a lot of other helper methods that are worth looking at (i.e., padding).
+You can move or translate its position with the `move_to` and `translate` position. The node also provides a lot of other helper methods that are worth looking at (i.e., padding).
 
-## Tree's
+## Trees
 
 A tree with the current state of the widget and all the states of its children.

@@ -42,14 +42,14 @@ pub fn open_image() -> Task<Message> {
 ```
 
 ### Solution
-Use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html)'s [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file) in combination with iced's [`Task`](https://docs.rs/iced/0.13.1/iced/struct.Task.html).
+Use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html)'s [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file) in combination with iced's [`Task`](https://docs.rs/iced/0.14/iced/struct.Task.html).
 
 ```rust
 {{#rustdoc_include {{code}}/image-load-dialog/src/main.rs:open_image}}
 
 ```
 
-When you pick a file/folder, it will return an `Option<`[`Filehandle`](https://docs.rs/rfd/latest/rfd/struct.FileHandle.html)`>`, as the user might change their mind.
+When you pick a file/folder, it will return an [`Option<Filehandle>`](https://docs.rs/rfd/latest/rfd/struct.FileHandle.html), as the user might change their mind.
 
 We leverege the `Task`'s monadic api to make this implementation succinct and clean. 
 
@@ -70,7 +70,7 @@ To open a save-file dialog, use [`rfd::AsyncFileDialog`](https://docs.rs/rfd/lat
 {{#rustdoc_include {{code}}/save-dialog/src/main.rs:save_dialog}}
 ```
 
-Similar to [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file),  [`save_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.save_file) will return an an `Option<`[`Filehandle`](https://docs.rs/rfd/latest/rfd/struct.FileHandle.html)`>`, 
+Similar to [`pick_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.pick_file),  [`save_file`](https://docs.rs/rfd/latest/rfd/struct.AsyncFileDialog.html#method.save_file) will return an an [`Option<Filehandle>`](https://docs.rs/rfd/latest/rfd/struct.FileHandle.html), 
 
 ### Complete Example
 

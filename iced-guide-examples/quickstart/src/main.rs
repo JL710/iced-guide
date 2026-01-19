@@ -37,6 +37,7 @@ impl Counter {
             Message::IncrementCount => self.count += 1,
             Message::DecrementCount => self.count -= 1,
         }
+
         iced::Task::none()
     }
     // ANCHOR_END: update
@@ -51,16 +52,13 @@ impl Counter {
             // ANCHOR: view_text
             widget::text!("Count: {}", self.count),
             // ANCHOR_END: view_text
-            widget::button("+").on_press(Message::IncrementCount) // ANCHOR_END: view_buttons
+            widget::button("+").on_press(Message::IncrementCount)
+            // ANCHOR_END: view_buttons
         ]
         .spacing(10);
         // ANCHOR_END: row
-        widget::container(row)
-            .center_x(iced::Length::Fill)
-            .center_y(iced::Length::Fill)
-            .width(iced::Length::Fill)
-            .height(iced::Length::Fill)
-            .into()
+
+        widget::container(row).center(iced::Length::Fill).into()
     }
     // ANCHOR_END: view
 }
@@ -69,8 +67,9 @@ impl Counter {
 // ANCHOR: main
 fn main() -> iced::Result {
     // run the app from main function
-    iced::application("Counter Example", Counter::update, Counter::view)
-        .run_with(|| (Counter::new(), iced::Task::none()))
+    iced::application(Counter::new, Counter::update, Counter::view)
+        .title("Counter Example")
+        .run()
 }
 // ANCHOR_END: main
 // ANCHOR_END: all

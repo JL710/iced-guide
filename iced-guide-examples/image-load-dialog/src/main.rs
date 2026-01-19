@@ -4,7 +4,7 @@ use iced::widget::{button, center, column, image};
 use iced::{Element, Task};
 
 fn main() -> iced::Result {
-    iced::application("File Dialog Example", App::update, App::view).run()
+    iced::run(App::update, App::view)
 }
 
 #[derive(Debug, Clone)]
@@ -29,7 +29,7 @@ impl App {
     pub fn view(&self) -> Element<'_, Message> {
         center(
             column![button("Open Image").on_press(Message::OpenImage)]
-                .push_maybe(self.loaded_image.as_ref().map(image))
+                .push(self.loaded_image.as_ref().map(image))
                 .align_x(Center),
         )
         .into()
@@ -54,8 +54,7 @@ impl App {
 fn open_image() -> Task<Message> {
     Task::future(
         rfd::AsyncFileDialog::new()
-            .add_filter(
-                // <-- (OPTIONAL) Add a filter to only allow PNG and JPEG formats.
+            .add_filter( // <-- (OPTIONAL) Add a filter to only allow PNG and JPEG formats.
                 "Image Formats",
                 &["png", "jpg", "jpeg"],
             )

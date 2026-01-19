@@ -6,7 +6,7 @@ The view-helper pattern is so simple, it's hard to even call it a pattern.
 You can use a view-helper to make your code more readable or to make a part of your view reusable.
 
 ```rust
-pub fn list(items: &[String], on_delete: impl Fn(usize) -> Message) -> iced::Element<Message> {
+pub fn list(items: &[String], on_delete: impl Fn(usize) -> Message) -> iced::Element<'_, Message> {
     iced::widget::column(
         items.iter()
             .enumerate()
@@ -14,6 +14,7 @@ pub fn list(items: &[String], on_delete: impl Fn(usize) -> Message) -> iced::Ele
                 iced::row![
                     iced::widget::text(item),
                     iced::widget::button(iced::widget::text("Delete"))
+                        .style(iced::widget::button::danger)
                         .on_press(on_delete(index)),
                 ].into()
             })
@@ -25,7 +26,7 @@ Now you can just call this function inside your main view:
 
 ```rust
 impl App {
-    pub fn view(&self) -> Element<Message> {
+    pub fn view(&self) -> Element<'_, Message> {
         list(self.items.as_slice(), |index| Message::Delete(index))
     }
 }

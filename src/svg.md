@@ -11,7 +11,7 @@ pub static ARROW_LEFT: LazyLock<Handle> =
     LazyLock::new(|| Handle::from_memory(include_bytes!("arrow-left.svg")));
 
 // this can be called in view to get a ready to use svg
-pub fn arrow_left() -> Svg<'static> {
+pub fn arrow_left() -> Svg<'_> {
     Svg::new(ARROW_LEFT.clone()).width(iced::Shrink)
 }
 ```

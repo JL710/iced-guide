@@ -13,6 +13,8 @@ This architecture splits your code into 4 main parts:
     <img src="assets/elm-schematic.svg">
 </div>
 
+> **NOTE:** The snippets shown below are just for example purposes and will not compile.
+
 ## State
 The state contains all the data that your program wants to store throughout its lifespan. This is implemented using a struct. For example, in case of a simple counter app, which increments or decrements the current count value, the state would be like this,
 
@@ -28,6 +30,7 @@ The message defines any events or interactions that your program will care about
 In iced, it will be implemented using the rust enum. For example, let's take a simple counter app, the Messages / Events that might occur are stored in the Message enum, For example, 
 
 ```rust
+#[derive(Debug, Clone, Copy)]
 enum Message {
     IncrementCount,
     DecrementCount
@@ -43,6 +46,7 @@ fn update(&mut self, message: Message) -> iced::Task<Message> {
         Message::IncrementCount => self.count += 1,
         Message::DecrementCount => self.count -= 1
     }
+
     iced::Task::none()
 }
 ```
@@ -59,7 +63,5 @@ fn view(&self) {
     ]
 }
 ```
-
-> **_Note:_** The snippets shown above are just for example purposes and will not compile.
 
 Now that we got a basic understanding of the ELM architecture, we can deep dive into Iced and create a simple **counter** app.
