@@ -83,6 +83,7 @@ A list of other crates that you might find helpful while creating a gui with ice
 - [frostmark](https://github.com/Mrmayman/frostmark): An HTML + Markdown viewer for iced
 - [iced_selection](https://sr.ht/~pml68/iced_selection/): selectable text
 - [iced_viewless](https://crates.io/crates/iced_viewless): Viewless application runtime based on iced primitives, enabling background services without UI
+- [iced-fluent-theme](https://codeberg.org/frgp42/iced-fluent-theme): A Fluent 2 inspired theme for the Iced GUI library
 
 ## Guide Versions
 
