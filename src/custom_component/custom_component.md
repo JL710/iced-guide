@@ -1,8 +1,8 @@
 # Component
 
-> **Important Notice:** The Component trait is currently deprecated, and I strongly advise against its use. It is in the process of being undeprecated (or rather **blessed**), see the [bless-component](https://github.com/iced-rs/iced/tree/bless-component) branch.
+> **Important Notice:** The `Component` trait was deprecated until a [rework](https://github.com/iced-rs/iced/pull/3435) was merged making it cleaner / less hacky. This section was written before the `Component` trait even got deprecated.
 >
-> If you are interested in creating reusable components in the meantime, take a look at the [App Structure](./../app_structure) section.
+> If you are interested in creating reusable components in the meantime, take also a look at the [App Structure](./../app_structure) section.
 
 Sometimes you want to create your own reusable custom components that you can reuse through your applications.
 That is where the [`Component`](https://docs.rs/iced/0.14/iced/widget/trait.Component.html) trait comes in place. You can turn anything that implements this trait easily into an Element with the [`component`](https://docs.rs/iced/0.14/iced/widget/fn.component.html) function.
